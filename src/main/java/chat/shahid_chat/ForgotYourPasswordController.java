@@ -51,7 +51,7 @@ public class ForgotYourPasswordController {
 
         title.setStyle(String.format("-fx-text-fill: %s;", ColorPalettes.palette[4]));
 
-        loginField.setStyle(String.format("-fx-border-radius: 5; -fx-background-color: %s; -fx-border-color: %s;fx-text-fill: %s;",
+        loginField.setStyle(String.format("-fx-border-radius: 5; -fx-background-radius: 5; -fx-background-color: %s; -fx-border-color: %s;fx-text-fill: %s;",
                 ColorPalettes.palette[3], ColorPalettes.palette[6], ColorPalettes.palette[7]));
 
         confirmLoginButton.setStyle(String.format("-fx-background-color: %s;", ColorPalettes.palette[2]));
