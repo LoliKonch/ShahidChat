@@ -56,10 +56,10 @@ public class SignInController {
 
         title.setStyle(String.format("-fx-text-fill: %s;", ColorPalettes.palette[4]));
 
-        loginField.setStyle(String.format("-fx-border-radius: 5; -fx-background-radius: 5; -fx-background-color: %s; -fx-border-color: %s;fx-text-fill: %s;",
+        loginField.setStyle(String.format("-fx-border-radius: 5; -fx-border-width: 2 ;-fx-border-insets: -1; -fx-background-radius: 5; -fx-background-color: %s; -fx-border-color: %s;fx-text-fill: %s;",
                         ColorPalettes.palette[3], ColorPalettes.palette[6], ColorPalettes.palette[7]));
 
-        passwordField.setStyle(String.format("-fx-border-radius: 5; -fx-background-radius: 5; -fx-background-color: %s;-fx-border-color: %s;fx-text-fill: %s;",
+        passwordField.setStyle(String.format("-fx-border-radius: 5; -fx-border-width: 2 ;-fx-border-insets: -1; -fx-background-radius: 5; -fx-background-color: %s;-fx-border-color: %s;fx-text-fill: %s;",
                         ColorPalettes.palette[3], ColorPalettes.palette[6], ColorPalettes.palette[7]));
 
         registrationButton.setStyle(String.format("-fx-background-color: %s;", ColorPalettes.palette[2]));

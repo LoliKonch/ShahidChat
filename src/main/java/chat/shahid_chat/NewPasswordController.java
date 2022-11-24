@@ -58,13 +58,13 @@ public class NewPasswordController {
 
         title.setStyle(String.format("-fx-text-fill: %s;", ColorPalettes.palette[4]));
 
-        secretCodeField.setStyle(String.format("-fx-border-radius: 5; -fx-background-radius: 5; -fx-background-color: %s; -fx-border-color: %s;fx-text-fill: %s;",
+        secretCodeField.setStyle(String.format("-fx-border-radius: 5; -fx-border-width: 2 ;-fx-border-insets: -1; -fx-background-radius: 5; -fx-background-color: %s; -fx-border-color: %s;fx-text-fill: %s;",
                 ColorPalettes.palette[3], ColorPalettes.palette[6], ColorPalettes.palette[7]));
 
-        newPasswordField.setStyle(String.format("-fx-border-radius: 5; -fx-background-radius: 5; -fx-background-color: %s;-fx-border-color: %s;fx-text-fill: %s;",
+        newPasswordField.setStyle(String.format("-fx-border-radius: 5; -fx-border-width: 2 ;-fx-border-insets: -1; -fx-background-radius: 5; -fx-background-color: %s;-fx-border-color: %s;fx-text-fill: %s;",
                 ColorPalettes.palette[3], ColorPalettes.palette[6], ColorPalettes.palette[7]));
 
-        confirmNewPasswordField.setStyle(String.format("-fx-border-radius: 5; -fx-background-radius: 5; -fx-background-color: %s;-fx-border-color: %s;fx-text-fill: %s;",
+        confirmNewPasswordField.setStyle(String.format("-fx-border-radius: 5; -fx-border-width: 2 ;-fx-border-insets: -1; -fx-background-radius: 5; -fx-background-color: %s;-fx-border-color: %s;fx-text-fill: %s;",
                 ColorPalettes.palette[3], ColorPalettes.palette[6], ColorPalettes.palette[7]));
 
         setNewPasswordButton.setStyle(String.format("-fx-background-color: %s;", ColorPalettes.palette[2]));
