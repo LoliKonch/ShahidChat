@@ -6,7 +6,7 @@ public class ColorPalettes {
     public static final String[] STANDARD = new String[]{
             "#001845", // 0 Main background (registration)
             "#fafafa", // 1 Side background (registration)
-            "#001845", // 2 Buttons (registration)
+            "#001854", // 2 Buttons (registration)
             "#fafafa", // 3 Fields (registration)
             "#000000", // 4 Titles (registration)
             "#fafafa", // 5 Button text (registration)
