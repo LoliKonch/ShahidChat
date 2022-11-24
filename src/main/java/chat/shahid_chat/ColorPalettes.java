@@ -3,7 +3,7 @@ package chat.shahid_chat;
 public class ColorPalettes {
 
 
-    public static final String[] CLASSIC = new String[]{
+    public static final String[] STANDARD = new String[]{
             "#001845", // 0 Main background (registration)
             "#fafafa", // 1 Side background (registration)
             "#001845", // 2 Buttons (registration)
@@ -65,5 +65,5 @@ public class ColorPalettes {
             "", // 16
     };
 
-    public static String[] palette = CLASSIC;
+    public static String[] palette = STANDARD;
 }

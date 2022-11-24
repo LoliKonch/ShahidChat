@@ -114,7 +114,10 @@ public class SignInController {
 
 
         signInButton.setOnAction(event ->{
-            if (loginField.getText() != null && !loginField.getText().trim().isEmpty() && passwordField.getText() != null && !passwordField.getText().trim().isEmpty()) {
+
+            if (loginField.getText() != null && !loginField.getText().trim().isEmpty() &&
+                    passwordField.getText() != null && !passwordField.getText().trim().isEmpty()) {
+
                 Stage stage = (Stage) signInButton.getScene().getWindow();
                 stage.close();
 
