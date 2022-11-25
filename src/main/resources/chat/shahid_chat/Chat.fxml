@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chat.shahid_chat.ChatController">
+<AnchorPane fx:id="mainBackground" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chat.shahid_chat.ChatController">
    <children>
-      <Button fx:id="backButton" layoutX="445.0" layoutY="344.0" mnemonicParsing="false" text="Вырвете мне глаза" style="-fx-border-color: #000000; -fx-border-radius: 5;" />
-      <Label layoutX="28.0" layoutY="38.0" prefHeight="319.0" prefWidth="530.0" text="Вау вот это дизайн вот это чатище в 100 раз лучше телеги" wrapText="true">
-         <font>
-            <Font size="55.0" />
-         </font>
-      </Label>
+      <Button fx:id="backButton" layoutX="450.0" layoutY="24.0" mnemonicParsing="false" style="-fx-background-color: #000000; -fx-border-radius: 5;" text="Вырвете мне глаза" />
+      <Button fx:id="sendMassageButton" layoutX="450.0" layoutY="335.0" mnemonicParsing="false" text="Button" />
+      <Button fx:id="sendFileButton" layoutX="511.0" layoutY="335.0" mnemonicParsing="false" text="Button" />
+      <TextField fx:id="massageField" layoutX="80.0" layoutY="335.0" prefHeight="26.0" prefWidth="349.0" />
+      <ScrollPane fx:id="scrollPane" fitToWidth="true" layoutX="79.0" layoutY="73.0" prefHeight="243.0" prefWidth="495.0">
+         <content>
+            <VBox fx:id="vBoxWithMassages" prefHeight="230.0" prefWidth="480.0" />
+         </content></ScrollPane>
    </children>
 </AnchorPane>
