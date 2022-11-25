@@ -52,34 +52,91 @@ public class NewPasswordController {
     void initialize() {
 
 
-        mainBackground.setStyle(String.format("-fx-background-color: %s;", ColorPalettes.palette[0]));
+        mainBackground.setStyle(String.format(
+                "-fx-background-color: %s;",
+                ColorPalettes.palette[0])
+        );
 
-        sideBackground.setStyle(String.format("-fx-background-radius: 15; -fx-background-color: %s;", ColorPalettes.palette[1]));
 
-        title.setStyle(String.format("-fx-text-fill: %s;", ColorPalettes.palette[4]));
+        sideBackground.setStyle(String.format(
+                "-fx-background-radius: 15; " +
+                "-fx-background-color: %s;",
+                ColorPalettes.palette[1])
+        );
 
-        secretCodeField.setStyle(String.format("-fx-border-radius: 5; -fx-border-width: 2 ;-fx-border-insets: -1; -fx-background-radius: 5; -fx-background-color: %s; -fx-border-color: %s; -fx-text-inner-color: %s;",
-                ColorPalettes.palette[3], ColorPalettes.palette[6], ColorPalettes.palette[7]));
 
-        newPasswordField.setStyle(String.format("-fx-border-radius: 5; -fx-border-width: 2 ;-fx-border-insets: -1; -fx-background-radius: 5; -fx-background-color: %s;-fx-border-color: %s; f-fx-text-inner-color: %s;",
-                ColorPalettes.palette[3], ColorPalettes.palette[6], ColorPalettes.palette[7]));
+        title.setStyle(String.format(
+                "-fx-text-fill: %s;",
+                ColorPalettes.palette[4])
+        );
 
-        confirmNewPasswordField.setStyle(String.format("-fx-border-radius: 5; -fx-border-width: 2 ;-fx-border-insets: -1; -fx-background-radius: 5; -fx-background-color: %s;-fx-border-color: %s; -fx-text-inner-color: %s;",
-                ColorPalettes.palette[3], ColorPalettes.palette[6], ColorPalettes.palette[7]));
 
-        setNewPasswordButton.setStyle(String.format("-fx-background-color: %s;", ColorPalettes.palette[2]));
-        setNewPasswordButton.setTextFill(Paint.valueOf(ColorPalettes.palette[5]));
+        secretCodeField.setStyle(String.format(
+                "-fx-border-radius: 5; " +
+                "-fx-border-width: 2; " +
+                "-fx-border-insets: -1; " +
+                "-fx-background-radius: 5; " +
+                "-fx-background-color: %s; " +
+                "-fx-border-color: %s; " +
+                "-fx-text-inner-color: %s;",
+                ColorPalettes.palette[3],
+                ColorPalettes.palette[6],
+                ColorPalettes.palette[7])
+        );
 
-        backButton.setStyle(String.format("-fx-background-color: %s;", ColorPalettes.palette[2]));
-        backButton.setTextFill(Paint.valueOf(ColorPalettes.palette[5]));
+
+        newPasswordField.setStyle(String.format(
+                "-fx-border-radius: 5; " +
+                "-fx-border-width: 2; " +
+                "-fx-border-insets: -1; " +
+                "-fx-background-radius: 5; " +
+                "-fx-background-color: %s; " +
+                "-fx-border-color: %s; " +
+                "-fx-text-inner-color: %s;",
+                ColorPalettes.palette[3],
+                ColorPalettes.palette[6],
+                ColorPalettes.palette[7])
+        );
+
+
+        confirmNewPasswordField.setStyle(String.format(
+                "-fx-border-radius: 5; " +
+                "-fx-border-width: 2; " +
+                "-fx-border-insets: -1; " +
+                "-fx-background-radius: 5; " +
+                "-fx-background-color: %s; " +
+                "-fx-border-color: %s; " +
+                "-fx-text-inner-color: %s;",
+                ColorPalettes.palette[3],
+                ColorPalettes.palette[6],
+                ColorPalettes.palette[7])
+        );
+
+
+        setNewPasswordButton.setStyle(String.format(
+                "-fx-background-color: %s;",
+                ColorPalettes.palette[2])
+        );
+        setNewPasswordButton.setTextFill(Paint.valueOf(
+                ColorPalettes.palette[5])
+        );
+
+
+        backButton.setStyle(String.format(
+                "-fx-background-color: %s;",
+                ColorPalettes.palette[2])
+        );
+        backButton.setTextFill(Paint.valueOf(
+                ColorPalettes.palette[5])
+        );
 
 
         setNewPasswordButton.setOnAction(event ->{
 
             if (newPasswordField.getText() != null && !newPasswordField.getText().trim().isEmpty() &&
-                    confirmNewPasswordField.getText() != null && !confirmNewPasswordField.getText().trim().isEmpty() &&
-                    secretCodeField.getText() != null && !secretCodeField.getText().trim().isEmpty() &&
-                    newPasswordField.getText().equals(confirmNewPasswordField.getText())) {
+                confirmNewPasswordField.getText() != null && !confirmNewPasswordField.getText().trim().isEmpty() &&
+                secretCodeField.getText() != null && !secretCodeField.getText().trim().isEmpty() &&
+                newPasswordField.getText().equals(confirmNewPasswordField.getText())) {
 
                 Stage stage = (Stage) setNewPasswordButton.getScene().getWindow();
                 stage.close();
@@ -122,5 +179,4 @@ public class NewPasswordController {
             stage.show();
         });
     }
-
 }
