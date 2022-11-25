@@ -24,7 +24,7 @@ public class ColorPalettes {
     };
 
 
-    public static final String[] DARK_DISCORD = new String[]{
+    public static final String[] DARK_DS = new String[]{
             "#2f3136", // 0 Main background (registration)
             "#36393f", // 1 Side background (registration)
             "#5a6ac2", // 2 Buttons (registration)
@@ -34,6 +34,27 @@ public class ColorPalettes {
             "#202225", // 6 Fields borders (registration)
             "#8a8b91", // 7 Fields text (registration)
             "#04a5e6", // 8 Hyperlinks (registration)
+            "", // 9 Your messages
+            "", // 10 Other messages
+            "", // 11 Send buttons
+            "", // 12 Main background
+            "", // 13 Menu background
+            "", // 14 Menu buttons
+            "", // 15 Boarders
+            "", // 16
+    };
+
+
+    public static final String[] LIGHT_VK = new String[]{
+            "#edeef0", // 0 Main background (registration)
+            "#ffffff", // 1 Side background (registration)
+            "#0078d5", // 2 Buttons (registration)
+            "#ffffff", // 3 Fields (registration)
+            "#222222", // 4 Titles (registration)
+            "#000000", // 5 Button text (registration)
+            "#447bba", // 6 Fields borders (registration)
+            "#8a8b91", // 7 Fields text (registration)
+            "#00b4d8", // 8 Hyperlinks (registration)
             "", // 9 Your messages
             "", // 10 Other messages
             "", // 11 Send buttons
@@ -55,6 +76,48 @@ public class ColorPalettes {
             "#424242", // 6 Fields borders (registration)
             "#9c9c9c", // 7 Fields text (registration)
             "#04a5e6", // 8 Hyperlinks (registration)
+            "", // 9 Your messages
+            "", // 10 Other messages
+            "", // 11 Send buttons
+            "", // 12 Main background
+            "", // 13 Menu background
+            "", // 14 Menu buttons
+            "", // 15 Boarders
+            "", // 16
+    };
+
+
+    public static final String[] LIGHT_TG = new String[]{
+            "linear-gradient(from 30% 30% to 80% 80%, reflect,  #cfd58c, #82b18a 100%);", // 0 Main background (registration)
+            "#ffffff", // 1 Side background (registration)
+            "#4388b9", // 2 Buttons (registration)
+            "#ffffff", // 3 Fields (registration)
+            "#222222", // 4 Titles (registration)
+            "#222222", // 5 Button text (registration)
+            "#3e546a", // 6 Fields borders (registration)
+            "#8a8b91", // 7 Fields text (registration)
+            "#00b4d8", // 8 Hyperlinks (registration)
+            "", // 9 Your messages
+            "", // 10 Other messages
+            "", // 11 Send buttons
+            "", // 12 Main background
+            "", // 13 Menu background
+            "", // 14 Menu buttons
+            "", // 15 Boarders
+            "", // 16
+    };
+
+
+    public static final String[] DARK_TG = new String[]{
+            "#0e1621", // 0 Main background (registration)
+            "#17212b", // 1 Side background (registration)
+            "#4388b9", // 2 Buttons (registration)
+            "#1f2936", // 3 Fields (registration)
+            "#f5f5f5", // 4 Titles (registration)
+            "#0e1621", // 5 Button text (registration)
+            "#3e546a", // 6 Fields borders (registration)
+            "#8a8b91", // 7 Fields text (registration)
+            "#00b4d8", // 8 Hyperlinks (registration)
             "", // 9 Your messages
             "", // 10 Other messages
             "", // 11 Send buttons
