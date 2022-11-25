@@ -129,6 +129,48 @@ public class ColorPalettes {
     };
 
 
+    public static final String[] DARK_TROVO = new String[]{
+            "#1f1f1f", // 0 Main background (registration)
+            "#343434", // 1 Side background (registration)
+            "#21b36c", // 2 Buttons (registration)
+            "#222222", // 3 Fields (registration)
+            "#19d66b", // 4 Titles (registration)
+            "#c9c9c9", // 5 Button text (registration)
+            "#21b36c", // 6 Fields borders (registration)
+            "#19d66b", // 7 Fields text (registration)
+            "#22856d", // 8 Hyperlinks (registration)
+            "", // 9 Your messages
+            "", // 10 Other messages
+            "", // 11 Send buttons
+            "", // 12 Main background
+            "", // 13 Menu background
+            "", // 14 Menu buttons
+            "", // 15 Boarders
+            "", // 16
+    };
+
+
+    public static final String[] BOOSTY = new String[]{
+            "#ccb4ac", // 0 Main background (registration)
+            "#cbc2bf", // 1 Side background (registration)
+            "#d55f2c", // 2 Buttons (registration)
+            "#eeeeee", // 3 Fields (registration)
+            "#000000", // 4 Titles (registration)
+            "#ffffff", // 5 Button text (registration)
+            "#d55f2c", // 6 Fields borders (registration)
+            "#000000", // 7 Fields text (registration)
+            "#00b4d8bf", // 8 Hyperlinks (registration)
+            "", // 9 Your messages
+            "", // 10 Other messages
+            "", // 11 Send buttons
+            "", // 12 Main background
+            "", // 13 Menu background
+            "", // 14 Menu buttons
+            "", // 15 Boarders
+            "", // 16
+    };
+
+
     public static final String[] DARWIN_TV = new String[]{
             "#3a3f55", // 0 Main background (registration)
             "#e4fdff", // 1 Side background (registration)
