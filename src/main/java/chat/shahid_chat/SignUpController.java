@@ -52,26 +52,83 @@ public class SignUpController {
     @FXML
     void initialize() {
 
-        mainBackground.setStyle(String.format("-fx-background-color: %s;", ColorPalettes.palette[0]));
+        mainBackground.setStyle(String.format(
+                "-fx-background-color: %s;",
+                ColorPalettes.palette[0])
+        );
 
-        sideBackground.setStyle(String.format("-fx-background-radius: 15; -fx-background-color: %s;", ColorPalettes.palette[1]));
 
-        title.setStyle(String.format("-fx-text-fill: %s;", ColorPalettes.palette[4]));
+        sideBackground.setStyle(String.format(
+                "-fx-background-radius: 15; " +
+                "-fx-background-color: %s;",
+                ColorPalettes.palette[1])
+        );
 
-        loginField.setStyle(String.format("-fx-border-radius: 5; -fx-border-width: 2 ;-fx-border-insets: -1; -fx-background-radius: 5; -fx-background-color: %s; -fx-border-color: %s; -fx-text-inner-color: %s;",
-                ColorPalettes.palette[3], ColorPalettes.palette[6], ColorPalettes.palette[7]));
 
-        passwordField.setStyle(String.format("-fx-border-radius: 5; -fx-border-width: 2 ;-fx-border-insets: -1; -fx-background-radius: 5; -fx-background-color: %s;-fx-border-color: %s; -fx-text-inner-color: %s;",
-                ColorPalettes.palette[3], ColorPalettes.palette[6], ColorPalettes.palette[7]));
+        title.setStyle(String.format(
+                "-fx-text-fill: %s;",
+                ColorPalettes.palette[4])
+        );
 
-        mailField.setStyle(String.format("-fx-border-radius: 5; -fx-border-width: 2 ;-fx-border-insets: -1; -fx-background-radius: 5; -fx-background-color: %s;-fx-border-color: %s; -fx-text-inner-color: %s;",
-                ColorPalettes.palette[3], ColorPalettes.palette[6], ColorPalettes.palette[7]));
 
-        signUpButton.setStyle(String.format("-fx-background-color: %s;", ColorPalettes.palette[2]));
-        signUpButton.setTextFill(Paint.valueOf(ColorPalettes.palette[5]));
+        loginField.setStyle(String.format(
+                "-fx-border-radius: 5; " +
+                "-fx-border-width: 2; " +
+                "-fx-border-insets: -1; " +
+                "-fx-background-radius: 5; " +
+                "-fx-background-color: %s; " +
+                "-fx-border-color: %s; " +
+                "-fx-text-inner-color: %s;",
+                ColorPalettes.palette[3],
+                ColorPalettes.palette[6],
+                ColorPalettes.palette[7])
+        );
 
-        backButton.setStyle(String.format("-fx-background-color: %s;", ColorPalettes.palette[2]));
-        backButton.setTextFill(Paint.valueOf(ColorPalettes.palette[5]));
+
+        passwordField.setStyle(String.format(
+                "-fx-border-radius: 5; " +
+                "-fx-border-width: 2; " +
+                "-fx-border-insets: -1; " +
+                "-fx-background-radius: 5; " +
+                "-fx-background-color: %s; " +
+                "-fx-border-color: %s; " +
+                "-fx-text-inner-color: %s;",
+                ColorPalettes.palette[3],
+                ColorPalettes.palette[6],
+                ColorPalettes.palette[7])
+        );
+
+
+        mailField.setStyle(String.format(
+                "-fx-border-radius: 5; " +
+                "-fx-border-width: 2; " +
+                "-fx-border-insets: -1; " +
+                "-fx-background-radius: 5; " +
+                "-fx-background-color: %s; " +
+                "-fx-border-color: %s; " +
+                "-fx-text-inner-color: %s;",
+                ColorPalettes.palette[3],
+                ColorPalettes.palette[6],
+                ColorPalettes.palette[7])
+        );
+
+
+        signUpButton.setStyle(String.format(
+                "-fx-background-color: %s;",
+                ColorPalettes.palette[2])
+        );
+        signUpButton.setTextFill(Paint.valueOf(
+                ColorPalettes.palette[5])
+        );
+
+
+        backButton.setStyle(String.format(
+                "-fx-background-color: %s;",
+                ColorPalettes.palette[2])
+        );
+        backButton.setTextFill(Paint.valueOf(
+                ColorPalettes.palette[5])
+        );
 
 
         backButton.setOnAction(event ->{
@@ -98,8 +155,8 @@ public class SignUpController {
         signUpButton.setOnAction(event ->{
 
             if (loginField.getText() != null && !loginField.getText().trim().isEmpty() &&
-                    passwordField.getText() != null && !passwordField.getText().trim().isEmpty() &&
-                    mailField.getText() != null && !mailField.getText().trim().isEmpty()) {
+                passwordField.getText() != null && !passwordField.getText().trim().isEmpty() &&
+                mailField.getText() != null && !mailField.getText().trim().isEmpty()) {
 
                 Stage stage = (Stage) signUpButton.getScene().getWindow();
                 stage.close();

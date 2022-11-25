@@ -45,20 +45,55 @@ public class ForgotYourPasswordController {
     @FXML
     void initialize() {
 
-        mainBackground.setStyle(String.format("-fx-background-color: %s;", ColorPalettes.palette[0]));
+        mainBackground.setStyle(String.format(
+                "-fx-background-color: %s;",
+                ColorPalettes.palette[0])
+        );
 
-        sideBackground.setStyle(String.format("-fx-background-radius: 15; -fx-background-color: %s;", ColorPalettes.palette[1]));
 
-        title.setStyle(String.format("-fx-text-fill: %s;", ColorPalettes.palette[4]));
+        sideBackground.setStyle(String.format(
+                "-fx-background-radius: 15; " +
+                "-fx-background-color: %s;",
+                ColorPalettes.palette[1])
+        );
 
-        loginField.setStyle(String.format("-fx-border-radius: 5; -fx-border-width: 2 ;-fx-border-insets: -1; -fx-background-radius: 5; -fx-background-color: %s; -fx-border-color: %s; -fx-text-inner-color: %s;",
-                ColorPalettes.palette[3], ColorPalettes.palette[6], ColorPalettes.palette[7]));
 
-        confirmLoginButton.setStyle(String.format("-fx-background-color: %s;", ColorPalettes.palette[2]));
-        confirmLoginButton.setTextFill(Paint.valueOf(ColorPalettes.palette[5]));
+        title.setStyle(String.format(
+                "-fx-text-fill: %s;",
+                ColorPalettes.palette[4])
+        );
 
-        backButton.setStyle(String.format("-fx-background-color: %s;", ColorPalettes.palette[2]));
-        backButton.setTextFill(Paint.valueOf(ColorPalettes.palette[5]));
+
+        loginField.setStyle(String.format(
+                "-fx-border-radius: 5; " +
+                "-fx-border-width: 2; " +
+                "-fx-border-insets: -1; " +
+                "-fx-background-radius: 5; " +
+                "-fx-background-color: %s; " +
+                "-fx-border-color: %s; " +
+                "-fx-text-inner-color: %s;",
+                ColorPalettes.palette[3],
+                ColorPalettes.palette[6],
+                ColorPalettes.palette[7])
+        );
+
+
+        confirmLoginButton.setStyle(String.format(
+                "-fx-background-color: %s;",
+                ColorPalettes.palette[2])
+        );
+        confirmLoginButton.setTextFill(Paint.valueOf(
+                ColorPalettes.palette[5])
+        );
+
+
+        backButton.setStyle(String.format(
+                "-fx-background-color: %s;",
+                ColorPalettes.palette[2])
+        );
+        backButton.setTextFill(Paint.valueOf(
+                ColorPalettes.palette[5])
+        );
 
 
         backButton.setOnAction(event ->{
@@ -106,5 +141,4 @@ public class ForgotYourPasswordController {
             }
         });
     }
-
 }
