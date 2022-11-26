@@ -63,54 +63,138 @@
             prefWidth="150.0"
       >
          <children>
-            <Button fx:id="exitButton" mnemonicParsing="false" style="-fx-background-color: #000000; -fx-border-radius: 5;" text="Exit" textFill="#fffafa">
+            <Button fx:id="exitButton"
+                    mnemonicParsing="false"
+                    text="Exit"
+            >
                <VBox.margin>
-                  <Insets bottom="10.0" left="5.0" right="10.0" top="10.0" />
-               </VBox.margin></Button>
-            <RadioButton fx:id="radioButton1" mnemonicParsing="false" text="Standart">
+                  <Insets bottom="10.0"
+                          left="5.0"
+                          right="10.0"
+                          top="10.0"
+                  />
+               </VBox.margin>
+            </Button>
+
+            <RadioButton fx:id="radioButton1"
+                         mnemonicParsing="false"
+                         text="Standart"
+            >
                <VBox.margin>
-                  <Insets left="5.0" top="5.0" />
-               </VBox.margin></RadioButton>
-            <RadioButton fx:id="radioButton2" mnemonicParsing="false" text="Dark DS">
+                  <Insets left="5.0"
+                          top="5.0"
+                  />
+               </VBox.margin>
+            </RadioButton>
+
+            <RadioButton fx:id="radioButton2"
+                         mnemonicParsing="false"
+                         text="Dark DS"
+            >
                <VBox.margin>
-                  <Insets left="5.0" top="5.0" />
-               </VBox.margin></RadioButton>
-            <RadioButton fx:id="radioButton3" mnemonicParsing="false" text="Light VK">
+                  <Insets left="5.0"
+                          top="5.0"
+                  />
+               </VBox.margin>
+            </RadioButton>
+
+            <RadioButton fx:id="radioButton3"
+                         mnemonicParsing="false"
+                         text="Light VK"
+            >
                <VBox.margin>
-                  <Insets left="5.0" top="5.0" />
-               </VBox.margin></RadioButton>
-            <RadioButton fx:id="radioButton4" mnemonicParsing="false" text="Dark VK">
+                  <Insets left="5.0"
+                          top="5.0"
+                  />
+               </VBox.margin>
+            </RadioButton>
+
+            <RadioButton fx:id="radioButton4"
+                         mnemonicParsing="false"
+                         text="Dark VK"
+            >
                <VBox.margin>
-                  <Insets left="5.0" top="5.0" />
-               </VBox.margin></RadioButton>
-            <RadioButton fx:id="radioButton5" mnemonicParsing="false" text="Light TG">
+                  <Insets left="5.0"
+                          top="5.0"
+                  />
+               </VBox.margin>
+            </RadioButton>
+
+            <RadioButton fx:id="radioButton5"
+                         mnemonicParsing="false"
+                         text="Light TG"
+            >
                <VBox.margin>
-                  <Insets left="5.0" top="5.0" />
-               </VBox.margin></RadioButton>
-            <RadioButton fx:id="radioButton6" mnemonicParsing="false" text="Dark TG">
+                  <Insets left="5.0"
+                          top="5.0"
+                  />
+               </VBox.margin>
+            </RadioButton>
+
+            <RadioButton fx:id="radioButton6"
+                         mnemonicParsing="false"
+                         text="Dark TG"
+            >
                <VBox.margin>
-                  <Insets left="5.0" top="5.0" />
-               </VBox.margin></RadioButton>
-            <RadioButton fx:id="radioButton7" mnemonicParsing="false" text="Dark Trovo">
+                  <Insets left="5.0"
+                          top="5.0"
+                  />
+               </VBox.margin>
+            </RadioButton>
+
+            <RadioButton fx:id="radioButton7"
+                         mnemonicParsing="false"
+                         text="Dark Trovo"
+            >
                <VBox.margin>
-                  <Insets left="5.0" top="5.0" />
-               </VBox.margin></RadioButton>
-            <RadioButton fx:id="radioButton8" mnemonicParsing="false" text="Boosty">
+                  <Insets left="5.0"
+                          top="5.0"
+                  />
+               </VBox.margin>
+            </RadioButton>
+
+            <RadioButton fx:id="radioButton8"
+                         mnemonicParsing="false"
+                         text="Boosty"
+            >
                <VBox.margin>
-                  <Insets left="5.0" top="5.0" />
-               </VBox.margin></RadioButton>
-            <RadioButton fx:id="radioButton9" mnemonicParsing="false" text="Darwin TV">
+                  <Insets left="5.0"
+                          top="5.0"
+                  />
+               </VBox.margin>
+            </RadioButton>
+
+            <RadioButton fx:id="radioButton9"
+                         mnemonicParsing="false"
+                         text="Darwin TV"
+            >
                <VBox.margin>
-                  <Insets left="5.0" top="5.0" />
-               </VBox.margin></RadioButton>
-            <RadioButton fx:id="radioButton10" mnemonicParsing="false" text="Rainbow">
+                  <Insets left="5.0"
+                          top="5.0"
+                  />
+               </VBox.margin>
+            </RadioButton>
+
+            <RadioButton fx:id="radioButton10"
+                         mnemonicParsing="false"
+                         text="Rainbow"
+            >
                <VBox.margin>
-                  <Insets left="5.0" top="5.0" />
-               </VBox.margin></RadioButton>
-            <Button fx:id="applyThemeButton" mnemonicParsing="false" text=" Applay theme">
+                  <Insets left="5.0"
+                          top="5.0" />
+               </VBox.margin>
+            </RadioButton>
+
+            <Button fx:id="applyThemeButton"
+                    mnemonicParsing="false"
+                    text=" Applay theme"
+            >
                <VBox.margin>
-                  <Insets left="28.0" top="10.0" />
-               </VBox.margin></Button>
+                  <Insets left="28.0"
+                          top="10.0"
+                  />
+               </VBox.margin>
+            </Button>
          </children></VBox>
    </children>
 </AnchorPane>

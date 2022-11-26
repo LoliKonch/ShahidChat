@@ -123,12 +123,12 @@ public class ChatController implements Initializable {
 
 
         massageField.setStyle(String.format(
-                "-fx-border-radius: 5; " +
-                "-fx-border-width: 2; " +
-                "-fx-border-insets: -1; " +
-                "-fx-background-radius: 5; " +
-                "-fx-background-color: %s; " +
-                "-fx-border-color: %s; " +
+                "-fx-border-radius: 5;" +
+                "-fx-border-width: 2;" +
+                "-fx-border-insets: -1;" +
+                "-fx-background-radius: 5;" +
+                "-fx-background-color: %s;" +
+                "-fx-border-color: %s;" +
                 "-fx-text-inner-color: %s;",
                 ColorPalettes.palette[14],
                 ColorPalettes.palette[15],

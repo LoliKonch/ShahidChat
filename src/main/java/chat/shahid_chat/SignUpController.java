@@ -59,7 +59,7 @@ public class SignUpController {
 
 
         sideBackground.setStyle(String.format(
-                "-fx-background-radius: 15; " +
+                "-fx-background-radius: 15;" +
                 "-fx-background-color: %s;",
                 ColorPalettes.palette[1])
         );
@@ -72,12 +72,12 @@ public class SignUpController {
 
 
         loginField.setStyle(String.format(
-                "-fx-border-radius: 5; " +
-                "-fx-border-width: 2; " +
-                "-fx-border-insets: -1; " +
-                "-fx-background-radius: 5; " +
-                "-fx-background-color: %s; " +
-                "-fx-border-color: %s; " +
+                "-fx-border-radius: 5;" +
+                "-fx-border-width: 2;" +
+                "-fx-border-insets: -1;" +
+                "-fx-background-radius: 5;" +
+                "-fx-background-color: %s;" +
+                "-fx-border-color: %s;" +
                 "-fx-text-inner-color: %s;",
                 ColorPalettes.palette[3],
                 ColorPalettes.palette[6],
@@ -86,12 +86,12 @@ public class SignUpController {
 
 
         passwordField.setStyle(String.format(
-                "-fx-border-radius: 5; " +
-                "-fx-border-width: 2; " +
-                "-fx-border-insets: -1; " +
-                "-fx-background-radius: 5; " +
-                "-fx-background-color: %s; " +
-                "-fx-border-color: %s; " +
+                "-fx-border-radius: 5;" +
+                "-fx-border-width: 2;" +
+                "-fx-border-insets: -1;" +
+                "-fx-background-radius: 5;" +
+                "-fx-background-color: %s;" +
+                "-fx-border-color: %s;" +
                 "-fx-text-inner-color: %s;",
                 ColorPalettes.palette[3],
                 ColorPalettes.palette[6],
@@ -100,12 +100,12 @@ public class SignUpController {
 
 
         mailField.setStyle(String.format(
-                "-fx-border-radius: 5; " +
-                "-fx-border-width: 2; " +
-                "-fx-border-insets: -1; " +
-                "-fx-background-radius: 5; " +
-                "-fx-background-color: %s; " +
-                "-fx-border-color: %s; " +
+                "-fx-border-radius: 5;" +
+                "-fx-border-width: 2;" +
+                "-fx-border-insets: -1;" +
+                "-fx-background-radius: 5;" +
+                "-fx-background-color: %s;" +
+                "-fx-border-color: %s;" +
                 "-fx-text-inner-color: %s;",
                 ColorPalettes.palette[3],
                 ColorPalettes.palette[6],
@@ -114,19 +114,17 @@ public class SignUpController {
 
 
         signUpButton.setStyle(String.format(
-                "-fx-background-color: %s;",
-                ColorPalettes.palette[2])
-        );
-        signUpButton.setTextFill(Paint.valueOf(
+                "-fx-background-color: %s;" +
+                "-fx-text-fill: %s;",
+                ColorPalettes.palette[2],
                 ColorPalettes.palette[5])
         );
 
 
         backButton.setStyle(String.format(
-                "-fx-background-color: %s;",
-                ColorPalettes.palette[2])
-        );
-        backButton.setTextFill(Paint.valueOf(
+                "-fx-background-color: %s;" +
+                "-fx-text-fill: %s;",
+                ColorPalettes.palette[2],
                 ColorPalettes.palette[5])
         );
 

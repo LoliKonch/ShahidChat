@@ -57,7 +57,7 @@ public class SignInController {
 
 
         sideBackground.setStyle(String.format(
-                "-fx-background-radius: 15; " +
+                "-fx-background-radius: 15;" +
                 "-fx-background-color: %s;",
                 ColorPalettes.palette[1])
         );
@@ -70,12 +70,12 @@ public class SignInController {
 
 
         loginField.setStyle(String.format(
-                "-fx-border-radius: 5; " +
-                "-fx-border-width: 2; " +
-                "-fx-border-insets: -1; " +
-                "-fx-background-radius: 5; " +
-                "-fx-background-color: %s; " +
-                "-fx-border-color: %s; " +
+                "-fx-border-radius: 5;" +
+                "-fx-border-width: 2;" +
+                "-fx-border-insets: -1;" +
+                "-fx-background-radius: 5;" +
+                "-fx-background-color: %s;" +
+                "-fx-border-color: %s;" +
                 "-fx-text-inner-color: %s;",
                 ColorPalettes.palette[3],
                 ColorPalettes.palette[6],
@@ -84,12 +84,12 @@ public class SignInController {
 
 
         passwordField.setStyle(String.format(
-                "-fx-border-radius: 5; " +
-                "-fx-border-width: 2; " +
-                "-fx-border-insets: -1; " +
-                "-fx-background-radius: 5; " +
-                "-fx-background-color: %s; " +
-                "-fx-border-color: %s; " +
+                "-fx-border-radius: 5;" +
+                "-fx-border-width: 2;" +
+                "-fx-border-insets: -1;" +
+                "-fx-background-radius: 5;" +
+                "-fx-background-color: %s;" +
+                "-fx-border-color: %s;" +
                 "-fx-text-inner-color: %s;",
                 ColorPalettes.palette[3],
                 ColorPalettes.palette[6],
@@ -98,19 +98,18 @@ public class SignInController {
 
 
         registrationButton.setStyle(String.format(
-                "-fx-background-color: %s;",
-                ColorPalettes.palette[2])
-        );
-        registrationButton.setTextFill(Paint.valueOf(
+                "-fx-background-color: %s;" +
+                "-fx-text-fill: %s;",
+                ColorPalettes.palette[2],
                 ColorPalettes.palette[5])
         );
 
 
+
         signInButton.setStyle(String.format(
-                "-fx-background-color: %s;",
-                ColorPalettes.palette[2])
-        );
-        signInButton.setTextFill(Paint.valueOf(
+                "-fx-background-color: %s;" +
+                "-fx-text-fill: %s;",
+                ColorPalettes.palette[2],
                 ColorPalettes.palette[5])
         );
 
