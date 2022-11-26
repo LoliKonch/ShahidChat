@@ -13,26 +13,27 @@ public class ColorPalettes {
             "#bbbbbb", // 6 Fields borders (registration)
             "#000000", // 7 Fields text (registration)
             "#00b4d8", // 8 Hyperlinks (registration)
-            "", // 9 Main background
-            "", // 10 Scroll pane
-            "", // 11 VBox with massages
-            "", // 12 Menu background
-            "", // 13 Menu trigger
-            "", // 14 Field
-            "", // 15 Field borders
-            "", // 16 Field text
-            "", // 17 Send buttons
-            "", // 18 Send buttons text
-            "", // 19 Menu buttons
-            "", // 20 Menu buttons text
-            "", // 21 Radio buttons
-            "", // 22 Radio buttons text
-            "", // 23 Your massage
-            "", // 24 Other massages
-            "", // 25 Massage text
-            "", // 26 Time of massages
-            "", // 27 Nickname
-            "", // 28 Scroll pane boarder
+
+            "#001845", // 9 Main background
+            "#fafafa", // 10 Scroll pane
+            "#fafafa", // 11 VBox with massages
+            "#001845", // 12 Menu background
+            "#000000", // 13 Menu trigger
+            "#fafafa", // 14 Field
+            "#001854", // 15 Field borders
+            "#000000", // 16 Field text
+            "#001854", // 17 Send buttons
+            "#fafafa", // 18 Send buttons text
+            "#001854", // 19 Menu buttons
+            "#fafafa", // 20 Menu buttons text
+            "#001854", // 21 Radio buttons
+            "#fafafa", // 22 Radio buttons text
+            "#001854", // 23 Your massage
+            "#001845", // 24 Other massages
+            "#fafafa", // 25 Massage text
+            "#001845", // 26 Time of massages
+            "#001845", // 27 Nickname
+            "#001854", // 28 Scroll pane boarder
     };
 
 
@@ -46,26 +47,27 @@ public class ColorPalettes {
             "#202225", // 6 Fields borders (registration)
             "#8a8b91", // 7 Fields text (registration)
             "#04a5e6", // 8 Hyperlinks (registration)
-            "", // 9 Main background
-            "", // 10 Scroll pane
-            "", // 11 VBox with massages
-            "", // 12 Menu background
-            "", // 13 Menu trigger
-            "", // 14 Field
-            "", // 15 Field borders
-            "", // 16 Field text
-            "", // 17 Send buttons
-            "", // 18 Send buttons text
-            "", // 19 Menu buttons
-            "", // 20 Menu buttons text
-            "", // 21 Radio buttons
-            "", // 22 Radio buttons text
-            "", // 23 Your massage
-            "", // 24 Other massages
-            "", // 25 Massage text
-            "", // 26 Time of massages
-            "", // 27 Nickname
-            "", // 28 Scroll pane boarder
+
+            "#2f3136", // 9 Main background
+            "#36393f", // 10 Scroll pane
+            "#36393f", // 11 VBox with massages
+            "#2f3136", // 12 Menu background
+            "#5a6ac2", // 13 Menu trigger
+            "#202225", // 14 Field
+            "#5a6ac2", // 15 Field borders
+            "#ffffff", // 16 Field text
+            "#5a6ac2", // 17 Send buttons
+            "#d2d2d2", // 18 Send buttons text
+            "#5a6ac2", // 19 Menu buttons
+            "#d2d2d2", // 20 Menu buttons text
+            "#5a6ac2", // 21 Radio buttons
+            "#d2d2d2", // 22 Radio buttons text
+            "#5a6ac2", // 23 Your massage
+            "#2f3136", // 24 Other massages
+            "#d2d2d2", // 25 Massage text
+            "#d2d2d2", // 26 Time of massages
+            "#ffffff", // 27 Nickname
+            "#5a6ac2", // 28 Scroll pane boarder
     };
 
 
@@ -79,26 +81,27 @@ public class ColorPalettes {
             "#447bba", // 6 Fields borders (registration)
             "#8a8b91", // 7 Fields text (registration)
             "#00b4d8", // 8 Hyperlinks (registration)
-            "", // 9 Main background
-            "", // 10 Scroll pane
-            "", // 11 VBox with massages
-            "", // 12 Menu background
-            "", // 13 Menu trigger
-            "", // 14 Field
-            "", // 15 Field borders
-            "", // 16 Field text
-            "", // 17 Send buttons
-            "", // 18 Send buttons text
-            "", // 19 Menu buttons
-            "", // 20 Menu buttons text
-            "", // 21 Radio buttons
-            "", // 22 Radio buttons text
-            "", // 23 Your massage
-            "", // 24 Other massages
-            "", // 25 Massage text
-            "", // 26 Time of massages
-            "", // 27 Nickname
-            "", // 28 Scroll pane boarder
+
+            "#edeef0", // 9 Main background
+            "#ffffff", // 10 Scroll pane
+            "#ffffff", // 11 VBox with massages
+            "#edeef0", // 12 Menu background
+            "#0078d5", // 13 Menu trigger
+            "#ffffff", // 14 Field
+            "#0078d5", // 15 Field borders
+            "#222222", // 16 Field text
+            "#0078d5", // 17 Send buttons
+            "#000000", // 18 Send buttons text
+            "#0078d5", // 19 Menu buttons
+            "#000000", // 20 Menu buttons text
+            "#0078d5", // 21 Radio buttons
+            "#000000", // 22 Radio buttons text
+            "#0078d5", // 23 Your massage
+            "#edeef0", // 24 Other massages
+            "#000000", // 25 Massage text
+            "0078d5", // 26 Time of massages
+            "222222", // 27 Nickname
+            "#0078d5", // 28 Scroll pane boarder
     };
 
 
@@ -112,26 +115,27 @@ public class ColorPalettes {
             "#424242", // 6 Fields borders (registration)
             "#9c9c9c", // 7 Fields text (registration)
             "#04a5e6", // 8 Hyperlinks (registration)
-            "", // 9 Main background
-            "", // 10 Scroll pane
-            "", // 11 VBox with massages
-            "", // 12 Menu background
-            "", // 13 Menu trigger
-            "", // 14 Field
-            "", // 15 Field borders
-            "", // 16 Field text
-            "", // 17 Send buttons
-            "", // 18 Send buttons text
-            "", // 19 Menu buttons
-            "", // 20 Menu buttons text
-            "", // 21 Radio buttons
-            "", // 22 Radio buttons text
-            "", // 23 Your massage
-            "", // 24 Other massages
-            "", // 25 Massage text
-            "", // 26 Time of massages
-            "", // 27 Nickname
-            "", // 28 Scroll pane boarder
+
+            "#252525", // 9 Main background
+            "#424242", // 10 Scroll pane
+            "#424242", // 11 VBox with massages
+            "#252525", // 12 Menu background
+            "#397dcc", // 13 Menu trigger
+            "#303030", // 14 Field
+            "#397dcc", // 15 Field borders
+            "#d6d8db", // 16 Field text
+            "#397dcc", // 17 Send buttons
+            "#d6d8db", // 18 Send buttons text
+            "#397dcc", // 19 Menu buttons
+            "#d6d8db", // 20 Menu buttons text
+            "#397dcc", // 21 Radio buttons
+            "#d6d8db", // 22 Radio buttons text
+            "#397dcc", // 23 Your massage
+            "#252525", // 24 Other massages
+            "#d6d8db", // 25 Massage text
+            "#d6d8db", // 26 Time of massages
+            "#397dcc", // 27 Nickname
+            "#397dcc", // 28 Scroll pane boarder
     };
 
 
@@ -145,26 +149,26 @@ public class ColorPalettes {
             "#3e546a", // 6 Fields borders (registration)
             "#8a8b91", // 7 Fields text (registration)
             "#00b4d8", // 8 Hyperlinks (registration)
-            "", // 9 Main background
-            "", // 10 Scroll pane
-            "", // 11 VBox with massages
-            "", // 12 Menu background
-            "", // 13 Menu trigger
-            "", // 14 Field
-            "", // 15 Field borders
-            "", // 16 Field text
-            "", // 17 Send buttons
-            "", // 18 Send buttons text
-            "", // 19 Menu buttons
-            "", // 20 Menu buttons text
-            "", // 21 Radio buttons
-            "", // 22 Radio buttons text
-            "", // 23 Your massage
-            "", // 24 Other massages
-            "", // 25 Massage text
-            "", // 26 Time of massages
-            "", // 27 Nickname
-            "", // 28 Scroll pane boarder
+            "linear-gradient(from 30% 30% to 80% 80%, reflect,  #cfd58c, #82b18a 100%);", // 9 Main background
+            "#ffffff", // 10 Scroll pane
+            "#ffffff", // 11 VBox with massages
+            "linear-gradient(from 30% 30% to 80% 80%, reflect,  #cfd58c, #82b18a 100%);", // 12 Menu background
+            "#4388b9", // 13 Menu trigger
+            "#ffffff", // 14 Field
+            "#3e546a", // 15 Field borders
+            "#8a8b91", // 16 Field text
+            "#4388b9", // 17 Send buttons
+            "#222222", // 18 Send buttons text
+            "#4388b9", // 19 Menu buttons
+            "#222222", // 20 Menu buttons text
+            "#4388b9", // 21 Radio buttons
+            "222222", // 22 Radio buttons text
+            "#4388b9", // 23 Your massage
+            "linear-gradient(from 30% 30% to 80% 80%, reflect,  #cfd58c, #82b18a 100%);", // 24 Other massages
+            "#8a8b91", // 25 Massage text
+            "#8a8b91", // 26 Time of massages
+            "#3e546a", // 27 Nickname
+            "#3e546a", // 28 Scroll pane boarder
     };
 
 
@@ -178,26 +182,26 @@ public class ColorPalettes {
             "#3e546a", // 6 Fields borders (registration)
             "#8a8b91", // 7 Fields text (registration)
             "#00b4d8", // 8 Hyperlinks (registration)
-            "", // 9 Main background
-            "", // 10 Scroll pane
-            "", // 11 VBox with massages
-            "", // 12 Menu background
-            "", // 13 Menu trigger
-            "", // 14 Field
-            "", // 15 Field borders
-            "", // 16 Field text
-            "", // 17 Send buttons
-            "", // 18 Send buttons text
-            "", // 19 Menu buttons
-            "", // 20 Menu buttons text
-            "", // 21 Radio buttons
-            "", // 22 Radio buttons text
-            "", // 23 Your massage
-            "", // 24 Other massages
-            "", // 25 Massage text
-            "", // 26 Time of massages
-            "", // 27 Nickname
-            "", // 28 Scroll pane boarder
+            "#0e1621", // 9 Main background
+            "#17212b", // 10 Scroll pane
+            "#17212b", // 11 VBox with massages
+            "#0e1621", // 12 Menu background
+            "#4388b9", // 13 Menu trigger
+            "#1f2936", // 14 Field
+            "#3e546a", // 15 Field borders
+            "#8a8b91", // 16 Field text
+            "#4388b9", // 17 Send buttons
+            "#0e1621", // 18 Send buttons text
+            "#4388b9", // 19 Menu buttons
+            "#0e1621", // 20 Menu buttons text
+            "#4388b9", // 21 Radio buttons
+            "#0e1621", // 22 Radio buttons text
+            "#4388b9", // 23 Your massage
+            "#0e1621", // 24 Other massages
+            "#8a8b91", // 25 Massage text
+            "#8a8b91", // 26 Time of massages
+            "#3e546a", // 27 Nickname
+            "#3e546a", // 28 Scroll pane boarder
     };
 
 
@@ -211,26 +215,27 @@ public class ColorPalettes {
             "#21b36c", // 6 Fields borders (registration)
             "#19d66b", // 7 Fields text (registration)
             "#22856d", // 8 Hyperlinks (registration)
-            "", // 9 Main background
-            "", // 10 Scroll pane
-            "", // 11 VBox with massages
-            "", // 12 Menu background
-            "", // 13 Menu trigger
-            "", // 14 Field
-            "", // 15 Field borders
-            "", // 16 Field text
-            "", // 17 Send buttons
-            "", // 18 Send buttons text
-            "", // 19 Menu buttons
-            "", // 20 Menu buttons text
-            "", // 21 Radio buttons
-            "", // 22 Radio buttons text
-            "", // 23 Your massage
-            "", // 24 Other massages
-            "", // 25 Massage text
-            "", // 26 Time of massages
-            "", // 27 Nickname
-            "", // 28 Scroll pane boarder
+
+            "#1f1f1f", // 9 Main background
+            "#343434", // 10 Scroll pane
+            "#343434", // 11 VBox with massages
+            "#1f1f1f", // 12 Menu background
+            "#19d66b", // 13 Menu trigger
+            "#222222", // 14 Field
+            "#21b36c", // 15 Field borders
+            "#19d66b", // 16 Field text
+            "#21b36c", // 17 Send buttons
+            "#c9c9c9", // 18 Send buttons text
+            "#21b36c", // 19 Menu buttons
+            "#c9c9c9", // 20 Menu buttons text
+            "#21b36c", // 21 Radio buttons
+            "#4b5252", // 22 Radio buttons text
+            "#21b36c", // 23 Your massage
+            "#1f1f1f", // 24 Other massages
+            "#c9c9c9", // 25 Massage text
+            "#24744d", // 26 Time of massages
+            "#c7a76b", // 27 Nickname
+            "#21b36c", // 28 Scroll pane boarder
     };
 
 
@@ -244,26 +249,27 @@ public class ColorPalettes {
             "#d55f2c", // 6 Fields borders (registration)
             "#000000", // 7 Fields text (registration)
             "#00b4d8bf", // 8 Hyperlinks (registration)
-            "", // 9 Main background
-            "", // 10 Scroll pane
-            "", // 11 VBox with massages
-            "", // 12 Menu background
-            "", // 13 Menu trigger
-            "", // 14 Field
-            "", // 15 Field borders
-            "", // 16 Field text
-            "", // 17 Send buttons
-            "", // 18 Send buttons text
-            "", // 19 Menu buttons
-            "", // 20 Menu buttons text
-            "", // 21 Radio buttons
-            "", // 22 Radio buttons text
-            "", // 23 Your massage
-            "", // 24 Other massages
-            "", // 25 Massage text
-            "", // 26 Time of massages
-            "", // 27 Nickname
-            "", // 28 Scroll pane boarder
+
+            "#ccb4ac", // 9 Main background
+            "#cbc2bf", // 10 Scroll pane
+            "#cbc2bf", // 11 VBox with massages
+            "#ccb4ac", // 12 Menu background
+            "#000000", // 13 Menu trigger
+            "#eeeeee", // 14 Field
+            "#d55f2c", // 15 Field borders
+            "#000000", // 16 Field text
+            "#d55f2c", // 17 Send buttons
+            "#ffffff", // 18 Send buttons text
+            "#d55f2c", // 19 Menu buttons
+            "#ffffff", // 20 Menu buttons text
+            "#d55f2c", // 21 Radio buttons
+            "#d55f2c", // 22 Radio buttons text
+            "#d55f2c", // 23 Your massage
+            "#ccb4ac", // 24 Other massages
+            "#ffffff", // 25 Massage text
+            "#d55f2c", // 26 Time of massages
+            "#d55f2c", // 27 Nickname
+            "#d55f2c", // 28 Scroll pane boarder
     };
 
 
@@ -277,26 +283,27 @@ public class ColorPalettes {
             "#bbbbbb", // 6 Fields borders (registration)
             "#8a8b91", // 7 Fields text (registration)
             "#00b4d8", // 8 Hyperlinks (registration)
-            "", // 9 Main background
-            "", // 10 Scroll pane
-            "", // 11 VBox with massages
-            "", // 12 Menu background
-            "", // 13 Menu trigger
-            "", // 14 Field
-            "", // 15 Field borders
-            "", // 16 Field text
-            "", // 17 Send buttons
-            "", // 18 Send buttons text
-            "", // 19 Menu buttons
-            "", // 20 Menu buttons text
-            "", // 21 Radio buttons
-            "", // 22 Radio buttons text
-            "", // 23 Your massage
-            "", // 24 Other massages
-            "", // 25 Massage text
-            "", // 26 Time of massages
-            "", // 27 Nickname
-            "", // 28 Scroll pane boarder
+
+            "#3a3f55", // 9 Main background
+            "#e4fdff", // 10 Scroll pane
+            "#e4fdff", // 11 VBox with massages
+            "#3a3f55", // 12 Menu background
+            "linear-gradient(to right, #ef7550, #fda76a)", // 13 Menu trigger
+            "linear-gradient(to bottom right, #a9c9ba, #B5D4C3)", // 14 Field
+            "linear-gradient(to right, #ef7550, #fda76a)", // 15 Field borders
+            "linear-gradient(to right, #ef7550, #fda76a)", // 16 Field text
+            "linear-gradient(to right, #ef7550, #fda76a)", // 17 Send buttons
+            "#3d423d", // 18 Send buttons text
+            "linear-gradient(to right, #ef7550, #fda76a)", // 19 Menu buttons
+            "#3d423d", // 20 Menu buttons text
+            "linear-gradient(to right, #ef7550, #fda76a)", // 21 Radio buttons
+            "#3d423d", // 22 Radio buttons text
+            "linear-gradient(to right, #ef7550, #fda76a)", // 23 Your massage
+            "#3a3f55", // 24 Other massages
+            "#3d423d", // 25 Massage text
+            "linear-gradient(to right, #ef7550, #fda76a)", // 26 Time of massages
+            "linear-gradient(to right, #ef7550, #fda76a)", // 27 Nickname
+            "linear-gradient(to right, #ef7550, #fda76a)", // 28 Scroll pane boarder
     };
 
 
