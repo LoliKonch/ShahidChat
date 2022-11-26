@@ -29,8 +29,9 @@ public class ColorPalettes {
             "", // 22 Radio buttons text
             "", // 23 Your massage
             "", // 24 Other massages
-            "", // 25 Time of massages
-            "", // 26 Nickname
+            "", // 25 Massage text
+            "", // 26 Time of massages
+            "", // 27 Nickname
     };
 
 
@@ -60,8 +61,9 @@ public class ColorPalettes {
             "", // 22 Radio buttons text
             "", // 23 Your massage
             "", // 24 Other massages
-            "", // 25 Time of massages
-            "", // 26 Nickname
+            "", // 25 Massage text
+            "", // 26 Time of massages
+            "", // 27 Nickname
     };
 
 
@@ -91,8 +93,9 @@ public class ColorPalettes {
             "", // 22 Radio buttons text
             "", // 23 Your massage
             "", // 24 Other massages
-            "", // 25 Time of massages
-            "", // 26 Nickname
+            "", // 25 Massage text
+            "", // 26 Time of massages
+            "", // 27 Nickname
     };
 
 
@@ -122,8 +125,9 @@ public class ColorPalettes {
             "", // 22 Radio buttons text
             "", // 23 Your massage
             "", // 24 Other massages
-            "", // 25 Time of massages
-            "", // 26 Nickname
+            "", // 25 Massage text
+            "", // 26 Time of massages
+            "", // 27 Nickname
     };
 
 
@@ -153,8 +157,9 @@ public class ColorPalettes {
             "", // 22 Radio buttons text
             "", // 23 Your massage
             "", // 24 Other massages
-            "", // 25 Time of massages
-            "", // 26 Nickname
+            "", // 25 Massage text
+            "", // 26 Time of massages
+            "", // 27 Nickname
     };
 
 
@@ -184,8 +189,9 @@ public class ColorPalettes {
             "", // 22 Radio buttons text
             "", // 23 Your massage
             "", // 24 Other massages
-            "", // 25 Time of massages
-            "", // 26 Nickname
+            "", // 25 Massage text
+            "", // 26 Time of massages
+            "", // 27 Nickname
     };
 
 
@@ -215,8 +221,9 @@ public class ColorPalettes {
             "", // 22 Radio buttons text
             "", // 23 Your massage
             "", // 24 Other massages
-            "", // 25 Time of massages
-            "", // 26 Nickname
+            "", // 25 Massage text
+            "", // 26 Time of massages
+            "", // 27 Nickname
     };
 
 
@@ -246,8 +253,9 @@ public class ColorPalettes {
             "", // 22 Radio buttons text
             "", // 23 Your massage
             "", // 24 Other massages
-            "", // 25 Time of massages
-            "", // 26 Nickname
+            "", // 25 Massage text
+            "", // 26 Time of massages
+            "", // 27 Nickname
     };
 
 
@@ -277,8 +285,9 @@ public class ColorPalettes {
             "", // 22 Radio buttons text
             "", // 23 Your massage
             "", // 24 Other massages
-            "", // 25 Time of massages
-            "", // 26 Nickname
+            "", // 25 Massage text
+            "", // 26 Time of massages
+            "", // 27 Nickname
     };
 
 
@@ -308,8 +317,9 @@ public class ColorPalettes {
             "", // 22 Radio buttons text
             "", // 23 Your massage
             "", // 24 Other massages
-            "", // 25 Time of massages
-            "", // 26 Nickname
+            "", // 25 Massage text
+            "", // 26 Time of massages
+            "", // 27 Nickname
     };
 
     public static String[] palette = DARK_DS;
