@@ -32,6 +32,7 @@ public class ColorPalettes {
             "", // 25 Massage text
             "", // 26 Time of massages
             "", // 27 Nickname
+            "", // 28 Scroll pane boarder
     };
 
 
@@ -64,6 +65,7 @@ public class ColorPalettes {
             "", // 25 Massage text
             "", // 26 Time of massages
             "", // 27 Nickname
+            "", // 28 Scroll pane boarder
     };
 
 
@@ -96,6 +98,7 @@ public class ColorPalettes {
             "", // 25 Massage text
             "", // 26 Time of massages
             "", // 27 Nickname
+            "", // 28 Scroll pane boarder
     };
 
 
@@ -128,6 +131,7 @@ public class ColorPalettes {
             "", // 25 Massage text
             "", // 26 Time of massages
             "", // 27 Nickname
+            "", // 28 Scroll pane boarder
     };
 
 
@@ -160,6 +164,7 @@ public class ColorPalettes {
             "", // 25 Massage text
             "", // 26 Time of massages
             "", // 27 Nickname
+            "", // 28 Scroll pane boarder
     };
 
 
@@ -192,6 +197,7 @@ public class ColorPalettes {
             "", // 25 Massage text
             "", // 26 Time of massages
             "", // 27 Nickname
+            "", // 28 Scroll pane boarder
     };
 
 
@@ -224,6 +230,7 @@ public class ColorPalettes {
             "", // 25 Massage text
             "", // 26 Time of massages
             "", // 27 Nickname
+            "", // 28 Scroll pane boarder
     };
 
 
@@ -256,6 +263,7 @@ public class ColorPalettes {
             "", // 25 Massage text
             "", // 26 Time of massages
             "", // 27 Nickname
+            "", // 28 Scroll pane boarder
     };
 
 
@@ -288,6 +296,7 @@ public class ColorPalettes {
             "", // 25 Massage text
             "", // 26 Time of massages
             "", // 27 Nickname
+            "", // 28 Scroll pane boarder
     };
 
 
@@ -320,6 +329,7 @@ public class ColorPalettes {
             "", // 25 Massage text
             "", // 26 Time of massages
             "", // 27 Nickname
+            "", // 28 Scroll pane boarder
     };
 
     public static String[] palette = DARK_DS;

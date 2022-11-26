@@ -99,8 +99,10 @@ public class ChatController implements Initializable {
 
 
         scrollPane.setStyle(String.format(
-                "-fx-background: %s;",
-                ColorPalettes.palette[10])
+                "-fx-background: %s;" +
+                "-fx-background-color: %s;",
+                ColorPalettes.palette[10],
+                ColorPalettes.palette[28])
         );
 
 
