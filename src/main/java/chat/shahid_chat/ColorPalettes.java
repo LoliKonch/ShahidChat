@@ -13,14 +13,24 @@ public class ColorPalettes {
             "#bbbbbb", // 6 Fields borders (registration)
             "#000000", // 7 Fields text (registration)
             "#00b4d8", // 8 Hyperlinks (registration)
-            "", // 9 Your messages
-            "", // 10 Other messages
-            "", // 11 Send buttons
-            "", // 12 Main background
-            "", // 13 Menu background
-            "", // 14 Menu buttons
-            "", // 15 Boarders
-            "", // 16
+            "", // 9 Main background
+            "", // 10 Scroll pane
+            "", // 11 VBox with massages
+            "", // 12 Menu background
+            "", // 13 Menu trigger
+            "", // 14 Field
+            "", // 15 Field borders
+            "", // 16 Field text
+            "", // 17 Send buttons
+            "", // 18 Send buttons text
+            "", // 19 Menu buttons
+            "", // 20 Menu buttons text
+            "", // 21 Radio buttons
+            "", // 22 Radio buttons text
+            "", // 23 Your massage
+            "", // 24 Other massages
+            "", // 25 Time of massages
+            "", // 26 Nickname
     };
 
 
@@ -34,14 +44,24 @@ public class ColorPalettes {
             "#202225", // 6 Fields borders (registration)
             "#8a8b91", // 7 Fields text (registration)
             "#04a5e6", // 8 Hyperlinks (registration)
-            "", // 9 Your messages
-            "", // 10 Other messages
-            "", // 11 Send buttons
-            "", // 12 Main background
-            "", // 13 Menu background
-            "", // 14 Menu buttons
-            "", // 15 Boarders
-            "", // 16
+            "", // 9 Main background
+            "", // 10 Scroll pane
+            "", // 11 VBox with massages
+            "", // 12 Menu background
+            "", // 13 Menu trigger
+            "", // 14 Field
+            "", // 15 Field borders
+            "", // 16 Field text
+            "", // 17 Send buttons
+            "", // 18 Send buttons text
+            "", // 19 Menu buttons
+            "", // 20 Menu buttons text
+            "", // 21 Radio buttons
+            "", // 22 Radio buttons text
+            "", // 23 Your massage
+            "", // 24 Other massages
+            "", // 25 Time of massages
+            "", // 26 Nickname
     };
 
 
@@ -55,14 +75,24 @@ public class ColorPalettes {
             "#447bba", // 6 Fields borders (registration)
             "#8a8b91", // 7 Fields text (registration)
             "#00b4d8", // 8 Hyperlinks (registration)
-            "", // 9 Your messages
-            "", // 10 Other messages
-            "", // 11 Send buttons
-            "", // 12 Main background
-            "", // 13 Menu background
-            "", // 14 Menu buttons
-            "", // 15 Boarders
-            "", // 16
+            "", // 9 Main background
+            "", // 10 Scroll pane
+            "", // 11 VBox with massages
+            "", // 12 Menu background
+            "", // 13 Menu trigger
+            "", // 14 Field
+            "", // 15 Field borders
+            "", // 16 Field text
+            "", // 17 Send buttons
+            "", // 18 Send buttons text
+            "", // 19 Menu buttons
+            "", // 20 Menu buttons text
+            "", // 21 Radio buttons
+            "", // 22 Radio buttons text
+            "", // 23 Your massage
+            "", // 24 Other massages
+            "", // 25 Time of massages
+            "", // 26 Nickname
     };
 
 
@@ -76,14 +106,24 @@ public class ColorPalettes {
             "#424242", // 6 Fields borders (registration)
             "#9c9c9c", // 7 Fields text (registration)
             "#04a5e6", // 8 Hyperlinks (registration)
-            "", // 9 Your messages
-            "", // 10 Other messages
-            "", // 11 Send buttons
-            "", // 12 Main background
-            "", // 13 Menu background
-            "", // 14 Menu buttons
-            "", // 15 Boarders
-            "", // 16
+            "", // 9 Main background
+            "", // 10 Scroll pane
+            "", // 11 VBox with massages
+            "", // 12 Menu background
+            "", // 13 Menu trigger
+            "", // 14 Field
+            "", // 15 Field borders
+            "", // 16 Field text
+            "", // 17 Send buttons
+            "", // 18 Send buttons text
+            "", // 19 Menu buttons
+            "", // 20 Menu buttons text
+            "", // 21 Radio buttons
+            "", // 22 Radio buttons text
+            "", // 23 Your massage
+            "", // 24 Other massages
+            "", // 25 Time of massages
+            "", // 26 Nickname
     };
 
 
@@ -97,14 +137,24 @@ public class ColorPalettes {
             "#3e546a", // 6 Fields borders (registration)
             "#8a8b91", // 7 Fields text (registration)
             "#00b4d8", // 8 Hyperlinks (registration)
-            "", // 9 Your messages
-            "", // 10 Other messages
-            "", // 11 Send buttons
-            "", // 12 Main background
-            "", // 13 Menu background
-            "", // 14 Menu buttons
-            "", // 15 Boarders
-            "", // 16
+            "", // 9 Main background
+            "", // 10 Scroll pane
+            "", // 11 VBox with massages
+            "", // 12 Menu background
+            "", // 13 Menu trigger
+            "", // 14 Field
+            "", // 15 Field borders
+            "", // 16 Field text
+            "", // 17 Send buttons
+            "", // 18 Send buttons text
+            "", // 19 Menu buttons
+            "", // 20 Menu buttons text
+            "", // 21 Radio buttons
+            "", // 22 Radio buttons text
+            "", // 23 Your massage
+            "", // 24 Other massages
+            "", // 25 Time of massages
+            "", // 26 Nickname
     };
 
 
@@ -118,14 +168,24 @@ public class ColorPalettes {
             "#3e546a", // 6 Fields borders (registration)
             "#8a8b91", // 7 Fields text (registration)
             "#00b4d8", // 8 Hyperlinks (registration)
-            "", // 9 Your messages
-            "", // 10 Other messages
-            "", // 11 Send buttons
-            "", // 12 Main background
-            "", // 13 Menu background
-            "", // 14 Menu buttons
-            "", // 15 Boarders
-            "", // 16
+            "", // 9 Main background
+            "", // 10 Scroll pane
+            "", // 11 VBox with massages
+            "", // 12 Menu background
+            "", // 13 Menu trigger
+            "", // 14 Field
+            "", // 15 Field borders
+            "", // 16 Field text
+            "", // 17 Send buttons
+            "", // 18 Send buttons text
+            "", // 19 Menu buttons
+            "", // 20 Menu buttons text
+            "", // 21 Radio buttons
+            "", // 22 Radio buttons text
+            "", // 23 Your massage
+            "", // 24 Other massages
+            "", // 25 Time of massages
+            "", // 26 Nickname
     };
 
 
@@ -139,14 +199,24 @@ public class ColorPalettes {
             "#21b36c", // 6 Fields borders (registration)
             "#19d66b", // 7 Fields text (registration)
             "#22856d", // 8 Hyperlinks (registration)
-            "", // 9 Your messages
-            "", // 10 Other messages
-            "", // 11 Send buttons
-            "", // 12 Main background
-            "", // 13 Menu background
-            "", // 14 Menu buttons
-            "", // 15 Boarders
-            "", // 16
+            "", // 9 Main background
+            "", // 10 Scroll pane
+            "", // 11 VBox with massages
+            "", // 12 Menu background
+            "", // 13 Menu trigger
+            "", // 14 Field
+            "", // 15 Field borders
+            "", // 16 Field text
+            "", // 17 Send buttons
+            "", // 18 Send buttons text
+            "", // 19 Menu buttons
+            "", // 20 Menu buttons text
+            "", // 21 Radio buttons
+            "", // 22 Radio buttons text
+            "", // 23 Your massage
+            "", // 24 Other massages
+            "", // 25 Time of massages
+            "", // 26 Nickname
     };
 
 
@@ -160,14 +230,24 @@ public class ColorPalettes {
             "#d55f2c", // 6 Fields borders (registration)
             "#000000", // 7 Fields text (registration)
             "#00b4d8bf", // 8 Hyperlinks (registration)
-            "", // 9 Your messages
-            "", // 10 Other messages
-            "", // 11 Send buttons
-            "", // 12 Main background
-            "", // 13 Menu background
-            "", // 14 Menu buttons
-            "", // 15 Boarders
-            "", // 16
+            "", // 9 Main background
+            "", // 10 Scroll pane
+            "", // 11 VBox with massages
+            "", // 12 Menu background
+            "", // 13 Menu trigger
+            "", // 14 Field
+            "", // 15 Field borders
+            "", // 16 Field text
+            "", // 17 Send buttons
+            "", // 18 Send buttons text
+            "", // 19 Menu buttons
+            "", // 20 Menu buttons text
+            "", // 21 Radio buttons
+            "", // 22 Radio buttons text
+            "", // 23 Your massage
+            "", // 24 Other massages
+            "", // 25 Time of massages
+            "", // 26 Nickname
     };
 
 
@@ -181,14 +261,24 @@ public class ColorPalettes {
             "#bbbbbb", // 6 Fields borders (registration)
             "#8a8b91", // 7 Fields text (registration)
             "#00b4d8", // 8 Hyperlinks (registration)
-            "", // 9 Your messages
-            "", // 10 Other messages
-            "", // 11 Send buttons
-            "", // 12 Main background
-            "", // 13 Menu background
-            "", // 14 Menu buttons
-            "", // 15 Boarders
-            "", // 16
+            "", // 9 Main background
+            "", // 10 Scroll pane
+            "", // 11 VBox with massages
+            "", // 12 Menu background
+            "", // 13 Menu trigger
+            "", // 14 Field
+            "", // 15 Field borders
+            "", // 16 Field text
+            "", // 17 Send buttons
+            "", // 18 Send buttons text
+            "", // 19 Menu buttons
+            "", // 20 Menu buttons text
+            "", // 21 Radio buttons
+            "", // 22 Radio buttons text
+            "", // 23 Your massage
+            "", // 24 Other massages
+            "", // 25 Time of massages
+            "", // 26 Nickname
     };
 
 
@@ -202,15 +292,25 @@ public class ColorPalettes {
             "#bbbbbb", // 6 Fields borders (registration)
             "#000000", // 7 Fields text (registration)
             "#00b4d8", // 8 Hyperlinks (registration)
-            "", // 9 Your messages
-            "", // 10 Other messages
-            "", // 11 Send buttons
-            "", // 12 Main background
-            "", // 13 Menu background
-            "", // 14 Menu buttons
-            "", // 15 Boarders
-            "", // 16
+            "", // 9 Main background
+            "", // 10 Scroll pane
+            "", // 11 VBox with massages
+            "", // 12 Menu background
+            "", // 13 Menu trigger
+            "", // 14 Field
+            "", // 15 Field borders
+            "", // 16 Field text
+            "", // 17 Send buttons
+            "", // 18 Send buttons text
+            "", // 19 Menu buttons
+            "", // 20 Menu buttons text
+            "", // 21 Radio buttons
+            "", // 22 Radio buttons text
+            "", // 23 Your massage
+            "", // 24 Other massages
+            "", // 25 Time of massages
+            "", // 26 Nickname
     };
 
-    public static String[] palette = DARK;
+    public static String[] palette = DARK_DS;
 }
