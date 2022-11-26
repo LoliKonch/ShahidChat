@@ -1,17 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="mainBackground" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chat.shahid_chat.ChatController">
+<AnchorPane fx:id="mainBackground" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chat.shahid_chat.ChatController">
    <children>
-      <Button fx:id="backButton" layoutX="450.0" layoutY="24.0" mnemonicParsing="false" style="-fx-background-color: #000000; -fx-border-radius: 5;" text="Вырвете мне глаза" />
-      <Button fx:id="sendMassageButton" layoutX="450.0" layoutY="335.0" mnemonicParsing="false" text="Button" />
-      <Button fx:id="sendFileButton" layoutX="511.0" layoutY="335.0" mnemonicParsing="false" text="Button" />
-      <TextField fx:id="massageField" layoutX="80.0" layoutY="335.0" prefHeight="26.0" prefWidth="349.0" />
-      <ScrollPane fx:id="scrollPane" fitToWidth="true" layoutX="79.0" layoutY="73.0" prefHeight="243.0" prefWidth="495.0">
+      <TextField fx:id="massageField" layoutX="50.0" layoutY="350.0" prefHeight="30.0" prefWidth="360.0" />
+      <Button fx:id="sendMassageButton" layoutX="420.0" layoutY="350.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="60.0" text="Send" />
+      <Button fx:id="sendFileButton" layoutX="490.0" layoutY="350.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="60.0" text="File" />
+      <ScrollPane fx:id="scrollPane" fitToWidth="true" layoutX="50.0" layoutY="30.0" prefHeight="300.0" prefWidth="500.0">
          <content>
             <VBox fx:id="vBoxWithMassages" prefHeight="230.0" prefWidth="480.0" />
          </content></ScrollPane>
+      <Pane fx:id="menuTrigger" layoutX="2.0" layoutY="2.0" prefHeight="40.0" prefWidth="40.0" />
+      <VBox fx:id="vBoxMenu" prefHeight="400.0" prefWidth="150.0" style="-fx-background-color: red;">
+         <children>
+            <Button fx:id="exitButton" mnemonicParsing="false" style="-fx-background-color: #000000; -fx-border-radius: 5;" text="Exit" textFill="#fffafa">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="5.0" right="10.0" top="10.0" />
+               </VBox.margin></Button>
+            <RadioButton fx:id="radioButton1" mnemonicParsing="false" text="Standart">
+               <VBox.margin>
+                  <Insets left="5.0" top="5.0" />
+               </VBox.margin></RadioButton>
+            <RadioButton fx:id="radioButton2" mnemonicParsing="false" text="Dark DS">
+               <VBox.margin>
+                  <Insets left="5.0" top="5.0" />
+               </VBox.margin></RadioButton>
+            <RadioButton fx:id="radioButton3" mnemonicParsing="false" text="Light VK">
+               <VBox.margin>
+                  <Insets left="5.0" top="5.0" />
+               </VBox.margin></RadioButton>
+            <RadioButton fx:id="radioButton4" mnemonicParsing="false" text="Dark VK">
+               <VBox.margin>
+                  <Insets left="5.0" top="5.0" />
+               </VBox.margin></RadioButton>
+            <RadioButton fx:id="radioButton5" mnemonicParsing="false" text="Light TG">
+               <VBox.margin>
+                  <Insets left="5.0" top="5.0" />
+               </VBox.margin></RadioButton>
+            <RadioButton fx:id="radioButton6" mnemonicParsing="false" text="Dark TG">
+               <VBox.margin>
+                  <Insets left="5.0" top="5.0" />
+               </VBox.margin></RadioButton>
+            <RadioButton fx:id="radioButton7" mnemonicParsing="false" text="Dark Trovo">
+               <VBox.margin>
+                  <Insets left="5.0" top="5.0" />
+               </VBox.margin></RadioButton>
+            <RadioButton fx:id="radioButton8" mnemonicParsing="false" text="Boosty">
+               <VBox.margin>
+                  <Insets left="5.0" top="5.0" />
+               </VBox.margin></RadioButton>
+            <RadioButton fx:id="radioButton9" mnemonicParsing="false" text="Darwin TV">
+               <VBox.margin>
+                  <Insets left="5.0" top="5.0" />
+               </VBox.margin></RadioButton>
+            <RadioButton fx:id="radioButton10" mnemonicParsing="false" text="Rainbow">
+               <VBox.margin>
+                  <Insets left="5.0" top="5.0" />
+               </VBox.margin></RadioButton>
+            <Button fx:id="applyThemeButton" mnemonicParsing="false" text=" Applay theme">
+               <VBox.margin>
+                  <Insets left="28.0" top="10.0" />
+               </VBox.margin></Button>
+         </children></VBox>
    </children>
 </AnchorPane>
