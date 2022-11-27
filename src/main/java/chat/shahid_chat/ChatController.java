@@ -10,6 +10,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -123,6 +124,21 @@ public class ChatController implements Initializable {
                 ColorPalettes.palette[13])
         );
 
+        vBoxMenu.setTranslateX(-160);
+        TranslateTransition menuTranslation = new TranslateTransition(Duration.millis(500), vBoxMenu);
+
+        menuTranslation.setFromX(-160);
+        menuTranslation.setToX(0);
+
+        menuTrigger.setOnMouseEntered(evt -> {
+            menuTranslation.setRate(1);
+            menuTranslation.play();
+        });
+        vBoxMenu.setOnMouseExited(evt -> {
+            menuTranslation.setRate(-1);
+            menuTranslation.play();
+        });
+
 
         massageField.setStyle(String.format(
                 "-fx-border-radius: 5;" +
@@ -170,6 +186,85 @@ public class ChatController implements Initializable {
         );
 
 
+        radioButton1.setStyle(String.format(
+                "-fx-text-fill: %s;",
+                ColorPalettes.palette[22])
+        );
+        radioButton1.setOnMouseEntered(evt -> radioButton1.getScene().setCursor(Cursor.HAND));
+        radioButton1.setOnMouseExited(evt -> radioButton1.getScene().setCursor(Cursor.DEFAULT));
+
+
+        radioButton2.setStyle(String.format(
+                "-fx-text-fill: %s;",
+                ColorPalettes.palette[22])
+        );
+        radioButton2.setOnMouseEntered(evt -> radioButton2.getScene().setCursor(Cursor.HAND));
+        radioButton2.setOnMouseExited(evt -> radioButton2.getScene().setCursor(Cursor.DEFAULT));
+
+
+        radioButton3.setStyle(String.format(
+                "-fx-text-fill: %s;",
+                ColorPalettes.palette[22])
+        );
+        radioButton3.setOnMouseEntered(evt -> radioButton3.getScene().setCursor(Cursor.HAND));
+        radioButton3.setOnMouseExited(evt -> radioButton3.getScene().setCursor(Cursor.DEFAULT));
+
+
+        radioButton4.setStyle(String.format(
+                "-fx-text-fill: %s;",
+                ColorPalettes.palette[22])
+        );
+        radioButton4.setOnMouseEntered(evt -> radioButton4.getScene().setCursor(Cursor.HAND));
+        radioButton4.setOnMouseExited(evt -> radioButton4.getScene().setCursor(Cursor.DEFAULT));
+
+
+        radioButton5.setStyle(String.format(
+                "-fx-text-fill: %s;",
+                ColorPalettes.palette[22])
+        );
+        radioButton5.setOnMouseEntered(evt -> radioButton5.getScene().setCursor(Cursor.HAND));
+        radioButton5.setOnMouseExited(evt -> radioButton5.getScene().setCursor(Cursor.DEFAULT));
+
+
+        radioButton6.setStyle(String.format(
+                "-fx-text-fill: %s;",
+                ColorPalettes.palette[22])
+        );
+        radioButton6.setOnMouseEntered(evt -> radioButton6.getScene().setCursor(Cursor.HAND));
+        radioButton6.setOnMouseExited(evt -> radioButton6.getScene().setCursor(Cursor.DEFAULT));
+
+
+        radioButton7.setStyle(String.format(
+                "-fx-text-fill: %s;",
+                ColorPalettes.palette[22])
+        );
+        radioButton7.setOnMouseEntered(evt -> radioButton7.getScene().setCursor(Cursor.HAND));
+        radioButton7.setOnMouseExited(evt -> radioButton7.getScene().setCursor(Cursor.DEFAULT));
+
+
+        radioButton8.setStyle(String.format(
+                "-fx-text-fill: %s;",
+                ColorPalettes.palette[22])
+        );
+        radioButton8.setOnMouseEntered(evt -> radioButton8.getScene().setCursor(Cursor.HAND));
+        radioButton8.setOnMouseExited(evt -> radioButton8.getScene().setCursor(Cursor.DEFAULT));
+
+
+        radioButton9.setStyle(String.format(
+                "-fx-text-fill: %s;",
+                ColorPalettes.palette[22])
+        );
+        radioButton9.setOnMouseEntered(evt -> radioButton9.getScene().setCursor(Cursor.HAND));
+        radioButton9.setOnMouseExited(evt -> radioButton9.getScene().setCursor(Cursor.DEFAULT));
+
+
+        radioButton10.setStyle(String.format(
+                "-fx-text-fill: %s;",
+                ColorPalettes.palette[22])
+        );
+        radioButton10.setOnMouseEntered(evt -> radioButton10.getScene().setCursor(Cursor.HAND));
+        radioButton10.setOnMouseExited(evt -> radioButton10.getScene().setCursor(Cursor.DEFAULT));
+
 
         ToggleGroup rbGroupPalettes = new ToggleGroup();
 
@@ -186,23 +281,6 @@ public class ChatController implements Initializable {
 
 
 
-
-        vBoxMenu.setTranslateX(-160);
-        TranslateTransition menuTranslation = new TranslateTransition(Duration.millis(500), vBoxMenu);
-
-        menuTranslation.setFromX(-160);
-        menuTranslation.setToX(0);
-
-
-
-        menuTrigger.setOnMouseEntered(evt -> {
-            menuTranslation.setRate(1);
-            menuTranslation.play();
-        });
-        vBoxMenu.setOnMouseExited(evt -> {
-            menuTranslation.setRate(-1);
-            menuTranslation.play();
-        });
 
 
 
