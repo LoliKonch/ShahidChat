@@ -214,15 +214,15 @@ public class ChatController implements Initializable {
             RadioButton selection = (RadioButton) rbGroupPalettes.getSelectedToggle();
             switch (selection.getId()) {
                 case "radioButton1" -> ColorPalettes.palette = ColorPalettes.STANDARD;
-                case "radiobutton2" -> ColorPalettes.palette = ColorPalettes.DARK_DS;
-                case "radiobutton3" -> ColorPalettes.palette = ColorPalettes.LIGHT_VK;
-                case "radiobutton4" -> ColorPalettes.palette = ColorPalettes.DARK_VK;
-                case "radiobutton5" -> ColorPalettes.palette = ColorPalettes.LIGHT_TG;
-                case "radiobutton6" -> ColorPalettes.palette = ColorPalettes.DARK_TG;
-                case "radiobutton7" -> ColorPalettes.palette = ColorPalettes.DARK_TROVO;
-                case "radiobutton8" -> ColorPalettes.palette = ColorPalettes.BOOSTY;
-                case "radiobutton9" -> ColorPalettes.palette = ColorPalettes.DARWIN_TV;
-                case "radiobutton10" -> ColorPalettes.palette = ColorPalettes.RAINBOW;
+                case "radioButton2" -> ColorPalettes.palette = ColorPalettes.DARK_DS;
+                case "radioButton3" -> ColorPalettes.palette = ColorPalettes.LIGHT_VK;
+                case "radioButton4" -> ColorPalettes.palette = ColorPalettes.DARK_VK;
+                case "radioButton5" -> ColorPalettes.palette = ColorPalettes.LIGHT_TG;
+                case "radioButton6" -> ColorPalettes.palette = ColorPalettes.DARK_TG;
+                case "radioButton7" -> ColorPalettes.palette = ColorPalettes.DARK_TROVO;
+                case "radioButton8" -> ColorPalettes.palette = ColorPalettes.BOOSTY;
+                case "radioButton9" -> ColorPalettes.palette = ColorPalettes.DARWIN_TV;
+                case "radioButton10" -> ColorPalettes.palette = ColorPalettes.RAINBOW;
             }
 
             FXMLLoader loader = new FXMLLoader();
