@@ -162,7 +162,7 @@ public class ColorPalettes {
             "#4388b9", // 19 Menu buttons
             "#222222", // 20 Menu buttons text
             "#4388b9", // 21 Radio buttons
-            "222222", // 22 Radio buttons text
+            "#222222", // 22 Radio buttons text
             "#4388b9", // 23 Your massage
             "linear-gradient(from 30% 30% to 80% 80%, reflect,  #cfd58c, #82b18a 100%);", // 24 Other massages
             "#8a8b91", // 25 Massage text
