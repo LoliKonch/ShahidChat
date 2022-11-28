@@ -26,10 +26,11 @@ public class Client {
     private PrivateKey clientPrivateKey;
     private PublicKey serverPublicKey;
 
-    public Client(Socket socket, String username, String email) {
+    public Client(Socket socket, String username, String email, String password) {
         this.socket = socket;
         this.username = username;
         this.email = email;
+        this.password = password;
 
         try {
             this.bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -200,26 +201,26 @@ public class Client {
 
     public static void main(String[] args) throws IOException {
 
-        Scanner scanner = new Scanner(System.in);
-        String username = null;
-        String email = null;
-        boolean flag = true;
-
-        while (flag) {
-            System.out.println("Введите свой ник для чата: ");
-            username = scanner.nextLine();
-
-            System.out.println("Введите email: ");
-            email = scanner.nextLine();
-
-            if (username != null && !username.equals("")) {
-                flag = false;
-            }
-        }
-
-
-        Socket socket = new Socket("localhost", 9090);
-        Client client = new Client(socket, username, email);
-        client.startClient();
+//        Scanner scanner = new Scanner(System.in);
+//        String username = null;
+//        String email = null;
+//        boolean flag = true;
+//
+//        while (flag) {
+//            System.out.println("Введите свой ник для чата: ");
+//            username = scanner.nextLine();
+//
+//            System.out.println("Введите email: ");
+//            email = scanner.nextLine();
+//
+//            if (username != null && !username.equals("")) {
+//                flag = false;
+//            }
+//        }
+//
+//
+//        Socket socket = new Socket("localhost", 9090);
+//        Client client = new Client(socket, username, email);
+//        client.startClient();
     }
 }

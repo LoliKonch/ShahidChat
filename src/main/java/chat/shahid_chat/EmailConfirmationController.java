@@ -16,7 +16,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
-public class SignUpController {
+public class EmailConfirmationController {
 
     @FXML
     private ResourceBundle resources;
@@ -28,29 +28,23 @@ public class SignUpController {
     private Button backButton;
 
     @FXML
-    private TextField loginField;
-
-    @FXML
-    private TextField mailField;
-
-    @FXML
     private AnchorPane mainBackground;
 
     @FXML
-    private PasswordField passwordField;
+    private PasswordField secretCodeField;
+
+    @FXML
+    private Button sendConfirmationCodeButton;
 
     @FXML
     private Pane sideBackground;
 
     @FXML
-    private Button signUpButton;
-
-    @FXML
     private Label title;
-
 
     @FXML
     void initialize() {
+
 
         mainBackground.setStyle(String.format(
                 "-fx-background-color: %s;",
@@ -60,7 +54,7 @@ public class SignUpController {
 
         sideBackground.setStyle(String.format(
                 "-fx-background-radius: 15;" +
-                "-fx-background-color: %s;",
+                        "-fx-background-color: %s;",
                 ColorPalettes.palette[1])
         );
 
@@ -71,7 +65,7 @@ public class SignUpController {
         );
 
 
-        loginField.setStyle(String.format(
+        secretCodeField.setStyle(String.format(
                 "-fx-border-radius: 5;" +
                 "-fx-border-width: 2;" +
                 "-fx-border-insets: -1;" +
@@ -85,35 +79,7 @@ public class SignUpController {
         );
 
 
-        passwordField.setStyle(String.format(
-                "-fx-border-radius: 5;" +
-                "-fx-border-width: 2;" +
-                "-fx-border-insets: -1;" +
-                "-fx-background-radius: 5;" +
-                "-fx-background-color: %s;" +
-                "-fx-border-color: %s;" +
-                "-fx-text-inner-color: %s;",
-                ColorPalettes.palette[3],
-                ColorPalettes.palette[6],
-                ColorPalettes.palette[7])
-        );
-
-
-        mailField.setStyle(String.format(
-                "-fx-border-radius: 5;" +
-                "-fx-border-width: 2;" +
-                "-fx-border-insets: -1;" +
-                "-fx-background-radius: 5;" +
-                "-fx-background-color: %s;" +
-                "-fx-border-color: %s;" +
-                "-fx-text-inner-color: %s;",
-                ColorPalettes.palette[3],
-                ColorPalettes.palette[6],
-                ColorPalettes.palette[7])
-        );
-
-
-        signUpButton.setStyle(String.format(
+        sendConfirmationCodeButton.setStyle(String.format(
                 "-fx-background-color: %s;" +
                 "-fx-text-fill: %s;",
                 ColorPalettes.palette[2],
@@ -123,10 +89,35 @@ public class SignUpController {
 
         backButton.setStyle(String.format(
                 "-fx-background-color: %s;" +
-                "-fx-text-fill: %s;",
+                        "-fx-text-fill: %s;",
                 ColorPalettes.palette[2],
                 ColorPalettes.palette[5])
         );
+
+
+        sendConfirmationCodeButton.setOnAction(event ->{
+
+            if (secretCodeField.getText() != null && !secretCodeField.getText().trim().isEmpty()){
+
+                Stage stage = (Stage) secretCodeField.getScene().getWindow();
+                stage.close();
+
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("Sign_in.fxml"));
+
+                try {
+                    loader.load();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
+                Parent root = loader.getRoot();
+                stage.setScene(new Scene(root));
+                stage.setTitle("Shahid Chat №1");
+                stage.setResizable(false);
+                stage.show();
+            }
+        });
 
 
         backButton.setOnAction(event ->{
@@ -148,33 +139,6 @@ public class SignUpController {
             stage.setResizable(false);
             stage.show();
         });
-
-
-        signUpButton.setOnAction(event ->{
-
-            if (loginField.getText() != null && !loginField.getText().trim().isEmpty() &&
-                passwordField.getText() != null && !passwordField.getText().trim().isEmpty() &&
-                mailField.getText() != null && !mailField.getText().trim().isEmpty()) {
-
-                Stage stage = (Stage) signUpButton.getScene().getWindow();
-                stage.close();
-
-
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("E-mail_confirmation.fxml"));
-
-                try {
-                    loader.load();
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-
-                Parent root = loader.getRoot();
-                stage.setScene(new Scene(root));
-                stage.setTitle("Shahid Chat №1");
-                stage.setResizable(false);
-                stage.show();
-            }
-        });
     }
 }
+
