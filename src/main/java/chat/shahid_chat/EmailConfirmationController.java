@@ -54,7 +54,7 @@ public class EmailConfirmationController {
 
         sideBackground.setStyle(String.format(
                 "-fx-background-radius: 15;" +
-                        "-fx-background-color: %s;",
+                "-fx-background-color: %s;",
                 ColorPalettes.palette[1])
         );
 
@@ -89,7 +89,7 @@ public class EmailConfirmationController {
 
         backButton.setStyle(String.format(
                 "-fx-background-color: %s;" +
-                        "-fx-text-fill: %s;",
+                "-fx-text-fill: %s;",
                 ColorPalettes.palette[2],
                 ColorPalettes.palette[5])
         );
