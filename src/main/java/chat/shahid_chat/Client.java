@@ -1,5 +1,6 @@
 package chat.shahid_chat;
 
+import javafx.scene.layout.VBox;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
@@ -10,7 +11,6 @@ import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 import java.security.*;
 import java.util.Base64;
-import java.util.Scanner;
 
 public class Client {
 
@@ -19,18 +19,13 @@ public class Client {
     private BufferedWriter bufferedWriter;
     private ObjectOutputStream objectOutputStream;
     private ObjectInputStream objectInputStream;
-    private String username;
-    private String password;
-    private String email;
     private PublicKey clientPublicKey;
     private PrivateKey clientPrivateKey;
     private PublicKey serverPublicKey;
 
-    public Client(Socket socket, String username, String email, String password) {
+
+    public Client(Socket socket) {
         this.socket = socket;
-        this.username = username;
-        this.email = email;
-        this.password = password;
 
         try {
             this.bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -46,11 +41,10 @@ public class Client {
             closeEverything();
         }
 
-
         try {
             // создание публичного и приватного ключей клиента
             KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
-            keyPairGenerator.initialize(2048);
+            keyPairGenerator.initialize(4096);
 
             KeyPair keyPair = keyPairGenerator.generateKeyPair();
 
@@ -60,10 +54,6 @@ public class Client {
         } catch (NoSuchAlgorithmException e) {
             System.out.println("Ошибка создания ключей клиента!");
         }
-
-    }
-
-    public void startClient() {
 
         try {
             // отправка публичного ключа клиента
@@ -76,68 +66,44 @@ public class Client {
         } catch (Exception e) {
             System.out.println("Ошибка обмена ключами: "+ e);
         }
-
-        try {
-            bufferedWriter.write(encryptMessage(username));
-            bufferedWriter.newLine();
-            bufferedWriter.flush();
-
-            bufferedWriter.write(encryptMessage(email));
-            bufferedWriter.newLine();
-            bufferedWriter.flush();
-        } catch (IOException e) {
-            System.out.println("Ошибка отправки имени!");
-        }
-
-
-        listenForMessage();
-        sendMessage();
     }
 
-    public void sendMessage() {
 
+    public void sendMessage(String messageToSend) {
         try {
 
-            Scanner scanner = new Scanner(System.in);
-            while (socket.isConnected()) {
-
-                String messageToSend = scanner.nextLine();
-
-                bufferedWriter.write(encryptMessage(messageToSend));
-                bufferedWriter.newLine();
-                bufferedWriter.flush();
-
-            }
+            bufferedWriter.write(encryptMessage(messageToSend));
+            bufferedWriter.newLine();
+            bufferedWriter.flush();
 
         } catch (IOException e) {
             closeEverything();
             System.out.println("Ошибка отправки сообщения");
         }
-
     }
 
-    public void listenForMessage() {
-        // создание и запуск нового потока для получения сообщений
+
+    public void receiveMessage(VBox vBox) {
         new Thread(new Runnable() { // реализация анонимного класса
             @Override
             public void run() {
 
-                String messageFromChat;
+                String messageFromServer;
 
                 while (socket.isConnected()) {
                     try {
 
-                        messageFromChat = bufferedReader.readLine();
-                        System.out.println(decryptMessage(messageFromChat));
+                        messageFromServer = decryptMessage(bufferedReader.readLine());
+                        ChatController.displayMessage(messageFromServer, vBox);
 
                     } catch (IOException e) {
                         closeEverything();
                     }
                 }
-
             }
         }).start();
     }
+
 
     private String encryptMessage(String messageToEncrypt) {
         if (serverPublicKey == null)
@@ -157,6 +123,7 @@ public class Client {
         }
     }
 
+
     private String decryptMessage(String messageToDecrypt) {
         byte[] messageToDecryptBytes = Base64.getDecoder().decode(messageToDecrypt);
 
@@ -172,6 +139,7 @@ public class Client {
             throw new RuntimeException(e);
         }
     }
+
 
     public void closeEverything() {
 
@@ -196,31 +164,5 @@ public class Client {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-    }
-
-    public static void main(String[] args) throws IOException {
-
-//        Scanner scanner = new Scanner(System.in);
-//        String username = null;
-//        String email = null;
-//        boolean flag = true;
-//
-//        while (flag) {
-//            System.out.println("Введите свой ник для чата: ");
-//            username = scanner.nextLine();
-//
-//            System.out.println("Введите email: ");
-//            email = scanner.nextLine();
-//
-//            if (username != null && !username.equals("")) {
-//                flag = false;
-//            }
-//        }
-//
-//
-//        Socket socket = new Socket("localhost", 9090);
-//        Client client = new Client(socket, username, email);
-//        client.startClient();
     }
 }
