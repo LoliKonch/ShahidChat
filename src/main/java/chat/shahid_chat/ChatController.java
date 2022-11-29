@@ -1,23 +1,31 @@
 package chat.shahid_chat;
 
 import java.io.IOException;
+import java.net.Socket;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.animation.TranslateTransition;
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Paint;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -36,19 +44,19 @@ public class ChatController implements Initializable {
     private Button exitButton;
 
     @FXML
-    private Button sendMassageButton;
+    private Button sendMessageButton;
 
     @FXML
     private Button sendFileButton;
 
     @FXML
-    private TextField massageField;
+    private TextField messageField;
 
     @FXML
     private ScrollPane scrollPane;
 
     @FXML
-    private VBox vBoxWithMassages;
+    private VBox vBoxWithMessages;
 
     @FXML
     private VBox vBoxMenu;
@@ -89,9 +97,57 @@ public class ChatController implements Initializable {
     @FXML
     private Button applyThemeButton;
 
+    private Client client;
+
+    public static void displayMessage(String inMessage, VBox vBox) {
+        HBox hBox = new HBox();
+        hBox.setAlignment(Pos.CENTER_LEFT);
+        hBox.setPadding(new Insets(5, 10, 5, 5));
+
+
+        Text text = new Text(inMessage);
+        TextFlow textFlow = new TextFlow(text);
+        textFlow.setStyle(String.format(
+                "-fx-color: %s;" +
+                "-fx-background-color: %s;" +
+                "-fx-background-radius: 20",
+                ColorPalettes.palette[25],
+                ColorPalettes.palette[24])
+        );
+        textFlow.setPadding(new Insets(5, 10, 5, 10));
+
+
+        hBox.getChildren().add(textFlow);
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                vBox.getChildren().add(hBox);
+            }
+        });
+    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
+        try {
+            client = new Client(new Socket("localhost", 9090));
+        } catch (IOException e ) {
+
+        }
+
+
+        vBoxWithMessages.heightProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observableValue, Number oldValue, Number newValue) {
+                scrollPane.setVvalue((Double) newValue);
+            }
+        });
+
+
+        client.receiveMessage(vBoxWithMessages);
+
 
         mainBackground.setStyle(String.format(
                 "-fx-background-color: %s;",
@@ -107,7 +163,7 @@ public class ChatController implements Initializable {
         );
 
 
-        vBoxWithMassages.setStyle(String.format(
+        vBoxWithMessages.setStyle(String.format(
                 "-fx-background-color: %s;",
                 ColorPalettes.palette[11])
         );
@@ -140,7 +196,7 @@ public class ChatController implements Initializable {
         });
 
 
-        massageField.setStyle(String.format(
+        messageField.setStyle(String.format(
                 "-fx-border-radius: 5;" +
                 "-fx-border-width: 2;" +
                 "-fx-border-insets: -1;" +
@@ -154,7 +210,7 @@ public class ChatController implements Initializable {
         );
 
 
-        sendMassageButton.setStyle(String.format(
+        sendMessageButton.setStyle(String.format(
                 "-fx-background-color: %s;" +
                 "-fx-text-fill: %s;",
                 ColorPalettes.palette[17],
@@ -265,7 +321,6 @@ public class ChatController implements Initializable {
         radioButton10.setOnMouseEntered(evt -> radioButton10.getScene().setCursor(Cursor.HAND));
         radioButton10.setOnMouseExited(evt -> radioButton10.getScene().setCursor(Cursor.DEFAULT));
 
-
         ToggleGroup rbGroupPalettes = new ToggleGroup();
 
         radioButton1.setToggleGroup(rbGroupPalettes);
@@ -280,9 +335,38 @@ public class ChatController implements Initializable {
         radioButton10.setToggleGroup(rbGroupPalettes);
 
 
+        sendMessageButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                String outMessage = messageField.getText();
 
 
+                if (!outMessage.isEmpty()) {
+                    HBox hBox = new HBox();
+                    hBox.setAlignment(Pos.CENTER_RIGHT);
+                    hBox.setPadding(new Insets(5, 5, 5, 10));
 
+
+                    Text text = new Text(outMessage);
+                    TextFlow textFlow = new TextFlow(text);
+                    textFlow.setStyle(String.format(
+                            "-fx-color: %s;" +
+                            "-fx-background-color: %s;" +
+                            "-fx-background-radius: 20",
+                            ColorPalettes.palette[25],
+                            ColorPalettes.palette[23])
+                    );
+                    textFlow.setPadding(new Insets(5, 10, 5, 10));
+
+
+                    hBox.getChildren().add(textFlow);
+                    vBoxWithMessages.getChildren().add(hBox);
+
+                    client.sendMessage(outMessage);
+                    messageField.clear();
+                }
+            }
+        });
 
 
         applyThemeButton.setOnAction(event -> {
@@ -306,10 +390,11 @@ public class ChatController implements Initializable {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("Chat.fxml"));
 
+
             try {
                 loader.load();
             } catch (IOException e) {
-                throw new RuntimeException(e);
+
             }
 
             Parent root = loader.getRoot();
@@ -339,6 +424,7 @@ public class ChatController implements Initializable {
             stage.setResizable(false);
             stage.show();
         });
+
 
     }
 }

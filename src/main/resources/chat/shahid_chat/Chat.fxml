@@ -11,14 +11,14 @@
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="chat.shahid_chat.ChatController">
    <children>
-      <TextField fx:id="massageField"
+      <TextField fx:id="messageField"
                  layoutX="50.0"
                  layoutY="350.0"
                  prefHeight="30.0"
                  prefWidth="360.0"
       />
 
-      <Button fx:id="sendMassageButton"
+      <Button fx:id="sendMessageButton"
               layoutX="420.0"
               layoutY="350.0"
               mnemonicParsing="false"
@@ -44,7 +44,7 @@
                   prefWidth="500.0"
       >
          <content>
-            <VBox fx:id="vBoxWithMassages"
+            <VBox fx:id="vBoxWithMessages"
                   prefHeight="230.0"
                   prefWidth="480.0"
             />
