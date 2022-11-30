@@ -2,37 +2,31 @@ package chat.shahid_chat;
 
 import javafx.scene.layout.VBox;
 
-import javax.crypto.BadPaddingException;
-import javax.crypto.Cipher;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
 import java.io.*;
 import java.net.Socket;
-import java.nio.charset.StandardCharsets;
-import java.security.*;
-import java.util.Base64;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Scanner;
 
 public class Client {
 
     private Socket socket;
-    private BufferedReader bufferedReader;
-    private BufferedWriter bufferedWriter;
     private ObjectOutputStream objectOutputStream;
     private ObjectInputStream objectInputStream;
-    private PublicKey clientPublicKey;
-    private PrivateKey clientPrivateKey;
-    private PublicKey serverPublicKey;
-
+    private PGP pgp;
+    private static String username = "username";
+    private static String email;
+    private String clientPublicKey;
+    private String clientPrivateKey;
+    private String serverPublicKey;
 
     public Client(Socket socket) {
         this.socket = socket;
 
-        try {
-            this.bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            this.bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-        } catch (IOException e) {
-            closeEverything();
-        }
+        // создание сриптографера pgp и сохранение ключей в файл и в переменные
+        pgp = new PGP(username);
+        clientPublicKey = getStringFromFile(pgp.getPublicKeyFilepath(username));
+        clientPrivateKey = getStringFromFile(pgp.getPrivateKeyFilepath(username));
 
         try {
             objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
@@ -42,46 +36,33 @@ public class Client {
         }
 
         try {
-            // создание публичного и приватного ключей клиента
-            KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
-            keyPairGenerator.initialize(4096);
-
-            KeyPair keyPair = keyPairGenerator.generateKeyPair();
-
-            clientPrivateKey = keyPair.getPrivate();
-            clientPublicKey = keyPair.getPublic();
-
-        } catch (NoSuchAlgorithmException e) {
-            System.out.println("Ошибка создания ключей клиента!");
-        }
-
-        try {
             // отправка публичного ключа клиента
             objectOutputStream.writeObject(clientPublicKey);
             objectOutputStream.flush();
 
             // получение публичного ключа сервера
-            serverPublicKey = (PublicKey) objectInputStream.readObject();
+            serverPublicKey = (String) objectInputStream.readObject();
+            writeStringToFile(serverPublicKey, "server");
 
         } catch (Exception e) {
-            System.out.println("Ошибка обмена ключами: "+ e);
+            System.err.println("Ошибка обмена ключами: "+ e);
         }
+
     }
 
-
     public void sendMessage(String messageToSend) {
+
         try {
 
-            bufferedWriter.write(encryptMessage(messageToSend));
-            bufferedWriter.newLine();
-            bufferedWriter.flush();
+            objectOutputStream.writeObject(pgp.encryptString(messageToSend, "server"));
+            objectOutputStream.flush();
 
         } catch (IOException e) {
             closeEverything();
-            System.out.println("Ошибка отправки сообщения");
+            System.err.println("Ошибка отправки сообщения");
         }
-    }
 
+    }
 
     public void receiveMessage(VBox vBox) {
         new Thread(new Runnable() { // реализация анонимного класса
@@ -93,64 +74,51 @@ public class Client {
                 while (socket.isConnected()) {
                     try {
 
-                        messageFromServer = decryptMessage(bufferedReader.readLine());
+                        messageFromServer = pgp.decryptString((String) objectInputStream.readObject(), username);
+                        System.out.println(messageFromServer); // тестирование
                         ChatController.displayMessage(messageFromServer, vBox);
 
-                    } catch (IOException e) {
+                    } catch (IOException | ClassNotFoundException e) {
                         closeEverything();
                     }
                 }
+
             }
         }).start();
     }
 
-
-    private String encryptMessage(String messageToEncrypt) {
-        if (serverPublicKey == null)
-            throw new RuntimeException("Неизвестный ключ сервера!");
-
+    private String getStringFromFile(String path) {
         try {
-            Cipher cipher = Cipher.getInstance("RSA");
-            cipher.init(Cipher.ENCRYPT_MODE, serverPublicKey);
+            return new String(Files.readAllBytes(Paths.get(path)));
+        } catch (IOException e) {
+            System.err.println("Ошибка чтения файла: " + e);
+        }
+        return null;
+    }
 
-            byte[] messageToEncryptBytes = messageToEncrypt.getBytes(StandardCharsets.UTF_8);
-            byte[] encryptedMessage = cipher.doFinal(messageToEncryptBytes);
-
-            return Base64.getEncoder().encodeToString(encryptedMessage);
-        } catch (NoSuchPaddingException | IllegalBlockSizeException | NoSuchAlgorithmException | BadPaddingException |
-                 InvalidKeyException e) {
-            throw new RuntimeException(e);
+    private void writeStringToFile(String str, String username) {
+        try {
+            String path = "src/main/java/chat/shahid_chat/res/PublicKey_" + username + ".pgp";
+            BufferedWriter writer = new BufferedWriter(new FileWriter(path));
+            writer.write(str);
+            writer.flush();
+            writer.close();
+        } catch (IOException e) {
+            System.err.println("Ошибка записи ключа в файл: " + e);
         }
     }
 
-
-    private String decryptMessage(String messageToDecrypt) {
-        byte[] messageToDecryptBytes = Base64.getDecoder().decode(messageToDecrypt);
-
-        try {
-            Cipher cipher = Cipher.getInstance("RSA");
-            cipher.init(Cipher.DECRYPT_MODE, clientPrivateKey);
-
-            byte[] decryptedMessage = cipher.doFinal(messageToDecryptBytes);
-
-            return new String(decryptedMessage, StandardCharsets.UTF_8);
-        } catch (NoSuchPaddingException | IllegalBlockSizeException | NoSuchAlgorithmException | BadPaddingException |
-                 InvalidKeyException e) {
-            throw new RuntimeException(e);
-        }
+    public static void setUsername(String newUsername) {
+        username = newUsername;
     }
 
+    public static void setEmail(String newEmail) {
+        email = newEmail;
+    }
 
     public void closeEverything() {
 
         try {
-
-            if (bufferedReader != null) {
-                bufferedReader.close();
-            }
-            if (bufferedWriter != null) {
-                bufferedWriter.close();
-            }
             if (objectInputStream != null) {
                 objectInputStream.close();
             }
@@ -164,5 +132,7 @@ public class Client {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
+
 }
