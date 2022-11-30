@@ -130,14 +130,6 @@ public class ChatController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-
-        try {
-            client = new Client(new Socket("192.168.115.140", 9090));
-        } catch (IOException e ) {
-
-        }
-
-
         vBoxWithMessages.heightProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observableValue, Number oldValue, Number newValue) {
@@ -146,7 +138,7 @@ public class ChatController implements Initializable {
         });
 
 
-        client.receiveMessage(vBoxWithMessages);
+        Client.receiveMessage(vBoxWithMessages); // сделать перезапуск приложения при смене темы
 
 
         mainBackground.setStyle(String.format(
@@ -361,7 +353,7 @@ public class ChatController implements Initializable {
                     hBox.getChildren().add(textFlow);
                     vBoxWithMessages.getChildren().add(hBox);
 
-                    client.sendMessage(outMessage);
+                    Client.sendMessage(outMessage);
                     messageField.clear();
                 }
             }

@@ -6,27 +6,29 @@ import java.io.*;
 import java.net.Socket;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Scanner;
 
 public class Client {
 
-    private Socket socket;
-    private ObjectOutputStream objectOutputStream;
-    private ObjectInputStream objectInputStream;
-    private PGP pgp;
-    private static String username = "username";
+    private static Socket socket;
+    private static ObjectOutputStream objectOutputStream;
+    private static ObjectInputStream objectInputStream;
+    private static PGP pgp;
+    private static String serverName;
+    private static String username;
+    private static String password;
     private static String email;
-    private String clientPublicKey;
-    private String clientPrivateKey;
-    private String serverPublicKey;
+    private static String clientPublicKey;
+    private static String clientPrivateKey;
+    private static String serverPublicKey;
 
-    public Client(Socket socket) {
-        this.socket = socket;
+    public static void startClient(Socket sock) {
+        socket = sock;
 
-        // создание сриптографера pgp и сохранение ключей в файл и в переменные
+        // создание криптографера pgp и сохранение ключей в файл и в переменные
         pgp = new PGP(username);
         clientPublicKey = getStringFromFile(pgp.getPublicKeyFilepath(username));
         clientPrivateKey = getStringFromFile(pgp.getPrivateKeyFilepath(username));
+        serverName = pgp.generateSecretCode(15);
 
         try {
             objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
@@ -42,7 +44,7 @@ public class Client {
 
             // получение публичного ключа сервера
             serverPublicKey = (String) objectInputStream.readObject();
-            writeStringToFile(serverPublicKey, "server");
+            writeStringToFile(serverPublicKey, serverName);
 
         } catch (Exception e) {
             System.err.println("Ошибка обмена ключами: "+ e);
@@ -50,11 +52,11 @@ public class Client {
 
     }
 
-    public void sendMessage(String messageToSend) {
+    public static void sendMessage(String messageToSend) {
 
         try {
 
-            objectOutputStream.writeObject(pgp.encryptString(messageToSend, "server"));
+            objectOutputStream.writeObject(pgp.encryptString(messageToSend, serverName));
             objectOutputStream.flush();
 
         } catch (IOException e) {
@@ -64,7 +66,7 @@ public class Client {
 
     }
 
-    public void receiveMessage(VBox vBox) {
+    public static void receiveMessage(VBox vBox) {
         new Thread(new Runnable() { // реализация анонимного класса
             @Override
             public void run() {
@@ -75,7 +77,6 @@ public class Client {
                     try {
 
                         messageFromServer = pgp.decryptString((String) objectInputStream.readObject(), username);
-                        System.out.println(messageFromServer); // тестирование
                         ChatController.displayMessage(messageFromServer, vBox);
 
                     } catch (IOException | ClassNotFoundException e) {
@@ -87,7 +88,7 @@ public class Client {
         }).start();
     }
 
-    private String getStringFromFile(String path) {
+    private static String getStringFromFile(String path) {
         try {
             return new String(Files.readAllBytes(Paths.get(path)));
         } catch (IOException e) {
@@ -96,7 +97,7 @@ public class Client {
         return null;
     }
 
-    private void writeStringToFile(String str, String username) {
+    private static void writeStringToFile(String str, String username) {
         try {
             String path = "src/main/java/chat/shahid_chat/res/PublicKey_" + username + ".pgp";
             BufferedWriter writer = new BufferedWriter(new FileWriter(path));
@@ -112,11 +113,27 @@ public class Client {
         username = newUsername;
     }
 
+    public static String getUsername() {
+        return username;
+    }
+
+    public static void setPassword(String newPassword) {
+        password = newPassword;
+    }
+
+    public static String getPassword() {
+        return password;
+    }
+
     public static void setEmail(String newEmail) {
         email = newEmail;
     }
 
-    public void closeEverything() {
+    public static String getClientPublicKey() {
+        return email;
+    }
+
+    public static void closeEverything() {
 
         try {
             if (objectInputStream != null) {

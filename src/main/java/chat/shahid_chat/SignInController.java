@@ -2,6 +2,7 @@ package chat.shahid_chat;
 
 
 import java.io.IOException;
+import java.net.Socket;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -166,6 +167,19 @@ public class SignInController {
 
             if (loginField.getText() != null && !loginField.getText().trim().isEmpty() &&
                     passwordField.getText() != null && !passwordField.getText().trim().isEmpty()) {
+
+                Client.setUsername(loginField.getText());
+                Client.setPassword(passwordField.getText());
+
+                try {
+                    Client.startClient(new Socket("localhost", 9090));
+                } catch (IOException e) {
+                    System.err.println("Ошибка создания сокета: "+ e);
+                }
+
+                Client.sendMessage(Client.getUsername());
+                Client.sendMessage(Client.getPassword());
+
 
                 Stage stage = (Stage) signInButton.getScene().getWindow();
                 stage.close();
