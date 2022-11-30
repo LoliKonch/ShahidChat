@@ -24,6 +24,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
@@ -106,12 +107,11 @@ public class ChatController implements Initializable {
 
 
         Text text = new Text(inMessage);
+        text.setFill(Paint.valueOf(ColorPalettes.palette[29]));
         TextFlow textFlow = new TextFlow(text);
         textFlow.setStyle(String.format(
-                "-fx-color: %s;" +
                 "-fx-background-color: %s;" +
                 "-fx-background-radius: 20",
-                ColorPalettes.palette[25],
                 ColorPalettes.palette[24])
         );
         textFlow.setPadding(new Insets(5, 10, 5, 10));
@@ -132,7 +132,7 @@ public class ChatController implements Initializable {
 
 
         try {
-            client = new Client(new Socket("localhost", 9090));
+            client = new Client(new Socket("192.168.115.140", 9090));
         } catch (IOException e ) {
 
         }
@@ -348,12 +348,11 @@ public class ChatController implements Initializable {
 
 
                     Text text = new Text(outMessage);
+                    text.setFill(Paint.valueOf(ColorPalettes.palette[25]));
                     TextFlow textFlow = new TextFlow(text);
                     textFlow.setStyle(String.format(
-                            "-fx-color: %s;" +
                             "-fx-background-color: %s;" +
-                            "-fx-background-radius: 20",
-                            ColorPalettes.palette[25],
+                            "-fx-background-radius: 20;",
                             ColorPalettes.palette[23])
                     );
                     textFlow.setPadding(new Insets(5, 10, 5, 10));

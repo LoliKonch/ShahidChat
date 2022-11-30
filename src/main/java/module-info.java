@@ -8,6 +8,7 @@ module chat.shahid_chat {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires com.almasb.fxgl.all;
+    requires pgplib;
 
     opens chat.shahid_chat to javafx.fxml;
     exports chat.shahid_chat;
