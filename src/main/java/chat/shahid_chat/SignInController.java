@@ -5,6 +5,10 @@ import java.io.IOException;
 import java.net.Socket;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,7 +16,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class SignInController {
 
@@ -45,6 +51,8 @@ public class SignInController {
 
     @FXML
     private Label title;
+
+    private ExceptionBox exceptionBox;
 
     @FXML
     void initialize() {
@@ -165,14 +173,15 @@ public class SignInController {
 
         signInButton.setOnAction(event ->{
 
+
             if (loginField.getText() != null && !loginField.getText().trim().isEmpty() &&
-                    passwordField.getText() != null && !passwordField.getText().trim().isEmpty()) {
+                passwordField.getText() != null && !passwordField.getText().trim().isEmpty()) {
 
                 Client.setUsername(loginField.getText());
                 Client.setPassword(passwordField.getText());
 
                 try {
-                    Client.startClient(new Socket("localhost", 9090));
+                    Client.startClient(new Socket("192.168.115.140", 9090));
                 } catch (IOException e) {
                     System.err.println("Ошибка создания сокета: "+ e);
                 }
@@ -181,23 +190,29 @@ public class SignInController {
                 Client.sendMessage(Client.getPassword());
 
 
-                Stage stage = (Stage) signInButton.getScene().getWindow();
-                stage.close();
+                if(true){//ZAgotovOCHKA
+                    Stage stage = (Stage) signInButton.getScene().getWindow();
+                    stage.close();
 
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("Chat.fxml"));
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("Chat.fxml"));
 
-                try {
-                    loader.load();
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
+                    try {
+                        loader.load();
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+
+                    Parent root = loader.getRoot();
+                    stage.setScene(new Scene(root));
+                    stage.setTitle("Shahid Chat №1");
+                    stage.setResizable(false);
+                    stage.show();
+                } else {
+                    exceptionBox = new ExceptionBox(sideBackground, "         Incorrect login or password");
                 }
-
-                Parent root = loader.getRoot();
-                stage.setScene(new Scene(root));
-                stage.setTitle("Shahid Chat №1");
-                stage.setResizable(false);
-                stage.show();
+            } else {
+                exceptionBox = new ExceptionBox(sideBackground, "          All fields must be filled in");
             }
         });
     }
