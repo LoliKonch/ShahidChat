@@ -11,6 +11,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Shahid_Chat" target="18" />
+      <module name="ShahidChat" target="18" />
     </bytecodeTargetLevel>
   </component>
 </project>
