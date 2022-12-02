@@ -5,10 +5,6 @@ import java.io.IOException;
 import java.net.Socket;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.Timer;
-import java.util.TimerTask;
-
-import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,9 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 public class SignInController {
 
@@ -130,12 +124,12 @@ public class SignInController {
         registrationButton.setOnAction(event ->{
             Stage lastStage = (Stage) forgotPassword.getScene().getWindow();
             try {
-                Stage newStage = new Stage();
 
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource("Sign_up.fxml"));
                 loader.load();
 
+                Stage newStage = new Stage();
                 Parent root = loader.getRoot();
                 newStage.setScene(new Scene(root));
                 newStage.setTitle("Shahid Chat №1");
@@ -152,12 +146,12 @@ public class SignInController {
         forgotPassword.setOnAction(event ->{
             Stage lastStage = (Stage) forgotPassword.getScene().getWindow();
             try {
-                Stage newStage = new Stage();
 
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource("Forgot_your_password.fxml"));
                 loader.load();
 
+                Stage newStage = new Stage();
                 Parent root = loader.getRoot();
                 newStage.setScene(new Scene(root));
                 newStage.setTitle("Shahid Chat №1");
@@ -200,12 +194,12 @@ public class SignInController {
 
                     Stage lastStage = (Stage) forgotPassword.getScene().getWindow();
                     try {
-                        Stage newStage = new Stage();
 
                         FXMLLoader loader = new FXMLLoader();
                         loader.setLocation(getClass().getResource("Chat.fxml"));
                         loader.load();
 
+                        Stage newStage = new Stage();
                         Parent root = loader.getRoot();
                         newStage.setScene(new Scene(root));
                         newStage.setTitle("Shahid Chat №1");

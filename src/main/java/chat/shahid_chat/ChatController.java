@@ -1,7 +1,6 @@
 package chat.shahid_chat;
 
 import java.io.IOException;
-import java.net.Socket;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -138,7 +137,7 @@ public class ChatController implements Initializable {
         });
 
 
-        Client.receiveMessage(vBoxWithMessages); // сделать перезапуск приложения при смене темы
+        Client.receiveMessage(vBoxWithMessages);
 
 
         mainBackground.setStyle(String.format(
@@ -365,8 +364,7 @@ public class ChatController implements Initializable {
 
 
         applyThemeButton.setOnAction(event -> {
-            Stage stage = (Stage) exitButton.getScene().getWindow();
-            stage.close();
+            Stage lastStage = (Stage) exitButton.getScene().getWindow();
 
             RadioButton selection = (RadioButton) rbGroupPalettes.getSelectedToggle();
             switch (selection.getId()) {
@@ -382,42 +380,46 @@ public class ChatController implements Initializable {
                 case "radioButton10" -> ColorPalettes.palette = ColorPalettes.RAINBOW;
             }
 
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("Chat.fxml"));
-
 
             try {
+
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("Sign_in.fxml"));
                 loader.load();
+
+                Stage newStage = new Stage();
+                Parent root = loader.getRoot();
+                newStage.setScene(new Scene(root));
+                newStage.setTitle("Shahid Chat №1");
+                newStage.setResizable(false);
+                newStage.show();
+
+                lastStage.close();
             } catch (IOException e) {
-
+                ExceptionBox.createExceptionBox(vBoxWithMessages, "Can not find required system file");
             }
-
-            Parent root = loader.getRoot();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Shahid Chat №1");
-            stage.setResizable(false);
-            stage.show();
         });
 
 
         exitButton.setOnAction(event ->{
-            Stage stage = (Stage) exitButton.getScene().getWindow();
-            stage.close();
-
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("Sign_in.fxml"));
-
+            Stage lastStage = (Stage) exitButton.getScene().getWindow();
             try {
-                loader.load();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
 
-            Parent root = loader.getRoot();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Shahid Chat №1");
-            stage.setResizable(false);
-            stage.show();
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("Forgot_your_password.fxml"));
+                loader.load();
+
+                Stage newStage = new Stage();
+                Parent root = loader.getRoot();
+                newStage.setScene(new Scene(root));
+                newStage.setTitle("Shahid Chat №1");
+                newStage.setResizable(false);
+                newStage.show();
+
+                lastStage.close();
+            } catch (IOException e) {
+                ExceptionBox.createExceptionBox(vBoxWithMessages, "Can not find required system file");
+            }
         });
     }
 }

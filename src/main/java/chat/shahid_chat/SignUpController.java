@@ -13,7 +13,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
 public class SignUpController {
@@ -130,23 +129,24 @@ public class SignUpController {
 
 
         backButton.setOnAction(event ->{
-            Stage stage = (Stage) backButton.getScene().getWindow();
-            stage.close();
-
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("Sign_in.fxml"));
-
+            Stage lastStage = (Stage) backButton.getScene().getWindow();
             try {
-                loader.load();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
 
-            Parent root = loader.getRoot();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Shahid Chat №1");
-            stage.setResizable(false);
-            stage.show();
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("Sign_in.fxml"));
+                loader.load();
+
+                Stage newStage = new Stage();
+                Parent root = loader.getRoot();
+                newStage.setScene(new Scene(root));
+                newStage.setTitle("Shahid Chat №1");
+                newStage.setResizable(false);
+                newStage.show();
+
+                lastStage.close();
+            } catch (IOException e) {
+                ExceptionBox.createExceptionBox(sideBackground, "Can not find required system file");
+            }
         });
 
 
@@ -156,24 +156,24 @@ public class SignUpController {
                 passwordField.getText() != null && !passwordField.getText().trim().isEmpty() &&
                 mailField.getText() != null && !mailField.getText().trim().isEmpty()) {
 
-                Stage stage = (Stage) signUpButton.getScene().getWindow();
-                stage.close();
-
-
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("E-mail_confirmation.fxml"));
-
+                Stage lastStage = (Stage) signUpButton.getScene().getWindow();
                 try {
-                    loader.load();
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
 
-                Parent root = loader.getRoot();
-                stage.setScene(new Scene(root));
-                stage.setTitle("Shahid Chat №1");
-                stage.setResizable(false);
-                stage.show();
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("Sign_in.fxml"));
+                    loader.load();
+
+                    Stage newStage = new Stage();
+                    Parent root = loader.getRoot();
+                    newStage.setScene(new Scene(root));
+                    newStage.setTitle("Shahid Chat №1");
+                    newStage.setResizable(false);
+                    newStage.show();
+
+                    lastStage.close();
+                } catch (IOException e) {
+                    ExceptionBox.createExceptionBox(sideBackground, "Can not find required system file");
+                }
             }
         });
     }
