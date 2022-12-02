@@ -128,30 +128,31 @@ public class SignInController {
 
 
         registrationButton.setOnAction(event ->{
-            Stage stage = (Stage) registrationButton.getScene().getWindow();
-            stage.close();
-
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("Sign_up.fxml"));
-
+            Stage lastStage = (Stage) forgotPassword.getScene().getWindow();
             try {
-                loader.load();
-            } catch (IOException e) {
-                ExceptionBox.createExceptionBox(sideBackground, "");
-            }
+                Stage newStage = new Stage();
 
-            Parent root = loader.getRoot();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Shahid Chat №1");
-            stage.setResizable(false);
-            stage.show();
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("Sign_up.fxml"));
+                loader.load();
+
+                Parent root = loader.getRoot();
+                newStage.setScene(new Scene(root));
+                newStage.setTitle("Shahid Chat №1");
+                newStage.setResizable(false);
+                newStage.show();
+
+                lastStage.close();
+            } catch (IOException e) {
+                ExceptionBox.createExceptionBox(sideBackground, "Can not find required system file");
+            }
         });
 
 
         forgotPassword.setOnAction(event ->{
             Stage lastStage = (Stage) forgotPassword.getScene().getWindow();
             try {
-                Stage newStage = (Stage) forgotPassword.getScene().getWindow();
+                Stage newStage = new Stage();
 
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource("Forgot_your_password.fxml"));
@@ -165,15 +166,12 @@ public class SignInController {
 
                 lastStage.close();
             } catch (IOException e) {
-                ExceptionBox.createExceptionBox(sideBackground, "");
+                ExceptionBox.createExceptionBox(sideBackground, "Can not find required system file");
             }
-
-
         });
 
 
         signInButton.setOnAction(event ->{
-
 
             if (loginField.getText() != null && !loginField.getText().trim().isEmpty() &&
                 passwordField.getText() != null && !passwordField.getText().trim().isEmpty()) {
@@ -184,31 +182,40 @@ public class SignInController {
                 try {
                     Client.startClient(new Socket("192.168.115.140", 9090));
                 } catch (IOException e) {
-                    ExceptionBox.createExceptionBox(sideBackground, "");
+                    ExceptionBox.createExceptionBox(sideBackground, "Unable to connect to server\nPlease try again later");
                 }
 
-                Client.sendMessage(Client.getUsername());
-                Client.sendMessage(Client.getPassword());
+                try {
+                    Client.sendMessage(Client.getUsername());
+                    Client.sendMessage(Client.getPassword());
+                } catch (IOException e) {
+                    ExceptionBox.createExceptionBox(sideBackground, "Unable to connect to server");
+                    Client.closeEverything();
+                }
 
 
-                if(true){//ZAgotovOCHKA
-                    Stage stage = (Stage) signInButton.getScene().getWindow();
-                    stage.close();
 
-                    FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("Chat.fxml"));
 
+                if(false){//ZAgotovOCHKA
+
+                    Stage lastStage = (Stage) forgotPassword.getScene().getWindow();
                     try {
-                        loader.load();
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
+                        Stage newStage = new Stage();
 
-                    Parent root = loader.getRoot();
-                    stage.setScene(new Scene(root));
-                    stage.setTitle("Shahid Chat №1");
-                    stage.setResizable(false);
-                    stage.show();
+                        FXMLLoader loader = new FXMLLoader();
+                        loader.setLocation(getClass().getResource("Chat.fxml"));
+                        loader.load();
+
+                        Parent root = loader.getRoot();
+                        newStage.setScene(new Scene(root));
+                        newStage.setTitle("Shahid Chat №1");
+                        newStage.setResizable(false);
+                        newStage.show();
+
+                        lastStage.close();
+                    } catch (IOException e) {
+                        ExceptionBox.createExceptionBox(sideBackground, "Can not find required system file");
+                    }
                 } else {
                     ExceptionBox.createExceptionBox(sideBackground, "         Incorrect login or password");
                 }

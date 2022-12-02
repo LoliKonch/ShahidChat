@@ -52,18 +52,10 @@ public class Client {
 
     }
 
-    public static void sendMessage(String messageToSend) {
+    public static void sendMessage(String messageToSend) throws IOException {
 
-        try {
-
-            objectOutputStream.writeObject(pgp.encryptString(messageToSend, serverName));
-            objectOutputStream.flush();
-
-        } catch (IOException e) {
-            closeEverything();
-            System.err.println("Ошибка отправки сообщения");
-        }
-
+        objectOutputStream.writeObject(pgp.encryptString(messageToSend, serverName));
+        objectOutputStream.flush();
     }
 
     public static void receiveMessage(VBox vBox) {
@@ -83,7 +75,6 @@ public class Client {
                         closeEverything();
                     }
                 }
-
             }
         }).start();
     }

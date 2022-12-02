@@ -353,7 +353,11 @@ public class ChatController implements Initializable {
                     hBox.getChildren().add(textFlow);
                     vBoxWithMessages.getChildren().add(hBox);
 
-                    Client.sendMessage(outMessage);
+                    try {
+                        Client.sendMessage(outMessage);
+                    } catch (IOException e) {
+
+                    }
                     messageField.clear();
                 }
             }
