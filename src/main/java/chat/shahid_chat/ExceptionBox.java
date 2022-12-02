@@ -8,7 +8,7 @@ import javafx.util.Duration;
 
 public class ExceptionBox {
 
-    ExceptionBox(Pane background, String exceptionText) {
+    public static void createExceptionBox(Pane background, String exceptionText) {
 
         Label exceptionLabel = new Label(exceptionText);
         exceptionLabel.setStyle(String.format(
@@ -26,11 +26,13 @@ public class ExceptionBox {
         exceptionLabel.setTranslateX(150);
         exceptionLabel.setTranslateY(400);
 
-        TranslateTransition exPaneTranslation = new TranslateTransition(Duration.millis(90), exceptionLabel);
+        TranslateTransition exLabelTranslationAppear = new TranslateTransition(Duration.millis(90), exceptionLabel);
+        exLabelTranslationAppear.setByY(-100);
+        exLabelTranslationAppear.play();
 
-        exPaneTranslation.setByY(-100);
-        exPaneTranslation.play();
-
-        //background.getChildren().remove(exceptionLabel);
+        TranslateTransition exLabelTranslationDisappear = new TranslateTransition(Duration.millis(90), exceptionLabel);
+        exLabelTranslationDisappear.setByY(100);
+        exLabelTranslationDisappear.setDelay(Duration.millis(3000));
+        exLabelTranslationDisappear.play();
     }
 }

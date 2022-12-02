@@ -98,7 +98,6 @@ public class ChatController implements Initializable {
     @FXML
     private Button applyThemeButton;
 
-    private Client client;
 
     public static void displayMessage(String inMessage, VBox vBox) {
         HBox hBox = new HBox();
@@ -117,7 +116,6 @@ public class ChatController implements Initializable {
         textFlow.setPadding(new Insets(5, 10, 5, 10));
 
 
-        hBox.getChildren().add(textFlow);
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
@@ -129,6 +127,8 @@ public class ChatController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
 
         vBoxWithMessages.heightProperty().addListener(new ChangeListener<Number>() {
             @Override
@@ -415,8 +415,6 @@ public class ChatController implements Initializable {
             stage.setResizable(false);
             stage.show();
         });
-
-
     }
 }
 

@@ -52,8 +52,6 @@ public class SignInController {
     @FXML
     private Label title;
 
-    private ExceptionBox exceptionBox;
-
     @FXML
     void initialize() {
 
@@ -139,7 +137,7 @@ public class SignInController {
             try {
                 loader.load();
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                ExceptionBox.createExceptionBox(sideBackground, "");
             }
 
             Parent root = loader.getRoot();
@@ -151,23 +149,26 @@ public class SignInController {
 
 
         forgotPassword.setOnAction(event ->{
-            Stage stage = (Stage) forgotPassword.getScene().getWindow();
-            stage.close();
-
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("Forgot_your_password.fxml"));
-
+            Stage lastStage = (Stage) forgotPassword.getScene().getWindow();
             try {
+                Stage newStage = (Stage) forgotPassword.getScene().getWindow();
+
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("Forgot_your_password.fxml"));
                 loader.load();
+
+                Parent root = loader.getRoot();
+                newStage.setScene(new Scene(root));
+                newStage.setTitle("Shahid Chat №1");
+                newStage.setResizable(false);
+                newStage.show();
+
+                lastStage.close();
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                ExceptionBox.createExceptionBox(sideBackground, "");
             }
 
-            Parent root = loader.getRoot();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Shahid Chat №1");
-            stage.setResizable(false);
-            stage.show();
+
         });
 
 
@@ -183,7 +184,7 @@ public class SignInController {
                 try {
                     Client.startClient(new Socket("192.168.115.140", 9090));
                 } catch (IOException e) {
-                    System.err.println("Ошибка создания сокета: "+ e);
+                    ExceptionBox.createExceptionBox(sideBackground, "");
                 }
 
                 Client.sendMessage(Client.getUsername());
@@ -209,10 +210,10 @@ public class SignInController {
                     stage.setResizable(false);
                     stage.show();
                 } else {
-                    exceptionBox = new ExceptionBox(sideBackground, "         Incorrect login or password");
+                    ExceptionBox.createExceptionBox(sideBackground, "         Incorrect login or password");
                 }
             } else {
-                exceptionBox = new ExceptionBox(sideBackground, "          All fields must be filled in");
+                ExceptionBox.createExceptionBox(sideBackground, "          All fields must be filled in");
             }
         });
     }
