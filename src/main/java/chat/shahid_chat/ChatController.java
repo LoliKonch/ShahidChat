@@ -115,6 +115,7 @@ public class ChatController implements Initializable {
         textFlow.setPadding(new Insets(5, 10, 5, 10));
 
 
+        hBox.getChildren().add(textFlow);
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
