@@ -174,7 +174,7 @@ public class SignInController {
                 Client.setPassword(passwordField.getText());
 
                 try {
-                    Client.startClient(new Socket("192.168.115.140", 9090));
+                    Client.startClient(new Socket("localhost", 9090));
                 } catch (IOException e) {
                     ExceptionBox.createExceptionBox(sideBackground, "Unable to connect to server\nPlease try again later");
                 }
@@ -190,7 +190,7 @@ public class SignInController {
 
 
 
-                if(false){//ZAgotovOCHKA
+                if(true){//ZAgotovOCHKA
 
                     Stage lastStage = (Stage) forgotPassword.getScene().getWindow();
                     try {

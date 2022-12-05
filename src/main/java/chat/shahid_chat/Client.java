@@ -73,6 +73,7 @@ public class Client {
 
                     } catch (IOException | ClassNotFoundException e) {
                         closeEverything();
+                        return;
                     }
                 }
             }
