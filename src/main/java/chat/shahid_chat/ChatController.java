@@ -162,14 +162,6 @@ public class ChatController implements Initializable {
         );
 
 
-//        Label userName = new Label("You");
-//        userName.setStyle(String.format(
-//                "-fx-font-size: 11;" +
-//                "-fx-text-fill: %s;",
-//                ColorPalettes.palette[30]));
-//        userName.setPadding(new Insets(1, 7, 0, 7));
-
-
         Text outMessageText = new Text(outMessage);
         outMessageText.setFill(Paint.valueOf(ColorPalettes.palette[25]));
         TextFlow outMessageTextFlow = new TextFlow(outMessageText);
@@ -187,7 +179,6 @@ public class ChatController implements Initializable {
         dateAndTime.setPadding(new Insets(-2, 7, 1, 7));
 
 
-        //messageVBox.getChildren().add(userName);
         messageVBox.getChildren().add(outMessageTextFlow);
         messageVBox.getChildren().add(dateAndTime);
         hBox.getChildren().add(messageVBox);
