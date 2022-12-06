@@ -104,7 +104,7 @@ public class ChatController implements Initializable {
         hBox.setAlignment(Pos.CENTER_LEFT);
         hBox.setPadding(new Insets(5, 20, 5, 5));
 
-        String[] inMessageList = inMessage.split("//|", 2);
+        String[] inMessageList = inMessage.split("\\|", 2);
 
         VBox messageVBox = new VBox();
         messageVBox.setStyle(String.format(
