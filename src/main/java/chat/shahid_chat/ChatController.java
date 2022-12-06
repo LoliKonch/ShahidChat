@@ -118,7 +118,7 @@ public class ChatController implements Initializable {
                 "-fx-font-size: 12;" +
                 "-fx-text-fill: %s;",
                 ColorPalettes.palette[31]));
-        userName.setPadding(new Insets(1, 7, 0, 7));
+        userName.setPadding(new Insets(1, 7, -4, 7));
 
 
         Text inMessageText = new Text(inMessageList[2]);
