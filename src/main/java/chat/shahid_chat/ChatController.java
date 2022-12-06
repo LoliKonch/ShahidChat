@@ -167,6 +167,7 @@ public class ChatController implements Initializable {
 
         Text outMessageText = new Text(outMessage);
         outMessageText.setFill(Paint.valueOf(ColorPalettes.palette[25]));
+        outMessageText.setStyle("-fx-font-size: 14;");
         TextFlow outMessageTextFlow = new TextFlow(outMessageText);
         outMessageTextFlow.setPadding(new Insets(4, 5, 0, 10));
 
@@ -212,6 +213,7 @@ public class ChatController implements Initializable {
 
         Text yourMessageText = new Text(yourMessage[2]);
         yourMessageText.setFill(Paint.valueOf(ColorPalettes.palette[25]));
+        yourMessageText.setStyle("-fx-font-size: 14;");
         TextFlow yourMessageTextFlow = new TextFlow(yourMessageText);
         yourMessageTextFlow.setPadding(new Insets(4, 5, 0, 10));
 
