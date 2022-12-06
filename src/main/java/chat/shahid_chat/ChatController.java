@@ -104,7 +104,7 @@ public class ChatController implements Initializable {
         hBox.setAlignment(Pos.CENTER_LEFT);
         hBox.setPadding(new Insets(5, 20, 5, 5));
 
-        String[] inMessageList = inMessage.split("\\|", 2);
+        String[] inMessageList = inMessage.split("\\|", 3);
 
         VBox messageVBox = new VBox();
         messageVBox.setStyle(String.format(
@@ -116,7 +116,7 @@ public class ChatController implements Initializable {
 
         Label userName = new Label(inMessageList[1]);
         userName.setStyle(String.format(
-                "-fx-font-size: 11;" +
+                "-fx-font-size: 12;" +
                 "-fx-text-fill: %s;",
                 ColorPalettes.palette[31]));
         userName.setPadding(new Insets(1, 7, 0, 7));
@@ -124,13 +124,14 @@ public class ChatController implements Initializable {
 
         Text inMessageText = new Text(inMessageList[2]);
         inMessageText.setFill(Paint.valueOf(ColorPalettes.palette[29]));
+        inMessageText.setStyle("-fx-font-size: 14;");
         TextFlow inMessageTextFlow = new TextFlow(inMessageText);
         inMessageTextFlow.setPadding(new Insets(0, 10, 0, 5));
 
 
         Label dateAndTime = new Label(inMessageList[0]);
         dateAndTime.setStyle(String.format(
-                "-fx-font-size: 9;" +
+                "-fx-font-size: 11;" +
                 "-fx-text-fill: %s;",
                 ColorPalettes.palette[33])
         );
