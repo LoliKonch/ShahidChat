@@ -5,6 +5,7 @@ import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
@@ -103,6 +104,8 @@ public class ChatController implements Initializable {
         hBox.setAlignment(Pos.CENTER_LEFT);
         hBox.setPadding(new Insets(5, 20, 5, 5));
 
+        String[] inMessageList = inMessage.split("//|", 2);
+
         VBox messageVBox = new VBox();
         messageVBox.setStyle(String.format(
                 "-fx-background-color: %s;" +
@@ -111,7 +114,7 @@ public class ChatController implements Initializable {
         );
 
 
-        Label userName = new Label("Username dibila");
+        Label userName = new Label(inMessageList[1]);
         userName.setStyle(String.format(
                 "-fx-font-size: 11;" +
                 "-fx-text-fill: %s;",
@@ -119,13 +122,13 @@ public class ChatController implements Initializable {
         userName.setPadding(new Insets(1, 7, 0, 7));
 
 
-        Text inMessageText = new Text(inMessage);
+        Text inMessageText = new Text(inMessageList[2]);
         inMessageText.setFill(Paint.valueOf(ColorPalettes.palette[29]));
         TextFlow inMessageTextFlow = new TextFlow(inMessageText);
         inMessageTextFlow.setPadding(new Insets(0, 10, 0, 5));
 
 
-        Label dateAndTime = new Label("date dibila");
+        Label dateAndTime = new Label(inMessageList[0]);
         dateAndTime.setStyle(String.format(
                 "-fx-font-size: 9;" +
                 "-fx-text-fill: %s;",
