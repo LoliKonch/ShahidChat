@@ -75,6 +75,7 @@ public class EmailConfirmationController {
                 ColorPalettes.palette[6],
                 ColorPalettes.palette[7])
         );
+        TextFieldLimiter.addTextLimiter(secretCodeField, 20);
 
 
         sendConfirmationCodeButton.setStyle(String.format(

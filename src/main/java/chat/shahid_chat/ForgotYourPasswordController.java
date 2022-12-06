@@ -75,6 +75,7 @@ public class ForgotYourPasswordController {
                 ColorPalettes.palette[6],
                 ColorPalettes.palette[7])
         );
+        TextFieldLimiter.addTextLimiter(loginField, 40);
 
 
         confirmLoginButton.setStyle(String.format(
@@ -116,7 +117,7 @@ public class ForgotYourPasswordController {
 
 
         confirmLoginButton.setOnAction(event ->{
-            if (loginField.getText() != null && loginField.getText().trim().isEmpty()) {
+            if (loginField.getText() != null && !loginField.getText().trim().isEmpty()) {
                 Stage lastStage = (Stage) confirmLoginButton.getScene().getWindow();
                 try {
 

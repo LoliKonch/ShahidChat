@@ -99,12 +99,11 @@ public class ChatController implements Initializable {
     private Button applyThemeButton;
 
 
-    public static void displayOtherMessage(String inMessage, VBox vBox) {
+    public static void displayOtherMessage(String[] inMessageList, VBox vBox) {
         HBox hBox = new HBox();
         hBox.setAlignment(Pos.CENTER_LEFT);
         hBox.setPadding(new Insets(5, 20, 5, 5));
 
-        String[] inMessageList = inMessage.split("\\|", 3);
 
         VBox messageVBox = new VBox();
         messageVBox.setStyle(String.format(
@@ -198,6 +197,48 @@ public class ChatController implements Initializable {
     }
 
 
+    public static void displayYourMessageFromServer(String[] yourMessage, VBox vBox) {
+        HBox hBox = new HBox();
+        hBox.setAlignment(Pos.CENTER_RIGHT);
+        hBox.setPadding(new Insets(5, 5, 5, 20));
+
+        VBox messageVBox = new VBox();
+        messageVBox.setStyle(String.format(
+                "-fx-background-color: %s;" +
+                "-fx-background-radius: 15;",
+                ColorPalettes.palette[23])
+        );
+
+
+        Text yourMessageText = new Text(yourMessage[2]);
+        yourMessageText.setFill(Paint.valueOf(ColorPalettes.palette[25]));
+        TextFlow yourMessageTextFlow = new TextFlow(yourMessageText);
+        yourMessageTextFlow.setPadding(new Insets(4, 5, 0, 10));
+
+
+        Label dateAndTime = new Label(yourMessage[0]);
+        dateAndTime.setStyle(String.format(
+                "-fx-font-size: 9;" +
+                "-fx-text-fill: %s;",
+                ColorPalettes.palette[32])
+        );
+        dateAndTime.setPadding(new Insets(-2, 7, 1, 7));
+
+
+        messageVBox.getChildren().add(yourMessageTextFlow);
+        messageVBox.getChildren().add(dateAndTime);
+        hBox.getChildren().add(messageVBox);
+
+
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                vBox.getChildren().add(hBox);
+            }
+        });
+    }
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -271,6 +312,7 @@ public class ChatController implements Initializable {
                 ColorPalettes.palette[15],
                 ColorPalettes.palette[16])
         );
+        TextFieldLimiter.addTextLimiter(messageField, 5000);
 
 
         sendMessageButton.setStyle(String.format(

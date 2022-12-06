@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.net.Socket;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -81,6 +84,7 @@ public class SignInController {
                 ColorPalettes.palette[6],
                 ColorPalettes.palette[7])
         );
+        TextFieldLimiter.addTextLimiter(loginField, 40);
 
 
         passwordField.setStyle(String.format(
@@ -95,6 +99,7 @@ public class SignInController {
                 ColorPalettes.palette[6],
                 ColorPalettes.palette[7])
         );
+        TextFieldLimiter.addTextLimiter(passwordField, 40);
 
 
         registrationButton.setStyle(String.format(
@@ -174,7 +179,7 @@ public class SignInController {
                 Client.setPassword(passwordField.getText().trim());
 
                 try {
-                    Client.startClient(new Socket("localhost", 9090));
+                    Client.startClient(new Socket("25.55.56.77", 9090));
                 } catch (IOException e) {
                     ExceptionBox.createExceptionBox(sideBackground,
                             "        Unable to connect to server" +

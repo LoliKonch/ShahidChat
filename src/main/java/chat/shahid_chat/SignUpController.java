@@ -92,6 +92,7 @@ public class SignUpController {
                 ColorPalettes.palette[6],
                 ColorPalettes.palette[7])
         );
+        TextFieldLimiter.addTextLimiter(loginField, 40);
 
 
         passwordField.setStyle(String.format(
@@ -106,6 +107,7 @@ public class SignUpController {
                 ColorPalettes.palette[6],
                 ColorPalettes.palette[7])
         );
+        TextFieldLimiter.addTextLimiter(passwordField, 40);
 
 
         mailField.setStyle(String.format(
@@ -120,6 +122,7 @@ public class SignUpController {
                 ColorPalettes.palette[6],
                 ColorPalettes.palette[7])
         );
+        TextFieldLimiter.addTextLimiter(mailField, 100);
 
 
         signUpButton.setStyle(String.format(

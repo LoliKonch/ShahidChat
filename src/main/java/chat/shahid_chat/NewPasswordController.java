@@ -81,6 +81,7 @@ public class NewPasswordController {
                 ColorPalettes.palette[6],
                 ColorPalettes.palette[7])
         );
+        TextFieldLimiter.addTextLimiter(secretCodeField, 20);
 
 
         newPasswordField.setStyle(String.format(
@@ -95,6 +96,7 @@ public class NewPasswordController {
                 ColorPalettes.palette[6],
                 ColorPalettes.palette[7])
         );
+        TextFieldLimiter.addTextLimiter(newPasswordField, 40);
 
 
         confirmNewPasswordField.setStyle(String.format(
@@ -109,6 +111,7 @@ public class NewPasswordController {
                 ColorPalettes.palette[6],
                 ColorPalettes.palette[7])
         );
+        TextFieldLimiter.addTextLimiter(confirmNewPasswordField, 40);
 
 
         setNewPasswordButton.setStyle(String.format(
