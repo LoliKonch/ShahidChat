@@ -125,7 +125,7 @@ public class ChatController implements Initializable {
         inMessageText.setFill(Paint.valueOf(ColorPalettes.palette[29]));
         inMessageText.setStyle("-fx-font-size: 14;");
         TextFlow inMessageTextFlow = new TextFlow(inMessageText);
-        inMessageTextFlow.setPadding(new Insets(0, 10, 0, 5));
+        inMessageTextFlow.setPadding(new Insets(0, 5, 0, 10));
 
 
         Label dateAndTime = new Label(inMessageList[0]);
