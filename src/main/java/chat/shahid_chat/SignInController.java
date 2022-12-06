@@ -179,27 +179,27 @@ public class SignInController {
                 Client.setPassword(passwordField.getText().trim());
 
                 try {
-                    Client.startClient(new Socket("25.55.56.77", 9090));
-                } catch (IOException e) {
-                    ExceptionBox.createExceptionBox(sideBackground,
-                            "        Unable to connect to server" +
-                            "\n         Please try again later");
-                }
 
-                try {
+                    Client.startClient(new Socket("localhost", 9090));
+
                     Client.sendMessage(Client.getUsername());
-                    Client.sendMessage(Client.getPassword());
+                    Client.sendMessage("sign_in"+ "|" + Client.getUsername() + "|" + Client.getPassword());
+
+                    String answer = Client.waitMessage();
+                    if (answer.equals("successful_sign_in")) {
+                        Client.setSuccessfulSignInState();
+                    } else Client.closeEverything();
+
                 } catch (IOException e) {
+                    Client.closeEverything();
                     ExceptionBox.createExceptionBox(sideBackground,
                             "        Unable to connect to server" +
-                            "\n         Please try again later");
-                    Client.closeEverything();
+                                    "\n         Please try again later");
+                    return;
                 }
 
 
-
-
-                if(true){//ZAgotovOCHKA
+                if (Client.state.equals("successful_sign_in")){
 
                     Stage lastStage = (Stage) forgotPassword.getScene().getWindow();
                     try {
