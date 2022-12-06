@@ -3,6 +3,8 @@ package chat.shahid_chat;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,6 +18,14 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class SignUpController {
+
+    private static final Pattern RCF2822 = Pattern.compile(
+            "(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"" +
+                    "(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")" +
+                    "@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])" +
+                    "?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]" +
+                    "?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\" +
+                    "\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])");
 
     @FXML
     private ResourceBundle resources;
@@ -151,29 +161,35 @@ public class SignUpController {
 
 
         signUpButton.setOnAction(event ->{
-
             if (loginField.getText() != null && !loginField.getText().trim().isEmpty() &&
                 passwordField.getText() != null && !passwordField.getText().trim().isEmpty() &&
                 mailField.getText() != null && !mailField.getText().trim().isEmpty()) {
 
-                Stage lastStage = (Stage) signUpButton.getScene().getWindow();
-                try {
+                if (RCF2822.matcher(mailField.getText()).matches()) {
 
-                    FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("Sign_in.fxml"));
-                    loader.load();
+                    Stage lastStage = (Stage) signUpButton.getScene().getWindow();
+                    try {
 
-                    Stage newStage = new Stage();
-                    Parent root = loader.getRoot();
-                    newStage.setScene(new Scene(root));
-                    newStage.setTitle("Shahid Chat №1");
-                    newStage.setResizable(false);
-                    newStage.show();
+                        FXMLLoader loader = new FXMLLoader();
+                        loader.setLocation(getClass().getResource("Sign_in.fxml"));
+                        loader.load();
 
-                    lastStage.close();
-                } catch (IOException e) {
-                    ExceptionBox.createExceptionBox(sideBackground, "Can not find required system file");
+                        Stage newStage = new Stage();
+                        Parent root = loader.getRoot();
+                        newStage.setScene(new Scene(root));
+                        newStage.setTitle("Shahid Chat №1");
+                        newStage.setResizable(false);
+                        newStage.show();
+
+                        lastStage.close();
+                    } catch (IOException e) {
+                        ExceptionBox.createExceptionBox(sideBackground, "Can not find required system file");
+                    }
+                } else {
+                    ExceptionBox.createExceptionBox(sideBackground, "Invalid E-mail address");
                 }
+            } else {
+                ExceptionBox.createExceptionBox(sideBackground, "          All fields must be filled in");
             }
         });
     }

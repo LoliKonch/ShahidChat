@@ -138,7 +138,7 @@ public class SignInController {
 
                 lastStage.close();
             } catch (IOException e) {
-                ExceptionBox.createExceptionBox(sideBackground, "Can not find required system file");
+                ExceptionBox.createExceptionBox(sideBackground, "     Can not find required system file");
             }
         });
 
@@ -160,7 +160,7 @@ public class SignInController {
 
                 lastStage.close();
             } catch (IOException e) {
-                ExceptionBox.createExceptionBox(sideBackground, "Can not find required system file");
+                ExceptionBox.createExceptionBox(sideBackground, "      Can not find required system file");
             }
         });
 
@@ -170,20 +170,24 @@ public class SignInController {
             if (loginField.getText() != null && !loginField.getText().trim().isEmpty() &&
                 passwordField.getText() != null && !passwordField.getText().trim().isEmpty()) {
 
-                Client.setUsername(loginField.getText());
-                Client.setPassword(passwordField.getText());
+                Client.setUsername(loginField.getText().trim());
+                Client.setPassword(passwordField.getText().trim());
 
                 try {
                     Client.startClient(new Socket("localhost", 9090));
                 } catch (IOException e) {
-                    ExceptionBox.createExceptionBox(sideBackground, "Unable to connect to server\nPlease try again later");
+                    ExceptionBox.createExceptionBox(sideBackground,
+                            "        Unable to connect to server" +
+                            "\n         Please try again later");
                 }
 
                 try {
                     Client.sendMessage(Client.getUsername());
                     Client.sendMessage(Client.getPassword());
                 } catch (IOException e) {
-                    ExceptionBox.createExceptionBox(sideBackground, "Unable to connect to server");
+                    ExceptionBox.createExceptionBox(sideBackground,
+                            "        Unable to connect to server" +
+                            "\n         Please try again later");
                     Client.closeEverything();
                 }
 

@@ -2,14 +2,14 @@ package chat.shahid_chat;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -98,24 +98,48 @@ public class ChatController implements Initializable {
     private Button applyThemeButton;
 
 
-    public static void displayMessage(String inMessage, VBox vBox) {
+    public static void displayOtherMessage(String inMessage, VBox vBox) {
         HBox hBox = new HBox();
         hBox.setAlignment(Pos.CENTER_LEFT);
-        hBox.setPadding(new Insets(5, 10, 5, 5));
+        hBox.setPadding(new Insets(5, 20, 5, 5));
 
-
-        Text text = new Text(inMessage);
-        text.setFill(Paint.valueOf(ColorPalettes.palette[29]));
-        TextFlow textFlow = new TextFlow(text);
-        textFlow.setStyle(String.format(
+        VBox messageVBox = new VBox();
+        messageVBox.setStyle(String.format(
                 "-fx-background-color: %s;" +
-                "-fx-background-radius: 20",
+                "-fx-background-radius: 15;",
                 ColorPalettes.palette[24])
         );
-        textFlow.setPadding(new Insets(5, 10, 5, 10));
 
 
-        hBox.getChildren().add(textFlow);
+        Label userName = new Label("Username dibila");
+        userName.setStyle(String.format(
+                "-fx-font-size: 11;" +
+                "-fx-text-fill: %s;",
+                ColorPalettes.palette[31]));
+        userName.setPadding(new Insets(1, 7, 0, 7));
+
+
+        Text inMessageText = new Text(inMessage);
+        inMessageText.setFill(Paint.valueOf(ColorPalettes.palette[29]));
+        TextFlow inMessageTextFlow = new TextFlow(inMessageText);
+        inMessageTextFlow.setPadding(new Insets(0, 10, 0, 5));
+
+
+        Label dateAndTime = new Label("date dibila");
+        dateAndTime.setStyle(String.format(
+                "-fx-font-size: 9;" +
+                "-fx-text-fill: %s;",
+                ColorPalettes.palette[33])
+        );
+        dateAndTime.setPadding(new Insets(0, 7, 1, 7));
+
+
+        messageVBox.getChildren().add(userName);
+        messageVBox.getChildren().add(inMessageTextFlow);
+        messageVBox.getChildren().add(dateAndTime);
+        hBox.getChildren().add(messageVBox);
+
+
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
@@ -125,10 +149,64 @@ public class ChatController implements Initializable {
     }
 
 
+    public static void displayYourMessage(String outMessage, VBox vBox, TextField messageField) {
+        HBox hBox = new HBox();
+        hBox.setAlignment(Pos.CENTER_RIGHT);
+        hBox.setPadding(new Insets(5, 5, 5, 20));
+
+        VBox messageVBox = new VBox();
+        messageVBox.setStyle(String.format(
+                "-fx-background-color: %s;" +
+                "-fx-background-radius: 15;",
+                ColorPalettes.palette[23])
+        );
+
+
+//        Label userName = new Label("You");
+//        userName.setStyle(String.format(
+//                "-fx-font-size: 11;" +
+//                "-fx-text-fill: %s;",
+//                ColorPalettes.palette[30]));
+//        userName.setPadding(new Insets(1, 7, 0, 7));
+
+
+        Text outMessageText = new Text(outMessage);
+        outMessageText.setFill(Paint.valueOf(ColorPalettes.palette[25]));
+        TextFlow outMessageTextFlow = new TextFlow(outMessageText);
+        outMessageTextFlow.setPadding(new Insets(4, 5, 0, 10));
+
+
+        Date date = new Date();
+        SimpleDateFormat formatForDate = new SimpleDateFormat("dd.MM.yy H:mm");
+        Label dateAndTime = new Label(formatForDate.format(date));
+        dateAndTime.setStyle(String.format(
+                "-fx-font-size: 9;" +
+                "-fx-text-fill: %s;",
+                ColorPalettes.palette[32])
+        );
+        dateAndTime.setPadding(new Insets(-2, 7, 1, 7));
+
+
+        //messageVBox.getChildren().add(userName);
+        messageVBox.getChildren().add(outMessageTextFlow);
+        messageVBox.getChildren().add(dateAndTime);
+        hBox.getChildren().add(messageVBox);
+
+
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                vBox.getChildren().add(hBox);
+                messageField.clear();
+            }
+        });
+    }
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-
+        Client.receiveMessage(vBoxWithMessages);
 
         vBoxWithMessages.heightProperty().addListener(new ChangeListener<Number>() {
             @Override
@@ -136,9 +214,6 @@ public class ChatController implements Initializable {
                 scrollPane.setVvalue((Double) newValue);
             }
         });
-
-
-        Client.receiveMessage(vBoxWithMessages);
 
 
         mainBackground.setStyle(String.format(
@@ -166,24 +241,25 @@ public class ChatController implements Initializable {
                 ColorPalettes.palette[12])
         );
 
+        vBoxMenu.setTranslateX(-160);
+        TranslateTransition menuTranslation = new TranslateTransition(Duration.millis(500), vBoxMenu);
+
+        vBoxMenu.setOnMouseExited(evt -> {
+            menuTranslation.setRate(-1);
+            menuTranslation.play();
+        });
+
 
         menuTrigger.setStyle(String.format(
                 "-fx-background-color: %s;",
                 ColorPalettes.palette[13])
         );
 
-        vBoxMenu.setTranslateX(-160);
-        TranslateTransition menuTranslation = new TranslateTransition(Duration.millis(500), vBoxMenu);
-
         menuTranslation.setFromX(-160);
         menuTranslation.setToX(0);
 
         menuTrigger.setOnMouseEntered(evt -> {
             menuTranslation.setRate(1);
-            menuTranslation.play();
-        });
-        vBoxMenu.setOnMouseExited(evt -> {
-            menuTranslation.setRate(-1);
             menuTranslation.play();
         });
 
@@ -327,38 +403,16 @@ public class ChatController implements Initializable {
         radioButton10.setToggleGroup(rbGroupPalettes);
 
 
-        sendMessageButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                String outMessage = messageField.getText();
 
+        sendMessageButton.setOnAction(event -> {
+            String outMessage = messageField.getText();
 
-                if (!outMessage.isEmpty()) {
-                    HBox hBox = new HBox();
-                    hBox.setAlignment(Pos.CENTER_RIGHT);
-                    hBox.setPadding(new Insets(5, 5, 5, 10));
-
-
-                    Text text = new Text(outMessage);
-                    text.setFill(Paint.valueOf(ColorPalettes.palette[25]));
-                    TextFlow textFlow = new TextFlow(text);
-                    textFlow.setStyle(String.format(
-                            "-fx-background-color: %s;" +
-                            "-fx-background-radius: 20;",
-                            ColorPalettes.palette[23])
-                    );
-                    textFlow.setPadding(new Insets(5, 10, 5, 10));
-
-
-                    hBox.getChildren().add(textFlow);
-                    vBoxWithMessages.getChildren().add(hBox);
-
-                    try {
-                        Client.sendMessage(outMessage);
-                    } catch (IOException e) {
-
-                    }
-                    messageField.clear();
+            if (!outMessage.trim().isEmpty()) {
+                displayYourMessage(outMessage, vBoxWithMessages, messageField);
+                try {
+                    Client.sendMessage(messageField.getText());
+                } catch (IOException e) {
+                    ExceptionBox.createExceptionBox(vBoxWithMessages, "GG рачила криворукий слосмал всё, дибил");
                 }
             }
         });
@@ -407,7 +461,7 @@ public class ChatController implements Initializable {
             try {
 
                 FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("Forgot_your_password.fxml"));
+                loader.setLocation(getClass().getResource("Sign_in.fxml"));
                 loader.load();
 
                 Stage newStage = new Stage();
@@ -424,4 +478,3 @@ public class ChatController implements Initializable {
         });
     }
 }
-

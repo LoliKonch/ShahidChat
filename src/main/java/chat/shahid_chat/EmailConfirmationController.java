@@ -115,6 +115,8 @@ public class EmailConfirmationController {
                 } catch (IOException e) {
                     ExceptionBox.createExceptionBox(sideBackground, "Can not find required system file");
                 }
+            } else {
+                ExceptionBox.createExceptionBox(sideBackground, "          All fields must be filled in");
             }
         });
 

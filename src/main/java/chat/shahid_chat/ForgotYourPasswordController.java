@@ -116,24 +116,27 @@ public class ForgotYourPasswordController {
 
 
         confirmLoginButton.setOnAction(event ->{
+            if (loginField.getText() != null && loginField.getText().trim().isEmpty()) {
+                Stage lastStage = (Stage) confirmLoginButton.getScene().getWindow();
+                try {
 
-            Stage lastStage = (Stage) confirmLoginButton.getScene().getWindow();
-            try {
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("New_password.fxml"));
+                    loader.load();
 
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("New_password.fxml"));
-                loader.load();
+                    Stage newStage = new Stage();
+                    Parent root = loader.getRoot();
+                    newStage.setScene(new Scene(root));
+                    newStage.setTitle("Shahid Chat №1");
+                    newStage.setResizable(false);
+                    newStage.show();
 
-                Stage newStage = new Stage();
-                Parent root = loader.getRoot();
-                newStage.setScene(new Scene(root));
-                newStage.setTitle("Shahid Chat №1");
-                newStage.setResizable(false);
-                newStage.show();
-
-                lastStage.close();
-            } catch (IOException e) {
-                ExceptionBox.createExceptionBox(sideBackground, "Can not find required system file");
+                    lastStage.close();
+                } catch (IOException e) {
+                    ExceptionBox.createExceptionBox(sideBackground, "Can not find required system file");
+                }
+            } else {
+                ExceptionBox.createExceptionBox(sideBackground, "          All fields must be filled in");
             }
         });
     }

@@ -69,7 +69,7 @@ public class Client {
                     try {
 
                         messageFromServer = pgp.decryptString((String) objectInputStream.readObject(), username);
-                        ChatController.displayMessage(messageFromServer, vBox);
+                        ChatController.displayOtherMessage(messageFromServer, vBox);
 
                     } catch (IOException | ClassNotFoundException e) {
                         closeEverything();

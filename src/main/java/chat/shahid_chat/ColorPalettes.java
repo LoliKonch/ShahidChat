@@ -34,6 +34,10 @@ public class ColorPalettes {
             "#001845", // 27 Nickname
             "#001854", // 28 Scroll pane boarder
             "#000000", // 29 Other message text
+            "#000000", // 30 Your username
+            "#000000", // 31 Other username
+            "#000000", // 32 Your date and time
+            "#000000"  // 33 Other date and time
     };
 
 
@@ -68,6 +72,10 @@ public class ColorPalettes {
             "#ffffff", // 27 Nickname
             "#5a6ac2", // 28 Scroll pane boarder
             "#d2d2d2", // 29 Other message text
+            "#000000", // 30 Your username
+            "#000000", // 31 Other username
+            "#000000", // 32 Your date and time
+            "#000000"  // 33 Other date and time
     };
 
 
@@ -102,6 +110,10 @@ public class ColorPalettes {
             "222222", // 27 Nickname
             "#0078d5", // 28 Scroll pane boarder
             "#000000", // 29 Other message text
+            "#000000", // 30 Your username
+            "#000000", // 31 Other username
+            "#000000", // 32 Your date and time
+            "#000000"  // 33 Other date and time
     };
 
 
@@ -136,6 +148,10 @@ public class ColorPalettes {
             "#397dcc", // 27 Nickname
             "#397dcc", // 28 Scroll pane boarder
             "#000000", // 29 Other message text
+            "#000000", // 30 Your username
+            "#000000", // 31 Other username
+            "#000000", // 32 Your date and time
+            "#000000"  // 33 Other date and time
     };
 
 
@@ -170,6 +186,10 @@ public class ColorPalettes {
             "#3e546a", // 27 Nickname
             "#3e546a", // 28 Scroll pane boarder
             "#000000", // 29 Other message text
+            "#000000", // 30 Your username
+            "#000000", // 31 Other username
+            "#000000", // 32 Your date and time
+            "#000000"  // 33 Other date and time
     };
 
 
@@ -204,6 +224,10 @@ public class ColorPalettes {
             "#3e546a", // 27 Nickname
             "#3e546a", // 28 Scroll pane boarder
             "#000000", // 29 Other message text
+            "#000000", // 30 Your username
+            "#000000", // 31 Other username
+            "#000000", // 32 Your date and time
+            "#000000"  // 33 Other date and time
     };
 
 
@@ -238,6 +262,10 @@ public class ColorPalettes {
             "#c7a76b", // 27 Nickname
             "#21b36c", // 28 Scroll pane boarder
             "#000000", // 29 Other message text
+            "#000000", // 30 Your username
+            "#000000", // 31 Other username
+            "#000000", // 32 Your date and time
+            "#000000"  // 33 Other date and time
     };
 
 
@@ -272,6 +300,10 @@ public class ColorPalettes {
             "#d55f2c", // 27 Nickname
             "#d55f2c", // 28 Scroll pane boarder
             "#000000", // 29 Other message text
+            "#000000", // 30 Your username
+            "#000000", // 31 Other username
+            "#000000", // 32 Your date and time
+            "#000000"  // 33 Other date and time
     };
 
 
@@ -306,6 +338,10 @@ public class ColorPalettes {
             "linear-gradient(to right, #ef7550, #fda76a)", // 27 Nickname
             "linear-gradient(to right, #ef7550, #fda76a)", // 28 Scroll pane boarder
             "#000000", // 29 Other message text
+            "#000000", // 30 Your username
+            "#000000", // 31 Other username
+            "#000000", // 32 Your date and time
+            "#000000"  // 33 Other date and time
     };
 
 
@@ -340,6 +376,10 @@ public class ColorPalettes {
             "", // 27 Nickname
             "", // 28 Scroll pane boarder
             "#000000", // 29 Other message text
+            "#000000", // 30 Your username
+            "#000000", // 31 Other username
+            "#000000", // 32 Your date and time
+            "#000000"  // 33 Other date and time
     };
 
     public static String[] palette = DARK_DS;
