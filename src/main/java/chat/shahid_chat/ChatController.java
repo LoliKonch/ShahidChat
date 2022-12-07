@@ -5,7 +5,6 @@ import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
-import java.util.regex.Pattern;
 
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;

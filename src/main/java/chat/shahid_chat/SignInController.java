@@ -6,8 +6,6 @@ import java.net.Socket;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -180,7 +178,7 @@ public class SignInController {
 
                 try {
 
-                    Client.startClient(new Socket("localhost", 9090));
+                    Client.startClient(new Socket("25.55.56.77", 9090));
 
                     Client.sendMessage(Client.getUsername());
                     Client.sendMessage("sign_in"+ "|" + Client.getUsername() + "|" + Client.getPassword());
