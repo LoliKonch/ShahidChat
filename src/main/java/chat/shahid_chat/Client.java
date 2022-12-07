@@ -20,6 +20,7 @@ public class Client {
     private static String clientPublicKey;
     private static String clientPrivateKey;
     private static String serverPublicKey;
+    public static String state = "";
 
     public static void startClient(Socket sock) {
         socket = sock;
@@ -56,6 +57,15 @@ public class Client {
 
         objectOutputStream.writeObject(pgp.encryptString(messageToSend, serverName));
         objectOutputStream.flush();
+    }
+
+    public static String waitMessage() {
+        try {
+            return (String) objectInputStream.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            System.err.println("Ошибка получения сообщения: " + e);
+        }
+        return "";
     }
 
     public static void receiveMessage(VBox vBox) {
@@ -127,6 +137,10 @@ public class Client {
 
     public static String getClientPublicKey() {
         return email;
+    }
+
+    public static void setSuccessfulSignInState() {
+        state = "successful_sign_in";
     }
 
     public static void closeEverything() {
