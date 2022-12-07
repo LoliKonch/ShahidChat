@@ -188,7 +188,12 @@ public class SignInController {
                     String answer = Client.waitMessage();
                     if (answer.equals("successful_sign_in")) {
                         Client.setSuccessfulSignInState();
-                    } else Client.closeEverything();
+                    } else {
+                        ExceptionBox.createExceptionBox(sideBackground,
+                                "         Incorrect login or password");
+                        Client.closeEverything();
+                        return;
+                    }
 
                 } catch (IOException e) {
                     Client.closeEverything();
@@ -199,29 +204,27 @@ public class SignInController {
                 }
 
 
-                if (Client.state.equals("successful_sign_in")){
+                Client.setFailedSignInState();
 
-                    Stage lastStage = (Stage) forgotPassword.getScene().getWindow();
-                    try {
+                Stage lastStage = (Stage) forgotPassword.getScene().getWindow();
+                try {
 
-                        FXMLLoader loader = new FXMLLoader();
-                        loader.setLocation(getClass().getResource("Chat.fxml"));
-                        loader.load();
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("Chat.fxml"));
+                    loader.load();
 
-                        Stage newStage = new Stage();
-                        Parent root = loader.getRoot();
-                        newStage.setScene(new Scene(root));
-                        newStage.setTitle("Shahid Chat №1");
-                        newStage.setResizable(false);
-                        newStage.show();
+                    Stage newStage = new Stage();
+                    Parent root = loader.getRoot();
+                    newStage.setScene(new Scene(root));
+                    newStage.setTitle("Shahid Chat №1");
+                    newStage.setResizable(false);
+                    newStage.show();
 
-                        lastStage.close();
-                    } catch (IOException e) {
-                        ExceptionBox.createExceptionBox(sideBackground, "Can not find required system file");
-                    }
-                } else {
-                    ExceptionBox.createExceptionBox(sideBackground, "         Incorrect login or password");
+                    lastStage.close();
+                } catch (IOException e) {
+                    ExceptionBox.createExceptionBox(sideBackground, "Can not find required system file");
                 }
+
             } else {
                 ExceptionBox.createExceptionBox(sideBackground, "          All fields must be filled in");
             }
