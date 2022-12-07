@@ -512,6 +512,7 @@ public class ChatController implements Initializable {
                 newStage.show();
 
                 lastStage.close();
+                Client.closeEverything();
             } catch (IOException e) {
                 ExceptionBox.createExceptionBox(vBoxWithMessages, "Can not find required system file");
             }

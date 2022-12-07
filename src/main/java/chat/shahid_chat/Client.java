@@ -143,6 +143,10 @@ public class Client {
         state = "successful_sign_in";
     }
 
+    public static void setFailedSignInState() {
+        state = "failed_sign_in";
+    }
+
     public static void closeEverything() {
 
         try {
