@@ -1,7 +1,6 @@
 package chat.shahid_chat;
 
 import java.io.IOException;
-import java.net.Socket;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
