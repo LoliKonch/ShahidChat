@@ -1,6 +1,7 @@
 package chat.shahid_chat;
 
 import java.io.IOException;
+import java.net.Socket;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
@@ -170,24 +171,58 @@ public class SignUpController {
 
                 if (RCF2822.matcher(mailField.getText()).matches()) {
 
-                    Stage lastStage = (Stage) signUpButton.getScene().getWindow();
+                    Client.setUsername(loginField.getText().trim());
+                    Client.setPassword(passwordField.getText().trim());
+                    Client.setEmail(mailField.getText().trim());
+
                     try {
 
-                        FXMLLoader loader = new FXMLLoader();
-                        loader.setLocation(getClass().getResource("Sign_in.fxml"));
-                        loader.load();
+                        Client.startClient();
 
-                        Stage newStage = new Stage();
-                        Parent root = loader.getRoot();
-                        newStage.setScene(new Scene(root));
-                        newStage.setTitle("Shahid Chat №1");
-                        newStage.setResizable(false);
-                        newStage.show();
+                        Client.sendMessage(Client.getUsername());
+                        Client.sendMessage("sign_up"+
+                                "|" + Client.getUsername() +
+                                "|" + Client.getPassword() +
+                                "|" + Client.getEmail());
 
-                        lastStage.close();
+                        String answer = Client.waitMessage();
+                        if (answer.equals("successful_pre_sign_up")) {
+
+                            Stage lastStage = (Stage) signUpButton.getScene().getWindow();
+                            try {
+
+                                FXMLLoader loader = new FXMLLoader();
+                                loader.setLocation(getClass().getResource("E-mail_confirmation.fxml"));
+                                loader.load();
+
+                                Stage newStage = new Stage();
+                                Parent root = loader.getRoot();
+                                newStage.setScene(new Scene(root));
+                                newStage.setTitle("Shahid Chat №1");
+                                newStage.setResizable(false);
+                                newStage.show();
+
+                                lastStage.close();
+                            } catch (IOException e) {
+                                ExceptionBox.createExceptionBox(sideBackground,
+                                        "Can not find required system file");
+                            }
+
+                        } else {
+                            ExceptionBox.createExceptionBox(sideBackground,
+                                    "         Username already occupied");
+                            Client.closeEverything();
+                            return;
+                        }
+
                     } catch (IOException e) {
-                        ExceptionBox.createExceptionBox(sideBackground, "Can not find required system file");
+                        Client.closeEverything();
+                        ExceptionBox.createExceptionBox(sideBackground,
+                                "        Unable to connect to server" +
+                                        "\n         Please try again later");
+                        return;
                     }
+
                 } else {
                     ExceptionBox.createExceptionBox(sideBackground, "Invalid E-mail address");
                 }

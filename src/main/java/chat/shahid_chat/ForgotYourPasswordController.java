@@ -110,6 +110,7 @@ public class ForgotYourPasswordController {
                 newStage.show();
 
                 lastStage.close();
+                Client.closeEverything();
             } catch (IOException e) {
                 ExceptionBox.createExceptionBox(sideBackground, "Can not find required system file");
             }
@@ -118,24 +119,51 @@ public class ForgotYourPasswordController {
 
         confirmLoginButton.setOnAction(event ->{
             if (loginField.getText() != null && !loginField.getText().trim().isEmpty()) {
-                Stage lastStage = (Stage) confirmLoginButton.getScene().getWindow();
+
+                Client.setUsername(loginField.getText().trim());
+
                 try {
 
-                    FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("New_password.fxml"));
-                    loader.load();
+                    Client.startClient();
 
-                    Stage newStage = new Stage();
-                    Parent root = loader.getRoot();
-                    newStage.setScene(new Scene(root));
-                    newStage.setTitle("Shahid Chat №1");
-                    newStage.setResizable(false);
-                    newStage.show();
+                    Client.sendMessage(Client.getUsername());
+                    Client.sendMessage("password_recovery" +
+                            "|" + Client.getUsername());
 
-                    lastStage.close();
+                    String answer = Client.waitMessage();
+                    if (answer.equals("begin_password_recovery")) {
+
+                        Stage lastStage = (Stage) confirmLoginButton.getScene().getWindow();
+                        try {
+
+                            FXMLLoader loader = new FXMLLoader();
+                            loader.setLocation(getClass().getResource("New_password.fxml"));
+                            loader.load();
+
+                            Stage newStage = new Stage();
+                            Parent root = loader.getRoot();
+                            newStage.setScene(new Scene(root));
+                            newStage.setTitle("Shahid Chat №1");
+                            newStage.setResizable(false);
+                            newStage.show();
+
+                            lastStage.close();
+                        } catch (IOException e) {
+                            ExceptionBox.createExceptionBox(sideBackground, "Can not find required system file");
+                        }
+                    } else {
+                        ExceptionBox.createExceptionBox(sideBackground,
+                                "                   Incorrect login");
+                        Client.closeEverything();
+                    }
+
                 } catch (IOException e) {
-                    ExceptionBox.createExceptionBox(sideBackground, "Can not find required system file");
+                    Client.closeEverything();
+                    ExceptionBox.createExceptionBox(sideBackground,
+                            "        Unable to connect to server" +
+                                    "\n         Please try again later");
                 }
+
             } else {
                 ExceptionBox.createExceptionBox(sideBackground, "          All fields must be filled in");
             }

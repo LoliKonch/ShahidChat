@@ -447,11 +447,7 @@ public class ChatController implements Initializable {
 
             if (!outMessage.trim().isEmpty()) {
                 displayYourMessage(outMessage, vBoxWithMessages, messageField);
-                try {
-                    Client.sendMessage(messageField.getText());
-                } catch (IOException e) {
-                    ExceptionBox.createExceptionBox(vBoxWithMessages, "GG рачила криворукий слосмал всё, дибил");
-                }
+                Client.sendMessage(messageField.getText());
             }
         });
 

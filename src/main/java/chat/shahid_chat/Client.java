@@ -20,10 +20,9 @@ public class Client {
     private static String clientPublicKey;
     private static String clientPrivateKey;
     private static String serverPublicKey;
-    public static String state = "";
 
-    public static void startClient(Socket sock) {
-        socket = sock;
+    public static void startClient() throws IOException {
+        socket = new Socket("localhost", 9090);
 
         // создание криптографера pgp и сохранение ключей в файл и в переменные
         pgp = new PGP(username);
@@ -53,15 +52,19 @@ public class Client {
 
     }
 
-    public static void sendMessage(String messageToSend) throws IOException {
+    public static void sendMessage(String messageToSend){
 
-        objectOutputStream.writeObject(pgp.encryptString(messageToSend, serverName));
-        objectOutputStream.flush();
+        try {
+            objectOutputStream.writeObject(pgp.encryptString(messageToSend, serverName));
+            objectOutputStream.flush();
+        } catch (IOException e) {
+            System.err.println("Ошибка отправки сообщения: " + e);
+        }
     }
 
     public static String waitMessage() {
         try {
-            return (String) objectInputStream.readObject();
+            return pgp.decryptString((String) objectInputStream.readObject(), username);
         } catch (IOException | ClassNotFoundException e) {
             System.err.println("Ошибка получения сообщения: " + e);
         }
@@ -135,16 +138,12 @@ public class Client {
         email = newEmail;
     }
 
-    public static String getClientPublicKey() {
+    public static String getEmail() {
         return email;
     }
 
-    public static void setSuccessfulSignInState() {
-        state = "successful_sign_in";
-    }
-
-    public static void setFailedSignInState() {
-        state = "failed_sign_in";
+    public static String getClientPublicKey() {
+        return clientPublicKey;
     }
 
     public static void closeEverything() {

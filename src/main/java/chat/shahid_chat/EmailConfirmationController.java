@@ -98,26 +98,38 @@ public class EmailConfirmationController {
 
             if (secretCodeField.getText() != null && !secretCodeField.getText().trim().isEmpty()){
 
-                Stage lastStage = (Stage) secretCodeField.getScene().getWindow();
-                try {
+                String secretCode = secretCodeField.getText();
+                Client.sendMessage(secretCode);
 
-                    FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("Sign_in.fxml"));
-                    loader.load();
+                String answer = Client.waitMessage();
+                if (answer.equals("successful_sign_up")) {
+                    Stage lastStage = (Stage) secretCodeField.getScene().getWindow();
+                    try {
 
-                    Stage newStage = new Stage();
-                    Parent root = loader.getRoot();
-                    newStage.setScene(new Scene(root));
-                    newStage.setTitle("Shahid Chat №1");
-                    newStage.setResizable(false);
-                    newStage.show();
+                        FXMLLoader loader = new FXMLLoader();
+                        loader.setLocation(getClass().getResource("Sign_in.fxml"));
+                        loader.load();
 
-                    lastStage.close();
-                } catch (IOException e) {
-                    ExceptionBox.createExceptionBox(sideBackground, "Can not find required system file");
+                        Stage newStage = new Stage();
+                        Parent root = loader.getRoot();
+                        newStage.setScene(new Scene(root));
+                        newStage.setTitle("Shahid Chat №1");
+                        newStage.setResizable(false);
+                        newStage.show();
+
+                        lastStage.close();
+                    } catch (IOException e) {
+                        ExceptionBox.createExceptionBox(sideBackground,
+                                "Can not find required system file");
+                    }
+                } else {
+                    ExceptionBox.createExceptionBox(sideBackground,
+                            "                 Invalid secret code");
                 }
+
             } else {
-                ExceptionBox.createExceptionBox(sideBackground, "          All fields must be filled in");
+                ExceptionBox.createExceptionBox(sideBackground,
+                        "          All fields must be filled in");
             }
         });
 
@@ -138,8 +150,10 @@ public class EmailConfirmationController {
                 newStage.show();
 
                 lastStage.close();
+                Client.closeEverything();
             } catch (IOException e) {
-                ExceptionBox.createExceptionBox(sideBackground, "Can not find required system file");
+                ExceptionBox.createExceptionBox(sideBackground,
+                        "Can not find required system file");
             }
         });
     }

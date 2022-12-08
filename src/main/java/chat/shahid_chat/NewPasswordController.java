@@ -134,26 +134,45 @@ public class NewPasswordController {
 
             if (newPasswordField.getText() != null && !newPasswordField.getText().trim().isEmpty() &&
                 confirmNewPasswordField.getText() != null && !confirmNewPasswordField.getText().trim().isEmpty() &&
-                secretCodeField.getText() != null && !secretCodeField.getText().trim().isEmpty() &&
-                newPasswordField.getText().equals(confirmNewPasswordField.getText())) {
+                secretCodeField.getText() != null && !secretCodeField.getText().trim().isEmpty()) {
 
-                Stage lastStage = (Stage) setNewPasswordButton.getScene().getWindow();
-                try {
+                if (newPasswordField.getText().equals(confirmNewPasswordField.getText())) {
 
-                    FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("Sign_in.fxml"));
-                    loader.load();
+                    Client.sendMessage("new_password +" +
+                            "|" + Client.getUsername() +
+                            "|" + confirmNewPasswordField.getText().trim() +
+                            "|" + secretCodeField.getText().trim());
 
-                    Stage newStage = new Stage();
-                    Parent root = loader.getRoot();
-                    newStage.setScene(new Scene(root));
-                    newStage.setTitle("Shahid Chat №1");
-                    newStage.setResizable(false);
-                    newStage.show();
 
-                    lastStage.close();
-                } catch (IOException e) {
-                    ExceptionBox.createExceptionBox(sideBackground, "Can not find required system file");
+                    String answer = Client.waitMessage();
+                    if (answer.equals("successful_password_recovery")) {
+
+                        Stage lastStage = (Stage) setNewPasswordButton.getScene().getWindow();
+                        try {
+
+                            FXMLLoader loader = new FXMLLoader();
+                            loader.setLocation(getClass().getResource("Sign_in.fxml"));
+                            loader.load();
+
+                            Stage newStage = new Stage();
+                            Parent root = loader.getRoot();
+                            newStage.setScene(new Scene(root));
+                            newStage.setTitle("Shahid Chat №1");
+                            newStage.setResizable(false);
+                            newStage.show();
+
+                            lastStage.close();
+                        } catch (IOException e) {
+                            ExceptionBox.createExceptionBox(sideBackground,
+                                    "Can not find required system file");
+                        }
+                    } else {
+                        ExceptionBox.createExceptionBox(sideBackground,
+                                "                 Invalid secret code");
+                    }
+
+                } else {
+                    ExceptionBox.createExceptionBox(sideBackground, "             Passwords must match");
                 }
             } else {
                 ExceptionBox.createExceptionBox(sideBackground, "          All fields must be filled in");
@@ -177,6 +196,7 @@ public class NewPasswordController {
                 newStage.show();
 
                 lastStage.close();
+                Client.closeEverything();
             } catch (IOException e) {
                 ExceptionBox.createExceptionBox(sideBackground, "Can not find required system file");
             }
