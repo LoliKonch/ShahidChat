@@ -4,6 +4,7 @@ package chat.shahid_chat;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +16,8 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class SignInController {
+
+    private static final Pattern LOGIN_PATTERN = Pattern.compile("[a-zA-Z0-9_]");
 
     @FXML
     private ResourceBundle resources;
@@ -172,53 +175,58 @@ public class SignInController {
             if (loginField.getText() != null && !loginField.getText().trim().isEmpty() &&
                 passwordField.getText() != null && !passwordField.getText().trim().isEmpty()) {
 
-                Client.setUsername(loginField.getText().trim());
-                Client.setPassword(passwordField.getText().trim());
+                if (LOGIN_PATTERN.matcher(loginField.getText()).find()) {
 
-                try {
+                    Client.setUsername(loginField.getText().trim());
+                    Client.setPassword(passwordField.getText().trim());
 
-                    Client.startClient();
+                    try {
 
-                    Client.sendMessage(Client.getUsername());
-                    Client.sendMessage("sign_in" +
-                            "|" + Client.getUsername() +
-                            "|" + Client.getPassword());
+                        Client.startClient();
 
-                    String answer = Client.waitMessage();
-                    if (answer.equals("successful_sign_in")) {
+                        Client.sendMessage(Client.getUsername());
+                        Client.sendMessage("sign_in" +
+                                "|" + Client.getUsername() +
+                                "|" + Client.getPassword());
 
-                        Stage lastStage = (Stage) forgotPassword.getScene().getWindow();
-                        try {
+                        String answer = Client.waitMessage();
+                        if (answer.equals("successful_sign_in")) {
 
-                            FXMLLoader loader = new FXMLLoader();
-                            loader.setLocation(getClass().getResource("Chat.fxml"));
-                            loader.load();
+                            Stage lastStage = (Stage) forgotPassword.getScene().getWindow();
+                            try {
 
-                            Stage newStage = new Stage();
-                            Parent root = loader.getRoot();
-                            newStage.setScene(new Scene(root));
-                            newStage.setTitle("Shahid Chat №1");
-                            newStage.setResizable(false);
-                            newStage.show();
+                                FXMLLoader loader = new FXMLLoader();
+                                loader.setLocation(getClass().getResource("Chat.fxml"));
+                                loader.load();
 
-                            lastStage.close();
-                        } catch (IOException e) {
-                            ExceptionBox.createExceptionBox(sideBackground, "Can not find required system file");
+                                Stage newStage = new Stage();
+                                Parent root = loader.getRoot();
+                                newStage.setScene(new Scene(root));
+                                newStage.setTitle("Shahid Chat №1");
+                                newStage.setResizable(false);
+                                newStage.show();
+
+                                lastStage.close();
+                            } catch (IOException e) {
+                                ExceptionBox.createExceptionBox(sideBackground, "Can not find required system file");
+                            }
+
+                        } else {
+                            ExceptionBox.createExceptionBox(sideBackground,
+                                    "         Incorrect login or password");
+                            Client.closeEverything();
+                            return;
                         }
 
-                    } else {
-                        ExceptionBox.createExceptionBox(sideBackground,
-                                "         Incorrect login or password");
+                    } catch (IOException e) {
                         Client.closeEverything();
+                        ExceptionBox.createExceptionBox(sideBackground,
+                                "        Unable to connect to server" +
+                                        "\n         Please try again later");
                         return;
                     }
-
-                } catch (IOException e) {
-                    Client.closeEverything();
-                    ExceptionBox.createExceptionBox(sideBackground,
-                            "        Unable to connect to server" +
-                                    "\n         Please try again later");
-                    return;
+                } else {
+                    ExceptionBox.createExceptionBox(sideBackground, "                    Invalid Login");
                 }
 
             } else {

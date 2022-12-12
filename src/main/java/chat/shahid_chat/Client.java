@@ -22,7 +22,7 @@ public class Client {
     private static String serverPublicKey;
 
     public static void startClient() throws IOException {
-        socket = new Socket("localhost", 9090);
+        socket = new Socket("25.55.56.77", 9090);
 
         // создание криптографера pgp и сохранение ключей в файл и в переменные
         pgp = new PGP(username);
