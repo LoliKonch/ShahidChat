@@ -142,7 +142,7 @@ public class SignUpController {
 
 
         backButton.setOnAction(event ->{
-            ChangeWindow.changeWindowTo(sideBackground, "Sign_in.fxml");
+            ChangeWindow.changeWindowTo(sideBackground, "Sign_in.fxml", false);
         });
 
 
@@ -171,7 +171,9 @@ public class SignUpController {
 
                             String answer = Client.waitMessage();
                             if (answer.equals("successful_pre_sign_up")) {
-                                ChangeWindow.changeWindowTo(sideBackground, "E-mail_confirmation.fxml");
+                                ChangeWindow.changeWindowTo(sideBackground,
+                                        "E-mail_confirmation.fxml",
+                                        true);
 
                             } else {
                                 ExceptionBox.createExceptionBox(sideBackground,
