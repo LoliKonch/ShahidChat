@@ -473,7 +473,7 @@ public class ChatController implements Initializable {
             try {
 
                 FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("Chat.fxml"));
+                loader.setLocation(getClass().getResource("Sign_in.fxml"));
                 loader.load();
 
                 Stage newStage = new Stage();
