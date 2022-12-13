@@ -1,30 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Hyperlink?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="mainBackground"
-            maxHeight="-Infinity"
+<AnchorPane maxHeight="-Infinity"
             maxWidth="-Infinity"
             minHeight="-Infinity"
             minWidth="-Infinity"
             prefHeight="400.0"
             prefWidth="600.0"
-            xmlns="http://javafx.com/javafx/18.0.1"
+            styleClass="anchor-pane"
+            stylesheets="@Registration_dark_DS.css"
+            xmlns="http://javafx.com/javafx/11.0.14-internal"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="chat.shahid_chat.SignInController">
+            fx:controller="chat.shahid_chat.SignInController"
+>
 
     <Pane fx:id="sideBackground"
           layoutX="50.0"
           layoutY="25.0"
           prefHeight="350.0"
-          prefWidth="500.0">
+          prefWidth="500.0"
+          styleClass="pane"
+    >
 
         <TextField fx:id="loginField"
                    layoutX="150.0"
@@ -52,30 +51,31 @@
                 textAlignment="CENTER"
         />
 
-        <Label fx:id="title"
-               layoutX="206.0"
+        <Label layoutX="206.0"
                layoutY="40.0"
                prefHeight="34.0"
                prefWidth="89.0"
                text="SIGN IN"
-               textAlignment="CENTER">
+               textAlignment="CENTER"
+        >
             <font>
                 <Font size="23.0" />
             </font>
         </Label>
 
         <Hyperlink fx:id="forgotPassword"
-                 layoutX="185.0"
-                 layoutY="269.0"
-                 text="Forgot your password?"
-                 textAlignment="CENTER"
+                   layoutX="185.0"
+                   layoutY="269.0"
+                   styleClass="hyper-link"
+                   text="Forgot your password?"
+                   textAlignment="CENTER"
         />
 
         <Button fx:id="registrationButton"
-              layoutX="393.0"
-              layoutY="28.0"
-              mnemonicParsing="false"
-              text="Register"
+                layoutX="393.0"
+                layoutY="28.0"
+                mnemonicParsing="false"
+                text="Register"
         />
     </Pane>
 </AnchorPane>

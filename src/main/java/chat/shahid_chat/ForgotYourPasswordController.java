@@ -1,15 +1,11 @@
 package chat.shahid_chat;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
 public class ForgotYourPasswordController {
@@ -17,12 +13,6 @@ public class ForgotYourPasswordController {
     private ChangeWindow  ChangeWindow= new ChangeWindow();
 
     private static final Pattern LOGIN_PATTERN = Pattern.compile("[a-zA-Z0-9_]");
-
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
 
     @FXML
     private Button backButton;
@@ -34,66 +24,13 @@ public class ForgotYourPasswordController {
     private TextField loginField;
 
     @FXML
-    private AnchorPane mainBackground;
-
-    @FXML
     private Pane sideBackground;
-
-    @FXML
-    private Label title;
 
 
     @FXML
     void initialize() {
 
-        mainBackground.setStyle(String.format(
-                "-fx-background-color: %s;",
-                ColorPalettes.palette[0])
-        );
-
-
-        sideBackground.setStyle(String.format(
-                "-fx-background-radius: 15;" +
-                "-fx-background-color: %s;",
-                ColorPalettes.palette[1])
-        );
-
-
-        title.setStyle(String.format(
-                "-fx-text-fill: %s;",
-                ColorPalettes.palette[4])
-        );
-
-
-        loginField.setStyle(String.format(
-                "-fx-border-radius: 5;" +
-                "-fx-border-width: 2;" +
-                "-fx-border-insets: -1;" +
-                "-fx-background-radius: 5;" +
-                "-fx-background-color: %s;" +
-                "-fx-border-color: %s;" +
-                "-fx-text-inner-color: %s;",
-                ColorPalettes.palette[3],
-                ColorPalettes.palette[6],
-                ColorPalettes.palette[7])
-        );
         TextFieldLimiter.addTextLimiter(loginField, 40);
-
-
-        confirmLoginButton.setStyle(String.format(
-                "-fx-background-color: %s;" +
-                "-fx-text-fill: %s;",
-                ColorPalettes.palette[2],
-                ColorPalettes.palette[5])
-        );
-
-
-        backButton.setStyle(String.format(
-                "-fx-background-color: %s;" +
-                "-fx-text-fill: %s;",
-                ColorPalettes.palette[2],
-                ColorPalettes.palette[5])
-        );
 
 
         backButton.setOnAction(event ->{

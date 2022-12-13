@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainBackground"
-            maxHeight="-Infinity"
+<AnchorPane maxHeight="-Infinity"
             maxWidth="-Infinity"
             minHeight="-Infinity"
             minWidth="-Infinity"
@@ -18,6 +17,8 @@
             xmlns="http://javafx.com/javafx/18.0.1"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="chat.shahid_chat.SignUpController"
+            stylesheets="@Registration_dark_DS.css"
+            styleClass="anchor-pane"
 >
 
     <Pane fx:id="sideBackground"
@@ -25,6 +26,7 @@
           layoutY="25.0"
           prefHeight="350.0"
           prefWidth="500.0"
+          styleClass="pane"
     >
 
         <TextField fx:id="loginField"
@@ -61,8 +63,7 @@
                 textAlignment="CENTER"
         />
 
-        <Label fx:id="title"
-               layoutX="206.0"
+        <Label layoutX="206.0"
                layoutY="40.0"
                prefHeight="34.0"
                prefWidth="89.0"

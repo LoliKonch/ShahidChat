@@ -1,0 +1,31 @@
+.anchor-pane {
+    -fx-background-color: #2f3136;
+}
+
+.pane {
+    -fx-background-radius: 15;
+    -fx-background-color: #36393f;
+}
+
+.label {
+    -fx-text-fill: #ffffff;
+}
+
+.button {
+    -fx-background-color: #5a6ac2;
+    -fx-text-fill: #d2d2d2;
+}
+
+.text-field {
+    -fx-border-radius: 5;
+    -fx-border-width: 2;
+    -fx-border-insets: -1;
+    -fx-background-radius: 5;
+    -fx-background-color: #202225;
+    -fx-border-color: #202225;
+    -fx-text-inner-color: #8a8b91;
+}
+
+.hyper-link {
+    -fx-text-fill: #04a5e6;
+}
