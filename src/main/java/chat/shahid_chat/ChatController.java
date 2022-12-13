@@ -229,8 +229,8 @@ public class ChatController implements Initializable {
                 SimpleDateFormat formatForDate = new SimpleDateFormat("dd.MM.yy H:mm");
                 String[] message = {formatForDate.format(date), "", outMessage};
                 displayYourMessage(message, vBoxWithMessages);
-                messageField.clear();
                 Client.sendMessage(messageField.getText());
+                messageField.clear();
             }
         });
 
