@@ -150,6 +150,7 @@ public class EmailConfirmationController {
                 newStage.show();
 
                 lastStage.close();
+                Client.sendMessage("back");
                 Client.closeEverything();
             } catch (IOException e) {
                 ExceptionBox.createExceptionBox(sideBackground,
