@@ -382,5 +382,5 @@ public class ColorPalettes {
             "#000000"  // 33 Other date and time
     };
 
-    public static String[] palette = DARWIN_TV;
+    public static String[] palette = DARK_DS;
 }

@@ -108,7 +108,7 @@ public class Client {
 
     private static void writeStringToFile(String str, String username) {
         try {
-            String path = "src/main/java/chat/shahid_chat/res/PublicKey_" + username + ".pgp";
+            String path = PGP.defaultKeysFilepath + "PublicKey_" + username + ".pgp";
             BufferedWriter writer = new BufferedWriter(new FileWriter(path));
             writer.write(str);
             writer.flush();
