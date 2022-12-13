@@ -1,0 +1,59 @@
+.anchor-pane {
+    -fx-background-color: #2f3136;
+}
+
+.send-button {
+    -fx-background-color: #5a6ac2;
+    -fx-text-fill: #d2d2d2;
+}
+
+.menu-button {
+    -fx-background-color: #5a6ac2;
+    -fx-text-fill: #d2d2d2;
+}
+
+.text-field {
+    -fx-border-radius: 5;
+    -fx-border-width: 2;
+    -fx-border-insets: -1;
+    -fx-background-radius: 5;
+    -fx-background-color: #202225;
+    -fx-border-color: #5a6ac2;
+    -fx-text-inner-color: #ffffff;
+}
+
+.scroll-pane {
+    -fx-background: #36393f;
+    -fx-background-color: #5a6ac2;
+}
+
+.vBoxWithMessages {
+    -fx-background-color: #36393f;
+}
+
+.vBoxMenu {
+    -fx-background-color: #2f3136;
+}
+
+.menu-trigger {
+    -fx-background-color: #5a6ac2;
+}
+
+.radio-button {
+    -fx-text-fill: #d2d2d2;
+    -fx-font-size: 13;
+}
+
+.radio-button .radio {
+    -fx-border-insets: -1px;
+    -fx-border-color: #5a6ac2;
+    -fx-background-color: #fafafa;
+    -fx-border-radius: 15px;
+    -fx-padding: 3px;
+}
+
+.radio-button .dot {
+    -fx-background-radius: 15px;
+    -fx-padding: 8px;
+
+}

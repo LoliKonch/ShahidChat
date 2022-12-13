@@ -13,9 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Cursor;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -27,16 +25,6 @@ import javafx.util.Duration;
 public class ChatController implements Initializable {
 
     private ChangeWindow  ChangeWindow= new ChangeWindow();
-
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
-    @FXML
-    private AnchorPane mainBackground;
-
     @FXML
     private Button exitButton;
 
@@ -145,53 +133,7 @@ public class ChatController implements Initializable {
     }
 
 
-    public static void displayYourMessage(String outMessage, VBox vBox, TextField messageField) {
-        HBox hBox = new HBox();
-        hBox.setAlignment(Pos.CENTER_RIGHT);
-        hBox.setPadding(new Insets(5, 5, 5, 20));
-
-        VBox messageVBox = new VBox();
-        messageVBox.setStyle(String.format(
-                "-fx-background-color: %s;" +
-                "-fx-background-radius: 15;",
-                ColorPalettes.palette[23])
-        );
-
-
-        Text outMessageText = new Text(outMessage);
-        outMessageText.setFill(Paint.valueOf(ColorPalettes.palette[25]));
-        outMessageText.setStyle("-fx-font-size: 14;");
-        TextFlow outMessageTextFlow = new TextFlow(outMessageText);
-        outMessageTextFlow.setPadding(new Insets(4, 5, 0, 10));
-
-
-        Date date = new Date();
-        SimpleDateFormat formatForDate = new SimpleDateFormat("dd.MM.yy H:mm");
-        Label dateAndTime = new Label(formatForDate.format(date));
-        dateAndTime.setStyle(String.format(
-                "-fx-font-size: 9;" +
-                "-fx-text-fill: %s;",
-                ColorPalettes.palette[32])
-        );
-        dateAndTime.setPadding(new Insets(-2, 7, 1, 7));
-
-
-        messageVBox.getChildren().add(outMessageTextFlow);
-        messageVBox.getChildren().add(dateAndTime);
-        hBox.getChildren().add(messageVBox);
-
-
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                vBox.getChildren().add(hBox);
-                messageField.clear();
-            }
-        });
-    }
-
-
-    public static void displayYourMessageFromServer(String[] yourMessage, VBox vBox) {
+    public static void displayYourMessage(String[] yourMessage, VBox vBox) {
         HBox hBox = new HBox();
         hBox.setAlignment(Pos.CENTER_RIGHT);
         hBox.setPadding(new Insets(5, 5, 5, 20));
@@ -247,44 +189,8 @@ public class ChatController implements Initializable {
         });
 
 
-        mainBackground.setStyle(String.format(
-                "-fx-background-color: %s;",
-                ColorPalettes.palette[9])
-        );
-
-
-        scrollPane.setStyle(String.format(
-                "-fx-background: %s;" +
-                "-fx-background-color: %s;",
-                ColorPalettes.palette[10],
-                ColorPalettes.palette[28])
-        );
-
-
-        vBoxWithMessages.setStyle(String.format(
-                "-fx-background-color: %s;",
-                ColorPalettes.palette[11])
-        );
-
-
-        vBoxMenu.setStyle(String.format(
-                "-fx-background-color: %s;",
-                ColorPalettes.palette[12])
-        );
-
         vBoxMenu.setTranslateX(-160);
         TranslateTransition menuTranslation = new TranslateTransition(Duration.millis(500), vBoxMenu);
-
-        vBoxMenu.setOnMouseExited(evt -> {
-            menuTranslation.setRate(-1);
-            menuTranslation.play();
-        });
-
-
-        menuTrigger.setStyle(String.format(
-                "-fx-background-color: %s;",
-                ColorPalettes.palette[13])
-        );
 
         menuTranslation.setFromX(-160);
         menuTranslation.setToX(0);
@@ -294,128 +200,15 @@ public class ChatController implements Initializable {
             menuTranslation.play();
         });
 
+        vBoxMenu.setOnMouseExited(evt -> {
+            menuTranslation.setRate(-1);
+            menuTranslation.play();
+        });
 
-        messageField.setStyle(String.format(
-                "-fx-border-radius: 5;" +
-                "-fx-border-width: 2;" +
-                "-fx-border-insets: -1;" +
-                "-fx-background-radius: 5;" +
-                "-fx-background-color: %s;" +
-                "-fx-border-color: %s;" +
-                "-fx-text-inner-color: %s;",
-                ColorPalettes.palette[14],
-                ColorPalettes.palette[15],
-                ColorPalettes.palette[16])
-        );
+
         TextFieldLimiter.addTextLimiter(messageField, 5000);
 
-
-        sendMessageButton.setStyle(String.format(
-                "-fx-background-color: %s;" +
-                "-fx-text-fill: %s;",
-                ColorPalettes.palette[17],
-                ColorPalettes.palette[18])
-        );
-
-
-        sendFileButton.setStyle(String.format(
-                "-fx-background-color: %s;" +
-                "-fx-text-fill: %s;",
-                ColorPalettes.palette[17],
-                ColorPalettes.palette[18])
-        );
-
-
-        exitButton.setStyle(String.format(
-                "-fx-background-color: %s;" +
-                "-fx-text-fill: %s;",
-                ColorPalettes.palette[19],
-                ColorPalettes.palette[20])
-        );
-
-
-        applyThemeButton.setStyle(String.format(
-                "-fx-background-color: %s;" +
-                "-fx-text-fill: %s;",
-                ColorPalettes.palette[19],
-                ColorPalettes.palette[20])
-        );
-
-
-        radioButton1.setStyle(String.format(
-                "-fx-text-fill: %s;",
-                ColorPalettes.palette[22])
-        );
-        radioButton1.setOnMouseEntered(evt -> radioButton1.getScene().setCursor(Cursor.HAND));
-        radioButton1.setOnMouseExited(evt -> radioButton1.getScene().setCursor(Cursor.DEFAULT));
-
-
-        radioButton2.setStyle(String.format(
-                "-fx-text-fill: %s;",
-                ColorPalettes.palette[22])
-        );
-        radioButton2.setOnMouseEntered(evt -> radioButton2.getScene().setCursor(Cursor.HAND));
-        radioButton2.setOnMouseExited(evt -> radioButton2.getScene().setCursor(Cursor.DEFAULT));
-
-
-        radioButton3.setStyle(String.format(
-                "-fx-text-fill: %s;",
-                ColorPalettes.palette[22])
-        );
-        radioButton3.setOnMouseEntered(evt -> radioButton3.getScene().setCursor(Cursor.HAND));
-        radioButton3.setOnMouseExited(evt -> radioButton3.getScene().setCursor(Cursor.DEFAULT));
-
-
-        radioButton4.setStyle(String.format(
-                "-fx-text-fill: %s;",
-                ColorPalettes.palette[22])
-        );
-        radioButton4.setOnMouseEntered(evt -> radioButton4.getScene().setCursor(Cursor.HAND));
-        radioButton4.setOnMouseExited(evt -> radioButton4.getScene().setCursor(Cursor.DEFAULT));
-
-
-        radioButton5.setStyle(String.format(
-                "-fx-text-fill: %s;",
-                ColorPalettes.palette[22])
-        );
-        radioButton5.setOnMouseEntered(evt -> radioButton5.getScene().setCursor(Cursor.HAND));
-        radioButton5.setOnMouseExited(evt -> radioButton5.getScene().setCursor(Cursor.DEFAULT));
-
-
-        radioButton6.setStyle(String.format(
-                "-fx-text-fill: %s;",
-                ColorPalettes.palette[22])
-        );
-        radioButton6.setOnMouseEntered(evt -> radioButton6.getScene().setCursor(Cursor.HAND));
-        radioButton6.setOnMouseExited(evt -> radioButton6.getScene().setCursor(Cursor.DEFAULT));
-
-
-        radioButton7.setStyle(String.format(
-                "-fx-text-fill: %s;",
-                ColorPalettes.palette[22])
-        );
-        radioButton7.setOnMouseEntered(evt -> radioButton7.getScene().setCursor(Cursor.HAND));
-        radioButton7.setOnMouseExited(evt -> radioButton7.getScene().setCursor(Cursor.DEFAULT));
-
-
-        radioButton8.setStyle(String.format(
-                "-fx-text-fill: %s;",
-                ColorPalettes.palette[22])
-        );
-        radioButton8.setOnMouseEntered(evt -> radioButton8.getScene().setCursor(Cursor.HAND));
-        radioButton8.setOnMouseExited(evt -> radioButton8.getScene().setCursor(Cursor.DEFAULT));
-
-
-        radioButton9.setStyle(String.format(
-                "-fx-text-fill: %s;",
-                ColorPalettes.palette[22])
-        );
-        radioButton9.setOnMouseEntered(evt -> radioButton9.getScene().setCursor(Cursor.HAND));
-        radioButton9.setOnMouseExited(evt -> radioButton9.getScene().setCursor(Cursor.DEFAULT));
-
-
         ToggleGroup rbGroupPalettes = new ToggleGroup();
-
         radioButton1.setToggleGroup(rbGroupPalettes);
         radioButton2.setToggleGroup(rbGroupPalettes);
         radioButton3.setToggleGroup(rbGroupPalettes);
@@ -432,7 +225,11 @@ public class ChatController implements Initializable {
             String outMessage = messageField.getText();
 
             if (!outMessage.trim().isEmpty()) {
-                displayYourMessage(outMessage, vBoxWithMessages, messageField);
+                Date date = new Date();
+                SimpleDateFormat formatForDate = new SimpleDateFormat("dd.MM.yy H:mm");
+                String[] message = {formatForDate.format(date), "", outMessage};
+                displayYourMessage(message, vBoxWithMessages);
+                messageField.clear();
                 Client.sendMessage(messageField.getText());
             }
         });

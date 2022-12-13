@@ -80,7 +80,7 @@ public class Client {
                         messageFromServer = pgp.decryptString((String) objectInputStream.readObject(), username);
                         String[] messageFromServerList = messageFromServer.split("\\|", 3);
                         if (messageFromServerList[1].equals(getUsername())) {
-                            ChatController.displayYourMessageFromServer(messageFromServerList, vBox);
+                            ChatController.displayYourMessage(messageFromServerList, vBox);
                         }else {
                             ChatController.displayOtherMessage(messageFromServerList, vBox);
                         }

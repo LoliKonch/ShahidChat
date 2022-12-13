@@ -9,7 +9,10 @@
             prefWidth="600.0"
             xmlns="http://javafx.com/javafx/18.0.1"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="chat.shahid_chat.ChatController">
+            fx:controller="chat.shahid_chat.ChatController"
+            styleClass="anchor-pane"
+            stylesheets="@Chat_dark_DS.css"
+>
    <children>
       <TextField fx:id="messageField"
                  layoutX="50.0"
@@ -25,6 +28,7 @@
               prefHeight="30.0"
               prefWidth="60.0"
               text="Send"
+              styleClass="send-button"
       />
 
       <Button fx:id="sendFileButton"
@@ -34,6 +38,7 @@
               prefHeight="30.0"
               prefWidth="60.0"
               text="File"
+              styleClass="send-button"
       />
 
       <ScrollPane fx:id="scrollPane"
@@ -42,11 +47,13 @@
                   layoutY="30.0"
                   prefHeight="300.0"
                   prefWidth="500.0"
+                  styleClass="scroll-pane"
       >
          <content>
             <VBox fx:id="vBoxWithMessages"
                   prefHeight="230.0"
                   prefWidth="480.0"
+                  styleClass="vBoxWithMessages"
             />
          </content>
       </ScrollPane>
@@ -56,16 +63,21 @@
             layoutY="2.0"
             prefHeight="40.0"
             prefWidth="40.0"
+            styleClass="menu-trigger"
       />
 
       <VBox fx:id="vBoxMenu"
             prefHeight="400.0"
             prefWidth="150.0"
+            styleClass="vBoxMenu"
       >
          <children>
             <Button fx:id="exitButton"
                     mnemonicParsing="false"
                     text="Exit"
+                    prefHeight="23.0"
+                    prefWidth="40.0"
+                    styleClass="menu-button"
             >
                <VBox.margin>
                   <Insets bottom="10.0"
@@ -79,10 +91,11 @@
             <RadioButton fx:id="radioButton1"
                          mnemonicParsing="false"
                          text="Standart"
+                         styleClass="radio-button"
             >
                <VBox.margin>
                   <Insets left="5.0"
-                          top="5.0"
+                          top="6.0"
                   />
                </VBox.margin>
             </RadioButton>
@@ -90,10 +103,11 @@
             <RadioButton fx:id="radioButton2"
                          mnemonicParsing="false"
                          text="Dark DS"
+                         styleClass="radio-button"
             >
                <VBox.margin>
                   <Insets left="5.0"
-                          top="5.0"
+                          top="6.0"
                   />
                </VBox.margin>
             </RadioButton>
@@ -101,10 +115,11 @@
             <RadioButton fx:id="radioButton3"
                          mnemonicParsing="false"
                          text="Light VK"
+                         styleClass="radio-button"
             >
                <VBox.margin>
                   <Insets left="5.0"
-                          top="5.0"
+                          top="6.0"
                   />
                </VBox.margin>
             </RadioButton>
@@ -112,10 +127,11 @@
             <RadioButton fx:id="radioButton4"
                          mnemonicParsing="false"
                          text="Dark VK"
+                         styleClass="radio-button"
             >
                <VBox.margin>
                   <Insets left="5.0"
-                          top="5.0"
+                          top="6.0"
                   />
                </VBox.margin>
             </RadioButton>
@@ -123,10 +139,11 @@
             <RadioButton fx:id="radioButton5"
                          mnemonicParsing="false"
                          text="Light TG"
+                         styleClass="radio-button"
             >
                <VBox.margin>
                   <Insets left="5.0"
-                          top="5.0"
+                          top="6.0"
                   />
                </VBox.margin>
             </RadioButton>
@@ -134,10 +151,11 @@
             <RadioButton fx:id="radioButton6"
                          mnemonicParsing="false"
                          text="Dark TG"
+                         styleClass="radio-button"
             >
                <VBox.margin>
                   <Insets left="5.0"
-                          top="5.0"
+                          top="6.0"
                   />
                </VBox.margin>
             </RadioButton>
@@ -145,10 +163,11 @@
             <RadioButton fx:id="radioButton7"
                          mnemonicParsing="false"
                          text="Dark Trovo"
+                         styleClass="radio-button"
             >
                <VBox.margin>
                   <Insets left="5.0"
-                          top="5.0"
+                          top="6.0"
                   />
                </VBox.margin>
             </RadioButton>
@@ -156,10 +175,11 @@
             <RadioButton fx:id="radioButton8"
                          mnemonicParsing="false"
                          text="Boosty"
+                         styleClass="radio-button"
             >
                <VBox.margin>
                   <Insets left="5.0"
-                          top="5.0"
+                          top="6.0"
                   />
                </VBox.margin>
             </RadioButton>
@@ -167,10 +187,11 @@
             <RadioButton fx:id="radioButton9"
                          mnemonicParsing="false"
                          text="Darwin TV"
+                         styleClass="radio-button"
             >
                <VBox.margin>
                   <Insets left="5.0"
-                          top="5.0"
+                          top="6.0"
                   />
                </VBox.margin>
             </RadioButton>
@@ -178,6 +199,9 @@
             <Button fx:id="applyThemeButton"
                     mnemonicParsing="false"
                     text=" Applay theme"
+                    prefHeight="23.0"
+                    prefWidth="90.0"
+                    styleClass="menu-button"
             >
                <VBox.margin>
                   <Insets left="28.0"
