@@ -17,17 +17,13 @@ public class Client {
     private static String username;
     private static String password;
     private static String email;
-    private static String clientPublicKey;
-    private static String clientPrivateKey;
-    private static String serverPublicKey;
 
     public static void startClient() throws IOException {
         socket = new Socket("25.55.56.77", 9090);
 
         // создание криптографера pgp и сохранение ключей в файл и в переменные
         pgp = new PGP(username);
-        clientPublicKey = getStringFromFile(pgp.getPublicKeyFilepath(username));
-        clientPrivateKey = getStringFromFile(pgp.getPrivateKeyFilepath(username));
+        String clientPublicKey = getStringFromFile(pgp.getPublicKeyFilepath(username));
         serverName = pgp.generateSecretCode(15);
 
         try {
@@ -43,7 +39,7 @@ public class Client {
             objectOutputStream.flush();
 
             // получение публичного ключа сервера
-            serverPublicKey = (String) objectInputStream.readObject();
+            String serverPublicKey = (String) objectInputStream.readObject();
             writeStringToFile(serverPublicKey, serverName);
 
         } catch (Exception e) {
@@ -108,7 +104,7 @@ public class Client {
 
     private static void writeStringToFile(String str, String username) {
         try {
-            String path = "src/main/java/chat/shahid_chat/res/PublicKey_" + username + ".pgp";
+            String path = PGP.defaultKeysFilepath + "PublicKey_" + username + ".pgp";
             BufferedWriter writer = new BufferedWriter(new FileWriter(path));
             writer.write(str);
             writer.flush();
@@ -140,10 +136,6 @@ public class Client {
 
     public static String getEmail() {
         return email;
-    }
-
-    public static String getClientPublicKey() {
-        return clientPublicKey;
     }
 
     public static void closeEverything() {

@@ -6,6 +6,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,6 +15,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 public class SignInController {
 
@@ -204,6 +206,11 @@ public class SignInController {
                                 newStage.setScene(new Scene(root));
                                 newStage.setTitle("Shahid Chat №1");
                                 newStage.setResizable(false);
+                                newStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                                    public void handle(WindowEvent we) {
+                                        System.exit(0);
+                                    }
+                                });
                                 newStage.show();
 
                                 lastStage.close();

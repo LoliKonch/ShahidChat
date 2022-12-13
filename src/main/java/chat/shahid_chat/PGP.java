@@ -9,11 +9,8 @@ import java.util.Random;
 
 public class PGP {
     PGPLib pgpLib;
-    String defaultKeysFilepath = "src/main/java/chat/shahid_chat/res/";
-    private int keySizeInBytes = 2048;
-    private long expiresAfterDay = 5;
-    private String hashingAlgorithm = HashAlgorithm.MD5;
-    private String compression = CompressionAlgorithm.UNCOMPRESSED;
+    public static String defaultKeysFilepath = "src/main/java/chat/shahid_chat/res/keys/";
+    private static final int KEY_SIZE_IN_BYTES = 2048;
 
     public PGP(String username) {
         this.pgpLib = new PGPLib();
@@ -22,7 +19,7 @@ public class PGP {
 
     public void generateKeyPair(String username) {
         try {
-            PGPKeyPair keyPair = PGPKeyPair.generateRsaKeyPair(keySizeInBytes, username, username);
+            PGPKeyPair keyPair = PGPKeyPair.generateRsaKeyPair(KEY_SIZE_IN_BYTES, username, username);
             exportKeysFromKeyPair(keyPair);
         } catch (PGPException e) {
             System.err.println("Ошибка генерации ключей: " + e);
@@ -31,8 +28,12 @@ public class PGP {
 
     private void exportKeysFromKeyPair(PGPKeyPair keyPair) {
         try {
-            keyPair.exportPublicKey(defaultKeysFilepath + "PublicKey_" + keyPair.getUserID() + ".pgp", true);
-            keyPair.exportPrivateKey(defaultKeysFilepath + "PrivateKey_" + keyPair.getUserID() + ".pgp", true);
+            keyPair.exportPublicKey(
+                    defaultKeysFilepath + "PublicKey_" + keyPair.getUserID() + ".pgp",
+                    true);
+            keyPair.exportPrivateKey(
+                    defaultKeysFilepath + "PrivateKey_" + keyPair.getUserID() + ".pgp",
+                    true);
         } catch (NoPrivateKeyFoundException | IOException e) {
             System.err.println("Ошибка записи файлов ключей: "+ e);
         }
