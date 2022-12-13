@@ -147,11 +147,11 @@ public class ColorPalettes {
             "#d6d8db", // 26 Time of messages
             "#397dcc", // 27 Nickname
             "#397dcc", // 28 Scroll pane boarder
-            "#000000", // 29 Other message text
+            "#d6d8db", // 29 Other message text
             "#000000", // 30 Your username
-            "#000000", // 31 Other username
+            "#397dcc", // 31 Other username
             "#000000", // 32 Your date and time
-            "#000000"  // 33 Other date and time
+            "#397dcc"  // 33 Other date and time
     };
 
 
@@ -181,15 +181,15 @@ public class ColorPalettes {
             "#222222", // 22 Radio buttons text
             "#4388b9", // 23 Your message
             "linear-gradient(from 30% 30% to 80% 80%, reflect,  #cfd58c, #82b18a 100%);", // 24 Other messages
-            "#8a8b91", // 25 Message text
+            "#000000", // 25 Message text
             "#8a8b91", // 26 Time of messages
             "#3e546a", // 27 Nickname
             "#3e546a", // 28 Scroll pane boarder
             "#000000", // 29 Other message text
             "#000000", // 30 Your username
-            "#000000", // 31 Other username
+            "#4388b9", // 31 Other username
             "#000000", // 32 Your date and time
-            "#000000"  // 33 Other date and time
+            "#4388b9"  // 33 Other date and time
     };
 
 
@@ -219,15 +219,15 @@ public class ColorPalettes {
             "#0e1621", // 22 Radio buttons text
             "#4388b9", // 23 Your message
             "#0e1621", // 24 Other messages
-            "#8a8b91", // 25 Message text
+            "#000000", // 25 Message text
             "#8a8b91", // 26 Time of messages
             "#3e546a", // 27 Nickname
             "#3e546a", // 28 Scroll pane boarder
-            "#000000", // 29 Other message text
+            "#8a8b91", // 29 Other message text
             "#000000", // 30 Your username
-            "#000000", // 31 Other username
+            "#4388b9", // 31 Other username
             "#000000", // 32 Your date and time
-            "#000000"  // 33 Other date and time
+            "#4388b9"  // 33 Other date and time
     };
 
 
@@ -254,18 +254,18 @@ public class ColorPalettes {
             "#21b36c", // 19 Menu buttons
             "#c9c9c9", // 20 Menu buttons text
             "#21b36c", // 21 Radio buttons
-            "#4b5252", // 22 Radio buttons text
+            "#c9c9c9", // 22 Radio buttons text
             "#21b36c", // 23 Your message
             "#1f1f1f", // 24 Other messages
-            "#c9c9c9", // 25 Message text
+            "#000000", // 25 Message text
             "#24744d", // 26 Time of messages
             "#c7a76b", // 27 Nickname
             "#21b36c", // 28 Scroll pane boarder
-            "#000000", // 29 Other message text
+            "#c9c9c9", // 29 Other message text
             "#000000", // 30 Your username
-            "#000000", // 31 Other username
+            "#21b36c", // 31 Other username
             "#000000", // 32 Your date and time
-            "#000000"  // 33 Other date and time
+            "#21b36c"  // 33 Other date and time
     };
 
 
@@ -278,7 +278,7 @@ public class ColorPalettes {
             "#ffffff", // 5 Button text (registration)
             "#d55f2c", // 6 Fields borders (registration)
             "#000000", // 7 Fields text (registration)
-            "#00b4d8bf", // 8 Hyperlinks (registration)
+            "#d55f2c", // 8 Hyperlinks (registration)
             "#ccb4ac", // 9 Main background
             "#cbc2bf", // 10 Scroll pane
             "#cbc2bf", // 11 VBox with messages
@@ -315,7 +315,7 @@ public class ColorPalettes {
             "linear-gradient(to bottom, #b84504, #f9fa56)", // 4 Titles (registration)
             "#3d423d", // 5 Button text (registration)
             "#bbbbbb", // 6 Fields borders (registration)
-            "#8a8b91", // 7 Fields text (registration)
+            "#000000", // 7 Fields text (registration)
             "#00b4d8", // 8 Hyperlinks (registration)
             "#3a3f55", // 9 Main background
             "#e4fdff", // 10 Scroll pane
@@ -330,18 +330,18 @@ public class ColorPalettes {
             "linear-gradient(to right, #ef7550, #fda76a)", // 19 Menu buttons
             "#3d423d", // 20 Menu buttons text
             "linear-gradient(to right, #ef7550, #fda76a)", // 21 Radio buttons
-            "#3d423d", // 22 Radio buttons text
+            "#e4fdff", // 22 Radio buttons text
             "linear-gradient(to right, #ef7550, #fda76a)", // 23 Your message
             "#3a3f55", // 24 Other messages
-            "#3d423d", // 25 Message text
+            "#a9c9ba", // 25 Message text
             "linear-gradient(to right, #ef7550, #fda76a)", // 26 Time of messages
             "linear-gradient(to right, #ef7550, #fda76a)", // 27 Nickname
             "linear-gradient(to right, #ef7550, #fda76a)", // 28 Scroll pane boarder
-            "#000000", // 29 Other message text
+            "#e4fdff", // 29 Other message text
             "#000000", // 30 Your username
-            "#000000", // 31 Other username
+            "#fda76a", // 31 Other username
             "#000000", // 32 Your date and time
-            "#000000"  // 33 Other date and time
+            "#fda76a"  // 33 Other date and time
     };
 
 
@@ -382,5 +382,5 @@ public class ColorPalettes {
             "#000000"  // 33 Other date and time
     };
 
-    public static String[] palette = DARK_DS;
+    public static String[] palette = DARWIN_TV;
 }
