@@ -6,18 +6,16 @@ import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 
 public class SignUpController {
+
+    private ChangeWindow  ChangeWindow= new ChangeWindow();
 
     private static final Pattern RCF2822_MAIL_PATTERN = Pattern.compile(
             "(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"" +
@@ -144,25 +142,7 @@ public class SignUpController {
 
 
         backButton.setOnAction(event ->{
-            Stage lastStage = (Stage) backButton.getScene().getWindow();
-            try {
-
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("Sign_in.fxml"));
-                loader.load();
-
-                Stage newStage = new Stage();
-                Parent root = loader.getRoot();
-                newStage.setScene(new Scene(root));
-                newStage.setTitle("Shahid Chat №1");
-                newStage.setResizable(false);
-                newStage.show();
-
-                lastStage.close();
-                Client.closeEverything();
-            } catch (IOException e) {
-                ExceptionBox.createExceptionBox(sideBackground, "Can not find required system file");
-            }
+            ChangeWindow.changeWindowTo(sideBackground, "Sign_in.fxml");
         });
 
 
@@ -191,26 +171,7 @@ public class SignUpController {
 
                             String answer = Client.waitMessage();
                             if (answer.equals("successful_pre_sign_up")) {
-
-                                Stage lastStage = (Stage) signUpButton.getScene().getWindow();
-                                try {
-
-                                    FXMLLoader loader = new FXMLLoader();
-                                    loader.setLocation(getClass().getResource("E-mail_confirmation.fxml"));
-                                    loader.load();
-
-                                    Stage newStage = new Stage();
-                                    Parent root = loader.getRoot();
-                                    newStage.setScene(new Scene(root));
-                                    newStage.setTitle("Shahid Chat №1");
-                                    newStage.setResizable(false);
-                                    newStage.show();
-
-                                    lastStage.close();
-                                } catch (IOException e) {
-                                    ExceptionBox.createExceptionBox(sideBackground,
-                                            "Can not find required system file");
-                                }
+                                ChangeWindow.changeWindowTo(sideBackground, "E-mail_confirmation.fxml");
 
                             } else {
                                 ExceptionBox.createExceptionBox(sideBackground,

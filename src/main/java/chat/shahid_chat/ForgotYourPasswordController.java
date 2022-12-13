@@ -6,17 +6,15 @@ import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 
 public class ForgotYourPasswordController {
+
+    private ChangeWindow  ChangeWindow= new ChangeWindow();
 
     private static final Pattern LOGIN_PATTERN = Pattern.compile("[a-zA-Z0-9_]");
 
@@ -99,25 +97,7 @@ public class ForgotYourPasswordController {
 
 
         backButton.setOnAction(event ->{
-            Stage lastStage = (Stage) backButton.getScene().getWindow();
-            try {
-
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("Sign_in.fxml"));
-                loader.load();
-
-                Stage newStage = new Stage();
-                Parent root = loader.getRoot();
-                newStage.setScene(new Scene(root));
-                newStage.setTitle("Shahid Chat №1");
-                newStage.setResizable(false);
-                newStage.show();
-
-                lastStage.close();
-                Client.closeEverything();
-            } catch (IOException e) {
-                ExceptionBox.createExceptionBox(sideBackground, "Can not find required system file");
-            }
+            ChangeWindow.changeWindowTo(sideBackground, "Sign_in.fxml");
         });
 
 
@@ -138,25 +118,7 @@ public class ForgotYourPasswordController {
 
                         String answer = Client.waitMessage();
                         if (answer.equals("begin_password_recovery")) {
-
-                            Stage lastStage = (Stage) confirmLoginButton.getScene().getWindow();
-                            try {
-
-                                FXMLLoader loader = new FXMLLoader();
-                                loader.setLocation(getClass().getResource("New_password.fxml"));
-                                loader.load();
-
-                                Stage newStage = new Stage();
-                                Parent root = loader.getRoot();
-                                newStage.setScene(new Scene(root));
-                                newStage.setTitle("Shahid Chat №1");
-                                newStage.setResizable(false);
-                                newStage.show();
-
-                                lastStage.close();
-                            } catch (IOException e) {
-                                ExceptionBox.createExceptionBox(sideBackground, "Can not find required system file");
-                            }
+                            ChangeWindow.changeWindowTo(sideBackground, "New_password.fxml");
                         } else {
                             ExceptionBox.createExceptionBox(sideBackground,
                                     "                   Incorrect login");
@@ -172,8 +134,6 @@ public class ForgotYourPasswordController {
                 } else {
                     ExceptionBox.createExceptionBox(sideBackground, "                    Invalid Login");
                 }
-
-
             } else {
                 ExceptionBox.createExceptionBox(sideBackground, "          All fields must be filled in");
             }

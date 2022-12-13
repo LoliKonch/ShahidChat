@@ -6,18 +6,14 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
 public class SignInController {
+
+    private ChangeWindow  ChangeWindow= new ChangeWindow();
 
     private static final Pattern LOGIN_PATTERN = Pattern.compile("[a-zA-Z0-9_]");
 
@@ -129,46 +125,12 @@ public class SignInController {
 
 
         registrationButton.setOnAction(event ->{
-            Stage lastStage = (Stage) forgotPassword.getScene().getWindow();
-            try {
-
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("Sign_up.fxml"));
-                loader.load();
-
-                Stage newStage = new Stage();
-                Parent root = loader.getRoot();
-                newStage.setScene(new Scene(root));
-                newStage.setTitle("Shahid Chat №1");
-                newStage.setResizable(false);
-                newStage.show();
-
-                lastStage.close();
-            } catch (IOException e) {
-                ExceptionBox.createExceptionBox(sideBackground, "     Can not find required system file");
-            }
+            ChangeWindow.changeWindowTo(sideBackground, "Sign_up.fxml");
         });
 
 
         forgotPassword.setOnAction(event ->{
-            Stage lastStage = (Stage) forgotPassword.getScene().getWindow();
-            try {
-
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("Forgot_your_password.fxml"));
-                loader.load();
-
-                Stage newStage = new Stage();
-                Parent root = loader.getRoot();
-                newStage.setScene(new Scene(root));
-                newStage.setTitle("Shahid Chat №1");
-                newStage.setResizable(false);
-                newStage.show();
-
-                lastStage.close();
-            } catch (IOException e) {
-                ExceptionBox.createExceptionBox(sideBackground, "      Can not find required system file");
-            }
+            ChangeWindow.changeWindowTo(sideBackground, "Forgot_your_password.fxml");
         });
 
 
@@ -193,30 +155,7 @@ public class SignInController {
 
                         String answer = Client.waitMessage();
                         if (answer.equals("successful_sign_in")) {
-
-                            Stage lastStage = (Stage) forgotPassword.getScene().getWindow();
-                            try {
-
-                                FXMLLoader loader = new FXMLLoader();
-                                loader.setLocation(getClass().getResource("Chat.fxml"));
-                                loader.load();
-
-                                Stage newStage = new Stage();
-                                Parent root = loader.getRoot();
-                                newStage.setScene(new Scene(root));
-                                newStage.setTitle("Shahid Chat №1");
-                                newStage.setResizable(false);
-                                newStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-                                    public void handle(WindowEvent we) {
-                                        System.exit(0);
-                                    }
-                                });
-                                newStage.show();
-
-                                lastStage.close();
-                            } catch (IOException e) {
-                                ExceptionBox.createExceptionBox(sideBackground, "Can not find required system file");
-                            }
+                            ChangeWindow.changeWindowTo(sideBackground, "Chat.fxml");
 
                         } else {
                             ExceptionBox.createExceptionBox(sideBackground,

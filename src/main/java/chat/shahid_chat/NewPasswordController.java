@@ -1,20 +1,17 @@
 package chat.shahid_chat;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 
 public class NewPasswordController {
+
+    private ChangeWindow  ChangeWindow= new ChangeWindow();
 
     @FXML
     private ResourceBundle resources;
@@ -146,26 +143,7 @@ public class NewPasswordController {
 
                     String answer = Client.waitMessage();
                     if (answer.equals("successful_password_recovery")) {
-
-                        Stage lastStage = (Stage) setNewPasswordButton.getScene().getWindow();
-                        try {
-
-                            FXMLLoader loader = new FXMLLoader();
-                            loader.setLocation(getClass().getResource("Sign_in.fxml"));
-                            loader.load();
-
-                            Stage newStage = new Stage();
-                            Parent root = loader.getRoot();
-                            newStage.setScene(new Scene(root));
-                            newStage.setTitle("Shahid Chat №1");
-                            newStage.setResizable(false);
-                            newStage.show();
-
-                            lastStage.close();
-                        } catch (IOException e) {
-                            ExceptionBox.createExceptionBox(sideBackground,
-                                    "Can not find required system file");
-                        }
+                        ChangeWindow.changeWindowTo(sideBackground, "Sign_in.fxml");
                     } else {
                         ExceptionBox.createExceptionBox(sideBackground,
                                 "                 Invalid secret code");
@@ -181,26 +159,7 @@ public class NewPasswordController {
 
 
         backButton.setOnAction(event ->{
-            Stage lastStage = (Stage) backButton.getScene().getWindow();
-            try {
-
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("Sign_in.fxml"));
-                loader.load();
-
-                Stage newStage = new Stage();
-                Parent root = loader.getRoot();
-                newStage.setScene(new Scene(root));
-                newStage.setTitle("Shahid Chat №1");
-                newStage.setResizable(false);
-                newStage.show();
-
-                lastStage.close();
-                Client.sendMessage("back");
-                Client.closeEverything();
-            } catch (IOException e) {
-                ExceptionBox.createExceptionBox(sideBackground, "Can not find required system file");
-            }
+            ChangeWindow.changeWindowTo(sideBackground, "Sign_in.fxml");
         });
     }
 }

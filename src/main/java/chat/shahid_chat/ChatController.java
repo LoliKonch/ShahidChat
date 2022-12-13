@@ -1,6 +1,5 @@
 package chat.shahid_chat;
 
-import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -11,13 +10,10 @@ import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -26,10 +22,11 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class ChatController implements Initializable {
+
+    private ChangeWindow  ChangeWindow= new ChangeWindow();
 
     @FXML
     private ResourceBundle resources;
@@ -453,7 +450,6 @@ public class ChatController implements Initializable {
 
 
         applyThemeButton.setOnAction(event -> {
-            Stage lastStage = (Stage) exitButton.getScene().getWindow();
 
             RadioButton selection = (RadioButton) rbGroupPalettes.getSelectedToggle();
             switch (selection.getId()) {
@@ -470,47 +466,12 @@ public class ChatController implements Initializable {
             }
 
 
-            try {
-
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("Sign_in.fxml"));
-                loader.load();
-
-                Stage newStage = new Stage();
-                Parent root = loader.getRoot();
-                newStage.setScene(new Scene(root));
-                newStage.setTitle("Shahid Chat №1");
-                newStage.setResizable(false);
-                newStage.show();
-
-                lastStage.close();
-                Client.closeEverything();
-            } catch (IOException e) {
-                ExceptionBox.createExceptionBox(vBoxWithMessages, "Can not find required system file");
-            }
+            ChangeWindow.changeWindowTo(menuTrigger, "Sign_in.fxml");
         });
 
 
         exitButton.setOnAction(event ->{
-            Stage lastStage = (Stage) exitButton.getScene().getWindow();
-            try {
-
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("Sign_in.fxml"));
-                loader.load();
-
-                Stage newStage = new Stage();
-                Parent root = loader.getRoot();
-                newStage.setScene(new Scene(root));
-                newStage.setTitle("Shahid Chat №1");
-                newStage.setResizable(false);
-                newStage.show();
-
-                lastStage.close();
-                Client.closeEverything();
-            } catch (IOException e) {
-                ExceptionBox.createExceptionBox(vBoxWithMessages, "Can not find required system file");
-            }
+            ChangeWindow.changeWindowTo(menuTrigger, "Sign_in.fxml");
         });
     }
 }
