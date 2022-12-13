@@ -97,7 +97,7 @@ public class ForgotYourPasswordController {
 
 
         backButton.setOnAction(event ->{
-            ChangeWindow.changeWindowTo(sideBackground, "Sign_in.fxml");
+            ChangeWindow.changeWindowTo(sideBackground, "Sign_in.fxml", false);
         });
 
 
@@ -118,7 +118,7 @@ public class ForgotYourPasswordController {
 
                         String answer = Client.waitMessage();
                         if (answer.equals("begin_password_recovery")) {
-                            ChangeWindow.changeWindowTo(sideBackground, "New_password.fxml");
+                            ChangeWindow.changeWindowTo(sideBackground, "New_password.fxml", true);
                         } else {
                             ExceptionBox.createExceptionBox(sideBackground,
                                     "                   Incorrect login");

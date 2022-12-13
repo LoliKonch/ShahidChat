@@ -100,7 +100,7 @@ public class EmailConfirmationController {
 
                 String answer = Client.waitMessage();
                 if (answer.equals("successful_sign_up")) {
-                    ChangeWindow.changeWindowTo(sideBackground, "Sign_in.fxml");
+                    ChangeWindow.changeWindowTo(sideBackground, "Sign_in.fxml", false);
                 } else {
                     ExceptionBox.createExceptionBox(sideBackground,
                             "                 Invalid secret code");
@@ -114,7 +114,7 @@ public class EmailConfirmationController {
 
 
         backButton.setOnAction(event ->{
-            ChangeWindow.changeWindowTo(sideBackground, "Sign_in.fxml");
+            ChangeWindow.changeWindowTo(sideBackground, "Sign_in.fxml", false);
         });
     }
 }

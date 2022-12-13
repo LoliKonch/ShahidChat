@@ -143,7 +143,7 @@ public class NewPasswordController {
 
                     String answer = Client.waitMessage();
                     if (answer.equals("successful_password_recovery")) {
-                        ChangeWindow.changeWindowTo(sideBackground, "Sign_in.fxml");
+                        ChangeWindow.changeWindowTo(sideBackground, "Sign_in.fxml", false);
                     } else {
                         ExceptionBox.createExceptionBox(sideBackground,
                                 "                 Invalid secret code");
@@ -159,7 +159,7 @@ public class NewPasswordController {
 
 
         backButton.setOnAction(event ->{
-            ChangeWindow.changeWindowTo(sideBackground, "Sign_in.fxml");
+            ChangeWindow.changeWindowTo(sideBackground, "Sign_in.fxml", false);
         });
     }
 }

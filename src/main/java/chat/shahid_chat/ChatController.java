@@ -466,12 +466,12 @@ public class ChatController implements Initializable {
             }
 
 
-            ChangeWindow.changeWindowTo(menuTrigger, "Sign_in.fxml");
+            ChangeWindow.changeWindowTo(menuTrigger, "Sign_in.fxml", false);
         });
 
 
         exitButton.setOnAction(event ->{
-            ChangeWindow.changeWindowTo(menuTrigger, "Sign_in.fxml");
+            ChangeWindow.changeWindowTo(menuTrigger, "Sign_in.fxml", false);
         });
     }
 }
