@@ -50,7 +50,6 @@ public class NewPasswordController {
                             "|" + confirmNewPasswordField.getText().trim() +
                             "|" + secretCodeField.getText().trim());
 
-
                     String answer = Client.waitMessage();
                     if (answer.equals("successful_password_recovery")) {
                         ChangeWindow.changeWindowTo(sideBackground, "Sign_in.fxml", false);
@@ -58,7 +57,6 @@ public class NewPasswordController {
                         ExceptionBox.createExceptionBox(sideBackground,
                                 "                 Invalid secret code");
                     }
-
                 } else {
                     ExceptionBox.createExceptionBox(sideBackground, "             Passwords must match");
                 }

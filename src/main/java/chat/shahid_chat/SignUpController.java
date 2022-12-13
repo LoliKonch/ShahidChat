@@ -41,7 +41,6 @@ public class SignUpController {
     @FXML
     private Button signUpButton;
 
-
     @FXML
     void initialize() {
 
@@ -69,7 +68,6 @@ public class SignUpController {
                         Client.setEmail(mailField.getText().trim());
 
                         try {
-
                             Client.startClient();
 
                             Client.sendMessage(Client.getUsername());
@@ -90,7 +88,6 @@ public class SignUpController {
                                 Client.closeEverything();
                                 return;
                             }
-
                         } catch (IOException e) {
                             Client.closeEverything();
                             ExceptionBox.createExceptionBox(sideBackground,
@@ -98,7 +95,6 @@ public class SignUpController {
                                             "\n         Please try again later");
                             return;
                         }
-
                     } else {
                         ExceptionBox.createExceptionBox(sideBackground, "Invalid E-mail address");
                     }

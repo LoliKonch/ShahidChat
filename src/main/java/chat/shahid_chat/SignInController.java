@@ -1,6 +1,5 @@
 package chat.shahid_chat;
 
-
 import java.io.IOException;
 import java.util.regex.Pattern;
 
@@ -59,7 +58,6 @@ public class SignInController {
                     Client.setPassword(passwordField.getText().trim());
 
                     try {
-
                         Client.startClient();
 
                         Client.sendMessage(Client.getUsername());
@@ -77,7 +75,6 @@ public class SignInController {
                             Client.closeEverything();
                             return;
                         }
-
                     } catch (IOException e) {
                         Client.closeEverything();
                         ExceptionBox.createExceptionBox(sideBackground,
@@ -94,4 +91,3 @@ public class SignInController {
         });
     }
 }
-

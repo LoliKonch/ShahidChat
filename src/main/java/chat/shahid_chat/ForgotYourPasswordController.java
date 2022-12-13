@@ -26,7 +26,6 @@ public class ForgotYourPasswordController {
     @FXML
     private Pane sideBackground;
 
-
     @FXML
     void initialize() {
 
@@ -61,7 +60,6 @@ public class ForgotYourPasswordController {
                                     "                   Incorrect login");
                             Client.closeEverything();
                         }
-
                     } catch (IOException e) {
                         Client.closeEverything();
                         ExceptionBox.createExceptionBox(sideBackground,

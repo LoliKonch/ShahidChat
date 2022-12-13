@@ -41,7 +41,6 @@ public class EmailConfirmationController {
                     ExceptionBox.createExceptionBox(sideBackground,
                             "                 Invalid secret code");
                 }
-
             } else {
                 ExceptionBox.createExceptionBox(sideBackground,
                         "          All fields must be filled in");
@@ -54,4 +53,3 @@ public class EmailConfirmationController {
         });
     }
 }
-
