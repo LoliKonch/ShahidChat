@@ -344,43 +344,5 @@ public class ColorPalettes {
             "#fda76a"  // 33 Other date and time
     };
 
-
-    public static final String[] RAINBOW = new String[]{
-            "#001845", // 0 Main background (registration)
-            "#fafafa", // 1 Side background (registration)
-            "#001845", // 2 Buttons (registration)
-            "#fafafa", // 3 Fields (registration)
-            "#000000", // 4 Titles (registration)
-            "#fafafa", // 5 Button text (registration)
-            "#bbbbbb", // 6 Fields borders (registration)
-            "#000000", // 7 Fields text (registration)
-            "#00b4d8", // 8 Hyperlinks (registration)
-            "", // 9 Main background
-            "", // 10 Scroll pane
-            "", // 11 VBox with messages
-            "", // 12 Menu background
-            "", // 13 Menu trigger
-            "", // 14 Field
-            "", // 15 Field borders
-            "", // 16 Field text
-            "", // 17 Send buttons
-            "", // 18 Send buttons text
-            "", // 19 Menu buttons
-            "", // 20 Menu buttons text
-            "", // 21 Radio buttons
-            "", // 22 Radio buttons text
-            "", // 23 Your message
-            "", // 24 Other messages
-            "", // 25 Message text
-            "", // 26 Time of messages
-            "", // 27 Nickname
-            "", // 28 Scroll pane boarder
-            "#000000", // 29 Other message text
-            "#000000", // 30 Your username
-            "#000000", // 31 Other username
-            "#000000", // 32 Your date and time
-            "#000000"  // 33 Other date and time
-    };
-
     public static String[] palette = DARK_DS;
 }
