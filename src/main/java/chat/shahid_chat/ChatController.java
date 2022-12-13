@@ -89,9 +89,6 @@ public class ChatController implements Initializable {
     private RadioButton radioButton9;
 
     @FXML
-    private RadioButton radioButton10;
-
-    @FXML
     private Button applyThemeButton;
 
 
@@ -417,13 +414,6 @@ public class ChatController implements Initializable {
         radioButton9.setOnMouseExited(evt -> radioButton9.getScene().setCursor(Cursor.DEFAULT));
 
 
-        radioButton10.setStyle(String.format(
-                "-fx-text-fill: %s;",
-                ColorPalettes.palette[22])
-        );
-        radioButton10.setOnMouseEntered(evt -> radioButton10.getScene().setCursor(Cursor.HAND));
-        radioButton10.setOnMouseExited(evt -> radioButton10.getScene().setCursor(Cursor.DEFAULT));
-
         ToggleGroup rbGroupPalettes = new ToggleGroup();
 
         radioButton1.setToggleGroup(rbGroupPalettes);
@@ -435,7 +425,6 @@ public class ChatController implements Initializable {
         radioButton7.setToggleGroup(rbGroupPalettes);
         radioButton8.setToggleGroup(rbGroupPalettes);
         radioButton9.setToggleGroup(rbGroupPalettes);
-        radioButton10.setToggleGroup(rbGroupPalettes);
 
 
 
@@ -462,7 +451,6 @@ public class ChatController implements Initializable {
                 case "radioButton7" -> ColorPalettes.palette = ColorPalettes.DARK_TROVO;
                 case "radioButton8" -> ColorPalettes.palette = ColorPalettes.BOOSTY;
                 case "radioButton9" -> ColorPalettes.palette = ColorPalettes.DARWIN_TV;
-                case "radioButton10" -> ColorPalettes.palette = ColorPalettes.RAINBOW;
             }
 
 
