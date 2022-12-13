@@ -196,6 +196,7 @@ public class NewPasswordController {
                 newStage.show();
 
                 lastStage.close();
+                Client.sendMessage("back");
                 Client.closeEverything();
             } catch (IOException e) {
                 ExceptionBox.createExceptionBox(sideBackground, "Can not find required system file");

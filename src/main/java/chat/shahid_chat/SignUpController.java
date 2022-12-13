@@ -159,6 +159,7 @@ public class SignUpController {
                 newStage.show();
 
                 lastStage.close();
+                Client.closeEverything();
             } catch (IOException e) {
                 ExceptionBox.createExceptionBox(sideBackground, "Can not find required system file");
             }
