@@ -10,7 +10,7 @@ import javafx.scene.layout.Pane;
 
 public class ForgotYourPasswordController {
 
-    private ChangeWindow  ChangeWindow= new ChangeWindow();
+    private final ChangeWindow  ChangeWindow= new ChangeWindow();
 
     private static final Pattern LOGIN_PATTERN = Pattern.compile("[a-zA-Z0-9_]");
 
@@ -32,9 +32,8 @@ public class ForgotYourPasswordController {
         TextFieldLimiter.addTextLimiter(loginField, 40);
 
 
-        backButton.setOnAction(event ->{
-            ChangeWindow.changeWindowTo(sideBackground, "Sign_in.fxml", false);
-        });
+        backButton.setOnAction(event ->
+            ChangeWindow.changeWindowTo(sideBackground, "Sign_in.fxml", false));
 
 
         confirmLoginButton.setOnAction(event ->{

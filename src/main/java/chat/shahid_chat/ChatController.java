@@ -13,7 +13,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -24,15 +23,12 @@ import javafx.util.Duration;
 
 public class ChatController implements Initializable {
 
-    private ChangeWindow  ChangeWindow= new ChangeWindow();
+    private final ChangeWindow  ChangeWindow= new ChangeWindow();
     @FXML
     private Button exitButton;
 
     @FXML
     private Button sendMessageButton;
-
-    @FXML
-    private Button sendFileButton;
 
     @FXML
     private TextField messageField;
@@ -215,8 +211,7 @@ public class ChatController implements Initializable {
         });
 
 
-        exitButton.setOnAction(event ->{
-            ChangeWindow.changeWindowTo(menuTrigger, "Sign_in.fxml", false);
-        });
+        exitButton.setOnAction(event ->
+                ChangeWindow.changeWindowTo(menuTrigger, "Sign_in.fxml", false));
     }
 }

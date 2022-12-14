@@ -9,7 +9,7 @@ import javafx.scene.layout.Pane;
 
 public class SignInController {
 
-    private ChangeWindow  ChangeWindow= new ChangeWindow();
+    private final ChangeWindow  ChangeWindow= new ChangeWindow();
 
     private static final Pattern LOGIN_PATTERN = Pattern.compile("[a-zA-Z0-9_]");
 
@@ -37,14 +37,12 @@ public class SignInController {
         TextFieldLimiter.addTextLimiter(passwordField, 40);
 
 
-        registrationButton.setOnAction(event ->{
-            ChangeWindow.changeWindowTo(sideBackground, "Sign_up.fxml", false);
-        });
+        registrationButton.setOnAction(event ->
+            ChangeWindow.changeWindowTo(sideBackground, "Sign_up.fxml", false));
 
 
-        forgotPassword.setOnAction(event ->{
-            ChangeWindow.changeWindowTo(sideBackground, "Forgot_your_password.fxml", false);
-        });
+        forgotPassword.setOnAction(event ->
+            ChangeWindow.changeWindowTo(sideBackground, "Forgot_your_password.fxml", false));
 
 
         signInButton.setOnAction(event ->{
@@ -73,14 +71,12 @@ public class SignInController {
                             ExceptionBox.createExceptionBox(sideBackground,
                                     "         Incorrect login or password");
                             Client.closeEverything();
-                            return;
                         }
                     } catch (IOException e) {
                         Client.closeEverything();
                         ExceptionBox.createExceptionBox(sideBackground,
                                 "        Unable to connect to server" +
                                         "\n         Please try again later");
-                        return;
                     }
                 } else {
                     ExceptionBox.createExceptionBox(sideBackground, "                    Invalid Login");

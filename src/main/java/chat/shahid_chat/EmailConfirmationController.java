@@ -7,7 +7,7 @@ import javafx.scene.layout.Pane;
 
 public class EmailConfirmationController {
 
-    private ChangeWindow  ChangeWindow= new ChangeWindow();
+    private final ChangeWindow  ChangeWindow= new ChangeWindow();
 
     @FXML
     private Button backButton;
@@ -48,8 +48,8 @@ public class EmailConfirmationController {
         });
 
 
-        backButton.setOnAction(event ->{
-            ChangeWindow.changeWindowTo(sideBackground, "Sign_in.fxml", false);
-        });
+        backButton.setOnAction(event ->
+            ChangeWindow.changeWindowTo(sideBackground, "Sign_in.fxml", false)
+        );
     }
 }

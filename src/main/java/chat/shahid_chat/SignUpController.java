@@ -11,7 +11,7 @@ import javafx.scene.layout.Pane;
 
 public class SignUpController {
 
-    private ChangeWindow  ChangeWindow= new ChangeWindow();
+    private final ChangeWindow  ChangeWindow= new ChangeWindow();
 
     private static final Pattern RCF2822_MAIL_PATTERN = Pattern.compile(
             "(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"" +
@@ -49,9 +49,8 @@ public class SignUpController {
         TextFieldLimiter.addTextLimiter(mailField, 100);
 
 
-        backButton.setOnAction(event ->{
-            ChangeWindow.changeWindowTo(sideBackground, "Sign_in.fxml", false);
-        });
+        backButton.setOnAction(event ->
+            ChangeWindow.changeWindowTo(sideBackground, "Sign_in.fxml", false));
 
 
         signUpButton.setOnAction(event ->{
@@ -86,14 +85,12 @@ public class SignUpController {
                                 ExceptionBox.createExceptionBox(sideBackground,
                                         "         Username already occupied");
                                 Client.closeEverything();
-                                return;
                             }
                         } catch (IOException e) {
                             Client.closeEverything();
                             ExceptionBox.createExceptionBox(sideBackground,
                                     "        Unable to connect to server" +
                                             "\n         Please try again later");
-                            return;
                         }
                     } else {
                         ExceptionBox.createExceptionBox(sideBackground, "Invalid E-mail address");

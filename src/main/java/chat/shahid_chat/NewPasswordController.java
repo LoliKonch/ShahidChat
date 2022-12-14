@@ -7,7 +7,7 @@ import javafx.scene.layout.Pane;
 
 public class NewPasswordController {
 
-    private ChangeWindow  ChangeWindow= new ChangeWindow();
+    private final ChangeWindow  ChangeWindow= new ChangeWindow();
 
     @FXML
     private Button backButton;
@@ -66,8 +66,7 @@ public class NewPasswordController {
         });
 
 
-        backButton.setOnAction(event ->{
-            ChangeWindow.changeWindowTo(sideBackground, "Sign_in.fxml", false);
-        });
+        backButton.setOnAction(event ->
+            ChangeWindow.changeWindowTo(sideBackground, "Sign_in.fxml", false));
     }
 }
