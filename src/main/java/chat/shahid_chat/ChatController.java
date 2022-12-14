@@ -23,7 +23,7 @@ import javafx.util.Duration;
 
 public class ChatController implements Initializable {
 
-    private final ChangeWindow  ChangeWindow= new ChangeWindow();
+    private final ChangeWindow  ChangeWindow = new ChangeWindow();
     @FXML
     private Button exitButton;
 
@@ -178,18 +178,16 @@ public class ChatController implements Initializable {
 
         sendMessageButton.setOnAction(event -> {
             String outMessage = messageField.getText();
+            messageField.clear();
 
             if (!outMessage.trim().isEmpty()) {
                 Date date = new Date();
                 SimpleDateFormat formatForDate = new SimpleDateFormat("dd.MM.yy H:mm");
                 String[] message = {formatForDate.format(date), "", outMessage};
                 displayYourMessage(message, vBoxWithMessages);
-                messageField.clear();
                 Client.sendMessage(outMessage);
-
             }
         });
-
 
         applyThemeButton.setOnAction(event -> {
 
@@ -206,12 +204,15 @@ public class ChatController implements Initializable {
                     case "radioButton8" -> chat.shahid_chat.ChangeWindow.styleName = "darwin_TV";
                 }
 
-                ChangeWindow.changeWindowTo(menuTrigger, "Chat.fxml", false);
+                ChangeWindow.changeWindowTo(menuTrigger, "Sign_in.fxml", false);
+                Client.closeEverything();
             }
         });
 
 
-        exitButton.setOnAction(event ->
-                ChangeWindow.changeWindowTo(menuTrigger, "Sign_in.fxml", false));
+        exitButton.setOnAction(event -> {
+            ChangeWindow.changeWindowTo(menuTrigger, "Sign_in.fxml", false);
+            Client.closeEverything();
+        });
     }
 }
