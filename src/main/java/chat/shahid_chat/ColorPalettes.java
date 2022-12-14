@@ -2,45 +2,6 @@ package chat.shahid_chat;
 
 public class ColorPalettes {
 
-
-    public static final String[] STANDARD = new String[]{
-            "#001845", // 0 Main background (registration)
-            "#fafafa", // 1 Side background (registration)
-            "#001854", // 2 Buttons (registration)
-            "#fafafa", // 3 Fields (registration)
-            "#000000", // 4 Titles (registration)
-            "#fafafa", // 5 Button text (registration)
-            "#bbbbbb", // 6 Fields borders (registration)
-            "#000000", // 7 Fields text (registration)
-            "#00b4d8", // 8 Hyperlinks (registration)
-            "#001845", // 9 Main background
-            "#fafafa", // 10 Scroll pane
-            "#fafafa", // 11 VBox with messages
-            "#001845", // 12 Menu background
-            "#000000", // 13 Menu trigger
-            "#fafafa", // 14 Field
-            "#001854", // 15 Field borders
-            "#000000", // 16 Field text
-            "#001854", // 17 Send buttons
-            "#fafafa", // 18 Send buttons text
-            "#001854", // 19 Menu buttons
-            "#fafafa", // 20 Menu buttons text
-            "#001854", // 21 Radio buttons
-            "#fafafa", // 22 Radio buttons text
-            "#001854", // 23 Your message
-            "#001845", // 24 Other messages
-            "#fafafa", // 25 Your message text
-            "#001845", // 26 Time of messages
-            "#001845", // 27 Nickname
-            "#001854", // 28 Scroll pane boarder
-            "#000000", // 29 Other message text
-            "#000000", // 30 Your username
-            "#000000", // 31 Other username
-            "#000000", // 32 Your date and time
-            "#000000"  // 33 Other date and time
-    };
-
-
     public static final String[] DARK_DS = new String[]{
             "#2f3136", // 0 Main background (registration)
             "#36393f", // 1 Side background (registration)
@@ -63,7 +24,7 @@ public class ColorPalettes {
             "#d2d2d2", // 18 Send buttons text
             "#5a6ac2", // 19 Menu buttons
             "#d2d2d2", // 20 Menu buttons text
-            "#5a6ac2", // 21 Radio buttons
+            "#fafafa", // 21 Radio buttons
             "#d2d2d2", // 22 Radio buttons text
             "#5a6ac2", // 23 Your message
             "#2f3136", // 24 Other messages
@@ -343,6 +304,4 @@ public class ColorPalettes {
             "#000000", // 32 Your date and time
             "#fda76a"  // 33 Other date and time
     };
-
-    public static String[] palette = DARK_DS;
 }

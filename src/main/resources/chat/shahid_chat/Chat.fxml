@@ -11,7 +11,6 @@
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="chat.shahid_chat.ChatController"
             styleClass="anchor-pane"
-            stylesheets="@Chat_dark_DS.css"
 >
    <children>
       <TextField fx:id="messageField"
@@ -90,7 +89,7 @@
 
             <RadioButton fx:id="radioButton1"
                          mnemonicParsing="false"
-                         text="Standart"
+                         text="Dark DS"
                          styleClass="radio-button"
             >
                <VBox.margin>
@@ -102,7 +101,7 @@
 
             <RadioButton fx:id="radioButton2"
                          mnemonicParsing="false"
-                         text="Dark DS"
+                         text="Light VK"
                          styleClass="radio-button"
             >
                <VBox.margin>
@@ -114,7 +113,7 @@
 
             <RadioButton fx:id="radioButton3"
                          mnemonicParsing="false"
-                         text="Light VK"
+                         text="Dark VK"
                          styleClass="radio-button"
             >
                <VBox.margin>
@@ -126,7 +125,7 @@
 
             <RadioButton fx:id="radioButton4"
                          mnemonicParsing="false"
-                         text="Dark VK"
+                         text="Light TG"
                          styleClass="radio-button"
             >
                <VBox.margin>
@@ -138,7 +137,7 @@
 
             <RadioButton fx:id="radioButton5"
                          mnemonicParsing="false"
-                         text="Light TG"
+                         text="Dark TG"
                          styleClass="radio-button"
             >
                <VBox.margin>
@@ -150,7 +149,7 @@
 
             <RadioButton fx:id="radioButton6"
                          mnemonicParsing="false"
-                         text="Dark TG"
+                         text="Dark Trovo"
                          styleClass="radio-button"
             >
                <VBox.margin>
@@ -162,18 +161,6 @@
 
             <RadioButton fx:id="radioButton7"
                          mnemonicParsing="false"
-                         text="Dark Trovo"
-                         styleClass="radio-button"
-            >
-               <VBox.margin>
-                  <Insets left="5.0"
-                          top="6.0"
-                  />
-               </VBox.margin>
-            </RadioButton>
-
-            <RadioButton fx:id="radioButton8"
-                         mnemonicParsing="false"
                          text="Boosty"
                          styleClass="radio-button"
             >
@@ -184,7 +171,7 @@
                </VBox.margin>
             </RadioButton>
 
-            <RadioButton fx:id="radioButton9"
+            <RadioButton fx:id="radioButton8"
                          mnemonicParsing="false"
                          text="Darwin TV"
                          styleClass="radio-button"

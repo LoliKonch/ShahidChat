@@ -17,7 +17,6 @@
             xmlns="http://javafx.com/javafx/18.0.1"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="chat.shahid_chat.SignUpController"
-            stylesheets="@Registration_dark_DS.css"
             styleClass="anchor-pane"
 >
 

@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -73,11 +74,7 @@ public class ChatController implements Initializable {
     private RadioButton radioButton8;
 
     @FXML
-    private RadioButton radioButton9;
-
-    @FXML
     private Button applyThemeButton;
-
 
     public static void displayOtherMessage(String[] inMessageList, VBox vBox) {
         HBox hBox = new HBox();
@@ -181,7 +178,6 @@ public class ChatController implements Initializable {
         radioButton6.setToggleGroup(rbGroupPalettes);
         radioButton7.setToggleGroup(rbGroupPalettes);
         radioButton8.setToggleGroup(rbGroupPalettes);
-        radioButton9.setToggleGroup(rbGroupPalettes);
 
 
         sendMessageButton.setOnAction(event -> {
@@ -202,20 +198,20 @@ public class ChatController implements Initializable {
         applyThemeButton.setOnAction(event -> {
 
             RadioButton selection = (RadioButton) rbGroupPalettes.getSelectedToggle();
-            switch (selection.getId()) {
-                case "radioButton1" -> ColorPalettes.palette = ColorPalettes.STANDARD;
-                case "radioButton2" -> ColorPalettes.palette = ColorPalettes.DARK_DS;
-                case "radioButton3" -> ColorPalettes.palette = ColorPalettes.LIGHT_VK;
-                case "radioButton4" -> ColorPalettes.palette = ColorPalettes.DARK_VK;
-                case "radioButton5" -> ColorPalettes.palette = ColorPalettes.LIGHT_TG;
-                case "radioButton6" -> ColorPalettes.palette = ColorPalettes.DARK_TG;
-                case "radioButton7" -> ColorPalettes.palette = ColorPalettes.DARK_TROVO;
-                case "radioButton8" -> ColorPalettes.palette = ColorPalettes.BOOSTY;
-                case "radioButton9" -> ColorPalettes.palette = ColorPalettes.DARWIN_TV;
+            if (selection != null) {
+                switch (selection.getId()) {
+                    case "radioButton1" -> chat.shahid_chat.ChangeWindow.styleName = "dark_DS";
+                    case "radioButton2" -> chat.shahid_chat.ChangeWindow.styleName = "light_VK";
+                    case "radioButton3" -> chat.shahid_chat.ChangeWindow.styleName = "dark_VK";
+                    case "radioButton4" -> chat.shahid_chat.ChangeWindow.styleName = "light_TG";
+                    case "radioButton5" -> chat.shahid_chat.ChangeWindow.styleName = "dark_TG";
+                    case "radioButton6" -> chat.shahid_chat.ChangeWindow.styleName = "dark_trovo";
+                    case "radioButton7" -> chat.shahid_chat.ChangeWindow.styleName = "boosty";
+                    case "radioButton8" -> chat.shahid_chat.ChangeWindow.styleName = "darwin_TV";
+                }
+
+                ChangeWindow.changeWindowTo(menuTrigger, "Chat.fxml", false);
             }
-
-
-            ChangeWindow.changeWindowTo(menuTrigger, "Sign_in.fxml", false);
         });
 
 

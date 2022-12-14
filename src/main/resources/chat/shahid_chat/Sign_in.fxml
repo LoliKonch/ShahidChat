@@ -11,7 +11,6 @@
             prefHeight="400.0"
             prefWidth="600.0"
             styleClass="anchor-pane"
-            stylesheets="@Registration_dark_DS.css"
             xmlns="http://javafx.com/javafx/11.0.14-internal"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="chat.shahid_chat.SignInController"

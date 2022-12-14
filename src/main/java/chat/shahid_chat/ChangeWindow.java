@@ -12,6 +12,7 @@ import java.io.IOException;
 
 public class ChangeWindow {
 
+    public static String styleName = "dark_DS";
 
     public void changeWindowTo(Pane background, String windowName, boolean sendBack) {
         Stage lastStage = (Stage) background.getScene().getWindow();
@@ -33,6 +34,15 @@ public class ChangeWindow {
                     System.exit(0);
                 }
             });
+
+            Scene scene = newStage.getScene();
+            if (windowName.equals("Chat.fxml")) {
+                String stylesheet = getClass().getResource("Chat_" + styleName + "_.css").toExternalForm();
+                scene.getStylesheets().add(stylesheet);
+            } else {
+                String stylesheet = getClass().getResource("Registration_" + styleName + "_.css").toExternalForm();
+                scene.getStylesheets().add(stylesheet);
+            }
             newStage.show();
 
             lastStage.close();

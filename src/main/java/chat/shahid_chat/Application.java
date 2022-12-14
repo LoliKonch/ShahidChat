@@ -9,7 +9,7 @@ import java.io.IOException;
 public class Application extends javafx.application.Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Sign_in.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Chat.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         stage.setTitle("Shahid Chat №1");
         stage.setResizable(false);
