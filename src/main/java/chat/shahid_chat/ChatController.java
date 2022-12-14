@@ -17,7 +17,6 @@ import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.util.Duration;
@@ -85,38 +84,18 @@ public class ChatController implements Initializable {
         hBox.setAlignment(Pos.CENTER_LEFT);
         hBox.setPadding(new Insets(5, 20, 5, 5));
 
-
         VBox messageVBox = new VBox();
-        messageVBox.setStyle(String.format(
-                "-fx-background-color: %s;" +
-                "-fx-background-radius: 15;",
-                ColorPalettes.palette[24])
-        );
-
+        messageVBox.getStyleClass().add("other-message-vbox");
 
         Label userName = new Label(inMessageList[1]);
-        userName.setStyle(String.format(
-                "-fx-font-size: 12;" +
-                "-fx-text-fill: %s;",
-                ColorPalettes.palette[31]));
-        userName.setPadding(new Insets(1, 7, -4, 7));
-
+        userName.getStyleClass().add("user-name");
 
         Text inMessageText = new Text(inMessageList[2]);
-        inMessageText.setFill(Paint.valueOf(ColorPalettes.palette[29]));
-        inMessageText.setStyle("-fx-font-size: 14;");
         TextFlow inMessageTextFlow = new TextFlow(inMessageText);
-        inMessageTextFlow.setPadding(new Insets(0, 5, 0, 10));
-
+        inMessageTextFlow.getStyleClass().add("in-message-text-flow");
 
         Label dateAndTime = new Label(inMessageList[0]);
-        dateAndTime.setStyle(String.format(
-                "-fx-font-size: 11;" +
-                "-fx-text-fill: %s;",
-                ColorPalettes.palette[33])
-        );
-        dateAndTime.setPadding(new Insets(0, 7, 1, 7));
-
+        dateAndTime.getStyleClass().add("other-date-and-time");
 
         messageVBox.getChildren().add(userName);
         messageVBox.getChildren().add(inMessageTextFlow);
@@ -139,33 +118,18 @@ public class ChatController implements Initializable {
         hBox.setPadding(new Insets(5, 5, 5, 20));
 
         VBox messageVBox = new VBox();
-        messageVBox.setStyle(String.format(
-                "-fx-background-color: %s;" +
-                "-fx-background-radius: 15;",
-                ColorPalettes.palette[23])
-        );
-
+        messageVBox.getStyleClass().add("your-message-vbox");
 
         Text yourMessageText = new Text(yourMessage[2]);
-        yourMessageText.setFill(Paint.valueOf(ColorPalettes.palette[25]));
-        yourMessageText.setStyle("-fx-font-size: 14;");
         TextFlow yourMessageTextFlow = new TextFlow(yourMessageText);
-        yourMessageTextFlow.setPadding(new Insets(4, 5, 0, 10));
-
+        yourMessageTextFlow.getStyleClass().add("your-message-text-flow");
 
         Label dateAndTime = new Label(yourMessage[0]);
-        dateAndTime.setStyle(String.format(
-                "-fx-font-size: 9;" +
-                "-fx-text-fill: %s;",
-                ColorPalettes.palette[32])
-        );
-        dateAndTime.setPadding(new Insets(-2, 7, 1, 7));
-
+        dateAndTime.getStyleClass().add("your-date-and-time");
 
         messageVBox.getChildren().add(yourMessageTextFlow);
         messageVBox.getChildren().add(dateAndTime);
         hBox.getChildren().add(messageVBox);
-
 
         Platform.runLater(new Runnable() {
             @Override
@@ -220,7 +184,6 @@ public class ChatController implements Initializable {
         radioButton9.setToggleGroup(rbGroupPalettes);
 
 
-
         sendMessageButton.setOnAction(event -> {
             String outMessage = messageField.getText();
 
@@ -229,8 +192,9 @@ public class ChatController implements Initializable {
                 SimpleDateFormat formatForDate = new SimpleDateFormat("dd.MM.yy H:mm");
                 String[] message = {formatForDate.format(date), "", outMessage};
                 displayYourMessage(message, vBoxWithMessages);
-                Client.sendMessage(messageField.getText());
                 messageField.clear();
+                Client.sendMessage(outMessage);
+
             }
         });
 
