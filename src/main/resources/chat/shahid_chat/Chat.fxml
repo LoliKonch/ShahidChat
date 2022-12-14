@@ -4,15 +4,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="mainBackground"
-            prefHeight="400.0"
+<AnchorPane prefHeight="400.0"
             prefWidth="600.0"
             xmlns="http://javafx.com/javafx/18.0.1"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="chat.shahid_chat.ChatController"
             styleClass="anchor-pane"
 >
-   <children>
+
       <TextField fx:id="messageField"
                  layoutX="50.0"
                  layoutY="350.0"
@@ -48,13 +47,11 @@
                   prefWidth="500.0"
                   styleClass="scroll-pane"
       >
-         <content>
             <VBox fx:id="vBoxWithMessages"
                   prefHeight="230.0"
                   prefWidth="480.0"
                   styleClass="vBoxWithMessages"
             />
-         </content>
       </ScrollPane>
 
       <Pane fx:id="menuTrigger"
@@ -70,7 +67,6 @@
             prefWidth="150.0"
             styleClass="vBoxMenu"
       >
-         <children>
             <Button fx:id="exitButton"
                     mnemonicParsing="false"
                     text="Exit"
@@ -196,6 +192,5 @@
                   />
                </VBox.margin>
             </Button>
-         </children></VBox>
-   </children>
+         </VBox>
 </AnchorPane>

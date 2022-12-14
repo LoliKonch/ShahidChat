@@ -36,13 +36,13 @@ public class ChangeWindow {
             });
 
             Scene scene = newStage.getScene();
+            String stylesheet = getClass().getResource("Registration_" + styleName + ".css").toExternalForm();
+
             if (windowName.equals("Chat.fxml")) {
-                String stylesheet = getClass().getResource("Chat_" + styleName + "_.css").toExternalForm();
-                scene.getStylesheets().add(stylesheet);
-            } else {
-                String stylesheet = getClass().getResource("Registration_" + styleName + "_.css").toExternalForm();
-                scene.getStylesheets().add(stylesheet);
+                stylesheet = getClass().getResource("Chat_" + styleName + ".css").toExternalForm();
             }
+
+            scene.getStylesheets().add(stylesheet);
             newStage.show();
 
             lastStage.close();
