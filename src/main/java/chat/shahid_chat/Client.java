@@ -34,18 +34,15 @@ public class Client {
         }
 
         try {
-            // отправка публичного ключа клиента
             objectOutputStream.writeObject(clientPublicKey);
             objectOutputStream.flush();
 
-            // получение публичного ключа сервера
             String serverPublicKey = (String) objectInputStream.readObject();
             writeStringToFile(serverPublicKey, serverName);
 
         } catch (Exception e) {
             System.err.println("Ошибка обмена ключами: "+ e);
         }
-
     }
 
     public static void sendMessage(String messageToSend){
@@ -68,7 +65,7 @@ public class Client {
     }
 
     public static void receiveMessage(VBox vBox) {
-        new Thread(new Runnable() { // реализация анонимного класса
+        new Thread(new Runnable() {
             @Override
             public void run() {
 
@@ -154,7 +151,5 @@ public class Client {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
-
 }
