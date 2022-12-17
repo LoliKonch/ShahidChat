@@ -204,14 +204,14 @@ public class ChatController implements Initializable {
                     case "radioButton8" -> chat.shahid_chat.ChangeWindow.styleName = "darwin_TV";
                 }
 
-                ChangeWindow.changeWindowTo(menuTrigger, "Sign_in.fxml", false);
+                ChangeWindow.changeWindowTo(menuTrigger, "Sign_in.fxml");
                 Client.closeEverything();
             }
         });
 
 
         exitButton.setOnAction(event -> {
-            ChangeWindow.changeWindowTo(menuTrigger, "Sign_in.fxml", false);
+            ChangeWindow.changeWindowTo(menuTrigger, "Sign_in.fxml");
             Client.closeEverything();
         });
     }

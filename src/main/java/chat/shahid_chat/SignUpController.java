@@ -50,7 +50,7 @@ public class SignUpController {
 
 
         backButton.setOnAction(event ->
-            ChangeWindow.changeWindowTo(sideBackground, "Sign_in.fxml", false));
+            ChangeWindow.changeWindowTo(sideBackground, "Sign_in.fxml"));
 
 
         signUpButton.setOnAction(event ->{

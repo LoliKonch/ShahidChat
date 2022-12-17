@@ -33,7 +33,7 @@ public class ForgotYourPasswordController {
 
 
         backButton.setOnAction(event ->
-            ChangeWindow.changeWindowTo(sideBackground, "Sign_in.fxml", false));
+            ChangeWindow.changeWindowTo(sideBackground, "Sign_in.fxml"));
 
 
         confirmLoginButton.setOnAction(event ->{
