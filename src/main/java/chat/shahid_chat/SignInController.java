@@ -38,11 +38,11 @@ public class SignInController {
 
 
         registrationButton.setOnAction(event ->
-            ChangeWindow.changeWindowTo(sideBackground, "Sign_up.fxml", false));
+            ChangeWindow.changeWindowTo(sideBackground, "Sign_up.fxml"));
 
 
         forgotPassword.setOnAction(event ->
-            ChangeWindow.changeWindowTo(sideBackground, "Forgot_your_password.fxml", false));
+            ChangeWindow.changeWindowTo(sideBackground, "Forgot_your_password.fxml"));
 
 
         signInButton.setOnAction(event ->{
@@ -65,7 +65,7 @@ public class SignInController {
 
                         String answer = Client.waitMessage();
                         if (answer.equals("successful_sign_in")) {
-                            ChangeWindow.changeWindowTo(sideBackground, "Chat.fxml", false);
+                            ChangeWindow.changeWindowTo(sideBackground, "Chat.fxml");
 
                         } else {
                             ExceptionBox.createExceptionBox(sideBackground,

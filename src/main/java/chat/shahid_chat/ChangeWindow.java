@@ -50,4 +50,8 @@ public class ChangeWindow {
             ExceptionBox.createExceptionBox(background, "    Can not find required system file");
         }
     }
+
+    public void changeWindowTo(Pane background, String windowName) {
+        changeWindowTo(background, windowName, false);
+    }
 }
