@@ -66,7 +66,10 @@ public class NewPasswordController {
         });
 
 
-        backButton.setOnAction(event ->
-            ChangeWindow.changeWindowTo(sideBackground, "Sign_in.fxml", false));
+        backButton.setOnAction(event -> {
+            ChangeWindow.changeWindowTo(sideBackground, "Sign_in.fxml", true);
+            Client.sendMessage("back");
+        });
+
     }
 }
