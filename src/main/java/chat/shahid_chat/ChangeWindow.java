@@ -46,8 +46,7 @@ public class ChangeWindow {
             newStage.show();
 
             lastStage.close();
-        } catch (
-                IOException e) {
+        } catch (IOException e) {
             ExceptionBox.createExceptionBox(background, "    Can not find required system file");
         }
     }
