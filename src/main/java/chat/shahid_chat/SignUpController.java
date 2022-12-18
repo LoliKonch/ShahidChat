@@ -45,7 +45,7 @@ public class SignUpController {
     void initialize() {
 
         TextFieldLimiter.addTextLimiter(loginField, 40);
-
+        TextFieldLimiter.addTextLimiter(passwordField, 40);
         TextFieldLimiter.addTextLimiter(mailField, 100);
 
 

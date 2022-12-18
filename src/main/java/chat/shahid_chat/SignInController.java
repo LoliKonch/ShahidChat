@@ -35,6 +35,7 @@ public class SignInController {
     void initialize() {
 
         TextFieldLimiter.addTextLimiter(passwordField, 40);
+        TextFieldLimiter.addTextLimiter(loginField, 40);
 
 
         registrationButton.setOnAction(event ->

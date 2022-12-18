@@ -31,10 +31,14 @@ public class NewPasswordController {
     void initialize() {
 
         TextFieldLimiter.addTextLimiter(secretCodeField, 20);
-
         TextFieldLimiter.addTextLimiter(newPasswordField, 40);
-
         TextFieldLimiter.addTextLimiter(confirmNewPasswordField, 40);
+
+
+        backButton.setOnAction(event -> {
+            ChangeWindow.changeWindowTo(sideBackground, "Sign_in.fxml");
+            Client.sendMessage("back");
+        });
 
 
         setNewPasswordButton.setOnAction(event ->{
@@ -64,12 +68,5 @@ public class NewPasswordController {
                 ExceptionBox.createExceptionBox(sideBackground, "          All fields must be filled in");
             }
         });
-
-
-        backButton.setOnAction(event -> {
-            ChangeWindow.changeWindowTo(sideBackground, "Sign_in.fxml", true);
-            Client.sendMessage("back");
-        });
-
     }
 }

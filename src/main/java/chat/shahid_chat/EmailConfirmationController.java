@@ -27,6 +27,12 @@ public class EmailConfirmationController {
         TextFieldLimiter.addTextLimiter(secretCodeField, 20);
 
 
+        backButton.setOnAction(event -> {
+            ChangeWindow.changeWindowTo(sideBackground, "Sign_in.fxml");
+            Client.sendMessage("back");
+        });
+
+
         sendConfirmationCodeButton.setOnAction(event ->{
 
             if (secretCodeField.getText() != null && !secretCodeField.getText().trim().isEmpty()){
@@ -45,12 +51,6 @@ public class EmailConfirmationController {
                 ExceptionBox.createExceptionBox(sideBackground,
                         "          All fields must be filled in");
             }
-        });
-
-
-        backButton.setOnAction(event -> {
-            ChangeWindow.changeWindowTo(sideBackground, "Sign_in.fxml");
-            Client.sendMessage("back");
         });
     }
 }
