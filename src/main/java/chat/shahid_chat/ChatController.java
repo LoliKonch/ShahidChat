@@ -138,6 +138,8 @@ public class ChatController implements Initializable {
 
         Client.receiveMessage(vBoxWithMessages);
 
+        TextFieldLimiter.addTextLimiter(messageField, 5000);
+
         vBoxWithMessages.heightProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observableValue, Number oldValue, Number newValue) {
@@ -163,8 +165,6 @@ public class ChatController implements Initializable {
         });
 
 
-        TextFieldLimiter.addTextLimiter(messageField, 5000);
-
         ToggleGroup rbGroupPalettes = new ToggleGroup();
         radioButton1.setToggleGroup(rbGroupPalettes);
         radioButton2.setToggleGroup(rbGroupPalettes);
@@ -175,19 +175,6 @@ public class ChatController implements Initializable {
         radioButton7.setToggleGroup(rbGroupPalettes);
         radioButton8.setToggleGroup(rbGroupPalettes);
 
-
-        sendMessageButton.setOnAction(event -> {
-            String outMessage = messageField.getText();
-            messageField.clear();
-
-            if (!outMessage.trim().isEmpty()) {
-                Date date = new Date();
-                SimpleDateFormat formatForDate = new SimpleDateFormat("dd.MM.yy H:mm");
-                String[] message = {formatForDate.format(date), "", outMessage};
-                displayYourMessage(message, vBoxWithMessages);
-                Client.sendMessage(outMessage);
-            }
-        });
 
         applyThemeButton.setOnAction(event -> {
 
@@ -213,6 +200,20 @@ public class ChatController implements Initializable {
         exitButton.setOnAction(event -> {
             ChangeWindow.changeWindowTo(menuTrigger, "Sign_in.fxml");
             Client.closeEverything();
+        });
+
+
+        sendMessageButton.setOnAction(event -> {
+            String outMessage = messageField.getText();
+            messageField.clear();
+
+            if (!outMessage.trim().isEmpty()) {
+                Date date = new Date();
+                SimpleDateFormat formatForDate = new SimpleDateFormat("dd.MM.yy H:mm");
+                String[] message = {formatForDate.format(date), "", outMessage};
+                displayYourMessage(message, vBoxWithMessages);
+                Client.sendMessage(outMessage);
+            }
         });
     }
 }
